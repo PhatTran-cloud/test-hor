@@ -1,0 +1,29 @@
+from hotel_scene_base import *
+
+class Section2Scene(HotelScene):
+    def construct(self):
+        self.setup_layout("ONE GUEST: CHANGE EVERY ADDRESS", [], number=2)
+        self.chapter("No last room. No collision.")
+        xs=[-5.1+i*1.95 for i in range(6)]
+        doors=VGroup(*[room_front(i+1,[x,.55,0],color=BLUE) for i,x in enumerate(xs)])
+        people=VGroup(*[guest(1.15,BLUE).move_to([x,.3,0]) for x in xs])
+        rule=MathTex(r"n\longmapsto n+1",color=GOLD,font_size=39).move_to([0,-1.65,0])
+        self.play(FadeIn(doors),FadeIn(people),run_time=1.5)
+        self.wait(1.5)
+        self.play(Write(rule),run_time=1)
+        arrows=VGroup(*[CurvedArrow([x+.25,1.45,0],[x+1.65,1.45,0],angle=-.65,color=GOLD,stroke_width=2) for x in xs[:-1]])
+        self.play(LaggedStart(*[Create(a) for a in arrows],lag_ratio=.12),run_time=2)
+        # Simultaneous motion preserves the one-to-one assignment.
+        self.play(*[MoveAlongPath(p,travel_path([xs[i],.3,0],[xs[i]+1.95,.3,0],-1.6)) for i,p in enumerate(people)],run_time=3)
+        self.wait(1)
+        self.play(doors[0][1].animate.set_fill("#1C5942",opacity=1),doors[0][2].animate.set_color(GREEN),run_time=.7)
+        vacancy=self.badge("ROOM 1 IS NOW FREE",[-3.9,-2.75,0],GREEN,21)
+        self.play(FadeIn(vacancy),run_time=.8)
+        arriving=guest(1.4,PINK).move_to([-6.1,-2.15,0])
+        self.play(FadeIn(arriving),run_time=.5)
+        self.play(MoveAlongPath(arriving,travel_path(arriving.get_center(),[xs[0],.3,0],-.4)),run_time=2)
+        explanation=Text("Every old guest\nstill has one room.",font="Arial",font_size=18,color=ICE,
+                         line_spacing=.75).move_to([2.35,-2.72,0])
+        self.play(Write(explanation),run_time=1.5)
+        self.play(Indicate(rule,color=GOLD),run_time=1)
+        self.finish_slot()

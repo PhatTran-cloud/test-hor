@@ -1,0 +1,62 @@
+{
+  "topic": "The Signal Under Europa",
+  "target_audience": "General audience",
+  "duration_seconds": 180,
+  "support_files": ["../pilot_scene_base.py"],
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "02:13 UTC",
+      "scene_type": "2d",
+      "lecture_lines": ["A repeating pulse", "From Europa"],
+      "animations": ["Reveal a satellite console and a repeating signal", "Mark Europa as the source"],
+      "narration": "At 02:13 UTC, the Europa survey network recorded a pulse that lasted exactly eleven seconds. It repeated every seventeen minutes, twenty-three seconds. That pattern was too clean for solar noise, too slow for a radio beacon, and too regular to be random. The first report called it interference. The second report quietly removed that word.",
+      "source": "section_1.py"
+    },
+    {
+      "id": "section_2",
+      "title": "The Coordinate",
+      "scene_type": "2d",
+      "lecture_lines": ["A location beneath ice", "Depth: impossible"],
+      "animations": ["Decode a coordinate grid", "Drop a marker below the surface"],
+      "narration": "The pulse contained no words. It contained a coordinate. Latitude, longitude, and depth. The location pointed to a plain on Europa's night side. Eight hundred meters beneath the ice. The crew checked the navigation files. No transmitter had ever been placed there. The coordinate was not a location they recognized. It was an invitation.",
+      "source": "section_2.py"
+    },
+    {
+      "id": "section_3",
+      "title": "The Ice Below",
+      "scene_type": "3d",
+      "lecture_lines": ["Surface: silent", "Below: a cavity"],
+      "animations": ["Orbit a probe around Europa", "Reveal a hollow volume under the ice"],
+      "narration": "A probe was redirected before anyone could vote on the decision. Its radar passed through the ice and returned a shape no one expected: a cavity, almost spherical, with walls too smooth to be natural. The probe circled once. The pulse stopped. On the second orbit, something inside the cavity moved with it.",
+      "source": "section_3.py"
+    },
+    {
+      "id": "section_4",
+      "title": "The Shadow Moves",
+      "scene_type": "3d",
+      "lecture_lines": ["No mass detected", "The shadow follows"],
+      "animations": ["Show a radar slice and a moving dark volume", "Rotate the camera as the volume tracks the probe"],
+      "narration": "The navigation team searched for a gravitational explanation. There was no mass. No heat. No plume. Nothing that could move a shadow through solid ice. Yet every time the probe changed its orbit, the empty volume changed position too. It was not under the probe. It was watching it.",
+      "source": "section_4.py"
+    },
+    {
+      "id": "section_5",
+      "title": "The Reply",
+      "scene_type": "2d",
+      "lecture_lines": ["We sent one question", "It answered first"],
+      "animations": ["Type a transmission log", "Show a waveform answering before transmission"],
+      "narration": "At 04:40, the crew sent one question: who are you? They scheduled the transmission for ten seconds later, to avoid confusing the receiver. The answer arrived immediately. It was the crew's own question, in the crew's own voices, including a breathing sound that none of them remembered making.",
+      "source": "section_5.py"
+    },
+    {
+      "id": "section_6",
+      "title": "Still Here",
+      "scene_type": "3d",
+      "lecture_lines": ["The signal was not a call", "It was a check"],
+      "animations": ["Form a dark opening in the ice", "Pull the camera toward the opening and cut to black"],
+      "narration": "The final pulse arrived at 05:11. It contained no coordinate. No waveform. Only a count: one, two, three, four. Then every instrument on the probe went dark. The last frame showed a circular opening beneath the ice, pointed directly at the camera. The signal was never calling us. It was checking whether we were still here.",
+      "source": "section_6.py"
+    }
+  ]
+}

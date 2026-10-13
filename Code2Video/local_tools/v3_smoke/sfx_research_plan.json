@@ -1,0 +1,8 @@
+{
+  "schema_version": 3,
+  "topic": "Selective SFX candidate research",
+  "sections": [{"id": "section_1", "title": "A quiet data arrival",
+    "sfx_cues": [{"query": "soft click", "trigger": "Marker reaches a schematic destination",
+      "purpose": "A restrained interface accent; not a literal scientific sound",
+      "role": "event", "relative_time": 1, "duration": 0.18, "gain_db": -21}]}]
+}

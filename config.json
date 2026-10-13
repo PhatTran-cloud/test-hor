@@ -1,0 +1,15 @@
+{
+  "version": "4.1-horror",
+  "omnivoice": {
+    "container": "omnivoice-demo",
+    "endpoint": "http://127.0.0.1:8001",
+    "startup_timeout_s": 180
+  },
+  "small_sfx": {
+    "python": "D:\\manim-horror-v4.1\\.venv-sfx\\Scripts\\python.exe",
+    "weights": "D:\\manim-horror-v4.1\\models\\stable-audio-3\\weights.json"
+  },
+  "voice_library": "D:\\manim-horror-v4.1\\voice_library\\manifest.json",
+  "output_root": "D:\\manim-horror-v4.1\\outputs",
+  "vram_release_tolerance_mib": 256
+}

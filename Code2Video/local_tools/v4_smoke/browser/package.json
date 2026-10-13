@@ -1,0 +1,23 @@
+{
+  "name": "code2video-v4-renderer-fixture",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "check": "tsc --noEmit",
+    "studio": "remotion studio src/index.tsx --no-open"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/three": "4.0.534",
+    "@react-three/fiber": "9.4.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.534",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "@types/three": "0.180.0",
+    "typescript": "5.9.3"
+  }
+}

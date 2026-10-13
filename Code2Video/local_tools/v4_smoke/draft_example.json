@@ -1,0 +1,434 @@
+{
+  "schema_version": 4,
+  "phase": "draft",
+  "technical_fixture": false,
+  "topic": "V4 hardened coanchor narration check",
+  "content_profile": {
+    "kind": "storytelling_rich"
+  },
+  "sound_design": "adaptive",
+  "visual_system": {
+    "palette": [
+      "#071c26",
+      "#184539",
+      "#e8c978"
+    ],
+    "typography": "Georgia only for functional comparison labels",
+    "shape_language": "veined leaf paths, layered canopy, restrained signal accent"
+  },
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Signal, consequence, comparison",
+      "visual_thesis": "transport produces a visible response that persists into comparison",
+      "narration": "A signal reaches one leaf. Its response persists while we compare the two leaves.",
+      "objects": [
+        {
+          "id": "lit_leaf",
+          "role": "hero",
+          "identity": "veined stylized leaf receiving a signal",
+          "initial_state": {
+            "response": 0
+          },
+          "craft": {
+            "silhouette": "tapered curved leaf or function-specific graphic",
+            "construction": "original SVG paths and branching veins",
+            "material": "matte stylized ink with warm highlight",
+            "references": [
+              "authored construction study; no species claim"
+            ],
+            "fidelity_limits": "graphic metaphor; not a botany simulation"
+          }
+        },
+        {
+          "id": "shade_leaf",
+          "role": "support",
+          "identity": "same leaf construction without the signal",
+          "initial_state": {
+            "response": 0
+          },
+          "craft": {
+            "silhouette": "tapered curved leaf or function-specific graphic",
+            "construction": "original SVG paths and branching veins",
+            "material": "matte stylized ink with warm highlight",
+            "references": [
+              "authored construction study; no species claim"
+            ],
+            "fidelity_limits": "graphic metaphor; not a botany simulation"
+          }
+        },
+        {
+          "id": "signal",
+          "role": "support",
+          "identity": "golden transport point",
+          "initial_state": {
+            "response": 0
+          },
+          "craft": {
+            "silhouette": "tapered curved leaf or function-specific graphic",
+            "construction": "original SVG paths and branching veins",
+            "material": "matte stylized ink with warm highlight",
+            "references": [
+              "authored construction study; no species claim"
+            ],
+            "fidelity_limits": "graphic metaphor; not a botany simulation"
+          }
+        },
+        {
+          "id": "leaf_response",
+          "role": "support",
+          "identity": "localized response ring",
+          "initial_state": {
+            "response": 0
+          },
+          "craft": {
+            "silhouette": "tapered curved leaf or function-specific graphic",
+            "construction": "original SVG paths and branching veins",
+            "material": "matte stylized ink with warm highlight",
+            "references": [
+              "authored construction study; no species claim"
+            ],
+            "fidelity_limits": "graphic metaphor; not a botany simulation"
+          }
+        },
+        {
+          "id": "comparison_axis",
+          "role": "support",
+          "identity": "shared comparison baseline",
+          "initial_state": {
+            "response": 0
+          },
+          "craft": {
+            "silhouette": "tapered curved leaf or function-specific graphic",
+            "construction": "original SVG paths and branching veins",
+            "material": "matte stylized ink with warm highlight",
+            "references": [
+              "authored construction study; no species claim"
+            ],
+            "fidelity_limits": "graphic metaphor; not a botany simulation"
+          }
+        },
+        {
+          "id": "vein_insert",
+          "role": "support",
+          "identity": "macro vein branch detail",
+          "initial_state": {
+            "response": 0
+          },
+          "craft": {
+            "silhouette": "tapered curved leaf or function-specific graphic",
+            "construction": "original SVG paths and branching veins",
+            "material": "matte stylized ink with warm highlight",
+            "references": [
+              "authored construction study; no species claim"
+            ],
+            "fidelity_limits": "graphic metaphor; not a botany simulation"
+          }
+        }
+      ],
+      "beats": [
+        {
+          "id": "arrival_beat",
+          "purpose": "understand a transported cause",
+          "before": "no signal response",
+          "after": "leaf response persists",
+          "narration_anchor": {
+            "segment_id": "shared_passage"
+          },
+          "visual_evidence": "point arrival and changed leaf",
+          "completion": "response persists"
+        },
+        {
+          "id": "difference_beat",
+          "purpose": "compare and inspect the consequence",
+          "before": "one response observed",
+          "after": "difference and branching structure visible",
+          "depends_on": [
+            "arrival_beat"
+          ],
+          "narration_anchor": {
+            "segment_id": "shared_passage"
+          },
+          "visual_evidence": "same-sized paired leaves then macro",
+          "completion": "macro connects to same leaf"
+        }
+      ],
+      "shots": [
+        {
+          "renderer": "remotion",
+          "renderer_reason": "SVG layers and editorial macro composition",
+          "scene_type": "2d",
+          "render_spec": {
+            "project_dir": "browser",
+            "entry_point": "src/index.tsx",
+            "composition_id": "V4RainforestStudy",
+            "time_model": "absolute_frame"
+          },
+          "camera": {
+            "purpose": "follow the signal then compare and inspect the same leaf",
+            "implementation": "cameraTransform"
+          },
+          "visual_thesis": "transport produces a visible response that persists into comparison",
+          "handoff": {
+            "type": "cut",
+            "reason": "preserve the same leaf position and response",
+            "carry_state": [
+              "lit_leaf.response"
+            ]
+          },
+          "id": "canopy_cause",
+          "beat_ids": [
+            "arrival_beat"
+          ],
+          "object_ids": [
+            "lit_leaf",
+            "shade_leaf",
+            "signal",
+            "leaf_response"
+          ],
+          "attention": [
+            "lit_leaf"
+          ],
+          "pattern": {
+            "kind": "cause_effect",
+            "entities": [
+              "signal",
+              "lit_leaf"
+            ],
+            "cause": "arrival",
+            "result": "leaf response",
+            "implementation": "signalTravel"
+          },
+          "events": [
+            {
+              "id": "signal_arrival",
+              "kind": "vfx",
+              "source_object": "signal",
+              "target_objects": [
+                "lit_leaf"
+              ],
+              "cause": "signal reaches leaf",
+              "action": "point travels into leaf tip",
+              "reaction": "local ring and changed leaf light",
+              "aftermath": "warm response persists in state track",
+              "implementation": "envelope",
+              "representation": "illustrative localized ring, not biological radiation",
+              "transport": "signal point reaches leaf before optical response",
+              "interaction": "response alters only lit leaf state",
+              "lighting_response": "localized leaf warms while comparison leaf stays unchanged"
+            }
+          ]
+        },
+        {
+          "renderer": "remotion",
+          "renderer_reason": "SVG layers and editorial macro composition",
+          "scene_type": "2d",
+          "render_spec": {
+            "project_dir": "browser",
+            "entry_point": "src/index.tsx",
+            "composition_id": "V4RainforestStudy",
+            "time_model": "absolute_frame"
+          },
+          "camera": {
+            "purpose": "follow the signal then compare and inspect the same leaf",
+            "implementation": "cameraTransform"
+          },
+          "visual_thesis": "transport produces a visible response that persists into comparison",
+          "handoff": {
+            "type": "cut",
+            "reason": "preserve the same leaf position and response",
+            "carry_state": [
+              "lit_leaf.response"
+            ]
+          },
+          "id": "comparison_hold",
+          "beat_ids": [
+            "arrival_beat",
+            "difference_beat"
+          ],
+          "object_ids": [
+            "lit_leaf",
+            "shade_leaf",
+            "comparison_axis"
+          ],
+          "attention": [
+            "lit_leaf"
+          ],
+          "pattern": {
+            "kind": "comparison",
+            "entities": [
+              "lit_leaf",
+              "shade_leaf"
+            ],
+            "variable": "signal response",
+            "fair_conditions": "same silhouette and scale",
+            "implementation": "comparisonColumns"
+          }
+        },
+        {
+          "renderer": "remotion",
+          "renderer_reason": "SVG layers and editorial macro composition",
+          "scene_type": "2d",
+          "render_spec": {
+            "project_dir": "browser",
+            "entry_point": "src/index.tsx",
+            "composition_id": "V4RainforestStudy",
+            "time_model": "absolute_frame"
+          },
+          "camera": {
+            "purpose": "follow the signal then compare and inspect the same leaf",
+            "implementation": "cameraTransform"
+          },
+          "visual_thesis": "transport produces a visible response that persists into comparison",
+          "handoff": {
+            "type": "fade",
+            "reason": "end the construction study without an added black slot",
+            "carry_state": [
+              "lit_leaf.response"
+            ],
+            "implementation": "handoff"
+          },
+          "id": "macro_insert",
+          "beat_ids": [
+            "difference_beat"
+          ],
+          "object_ids": [
+            "lit_leaf",
+            "vein_insert"
+          ],
+          "attention": [
+            "lit_leaf"
+          ],
+          "pattern": {
+            "kind": "scale",
+            "entities": [
+              "lit_leaf",
+              "vein_insert"
+            ],
+            "reference": "same lit leaf",
+            "scale_relation": "1 to 2.8 illustrative camera zoom",
+            "implementation": "scaleView"
+          },
+          "b_roll": {
+            "function": "inspect branching structure",
+            "relation_to_main": "same leaf used in comparison",
+            "construction": "authored SVG macro insert",
+            "anchor": "difference_beat",
+            "return_handoff": "fade with leaf state retained"
+          }
+        }
+      ],
+      "sfx_cues": [],
+      "sound_intent": "silent technical fixture; production sound not evaluated",
+      "animations": [],
+      "lecture_lines": [],
+      "narration_segments": [
+        {
+          "id": "shared_passage",
+          "text": "A signal reaches one leaf. Its response persists while we compare the two leaves.",
+          "pause_after": 0.06
+        }
+      ]
+    }
+  ],
+  "production_packet": {
+    "brief": {
+      "audience": "pipeline reviewers",
+      "question": "Does a signal response survive a cut?",
+      "takeaway": "the same authored state persists through comparison and macro",
+      "visual_thesis": "a transported signal changes one leaf while its counterpart stays unchanged"
+    },
+    "research": {
+      "sources": [
+        {
+          "id": "kage_reference",
+          "title": "Kage visual research",
+          "url": "https://github.com/MengTo/kage",
+          "finding": "layered foreground and environmental depth support camera continuity",
+          "visual_decision": "original SVG canopy layers; no imported code/art or website HUD"
+        }
+      ],
+      "claims": [
+        {
+          "id": "signal_metaphor",
+          "text": "an illustrative signal creates a persistent response",
+          "kind": "metaphor",
+          "visual_treatment": "graphic transport and warmed leaf; no botanical mechanism claimed"
+        }
+      ]
+    },
+    "representative": {
+      "shot_id": "comparison_hold",
+      "reason": "proves same identity/state and legible comparison after the cause",
+      "acceptance": [
+        "same-sized leaf silhouettes",
+        "left response remains bright",
+        "baseline/labels do not overlap leaves"
+      ]
+    },
+    "consulted_resources": [
+      {
+        "skill": "script-to-visual-director",
+        "file": "C:\\Users\\thebl\\.codex\\skills\\script-to-visual-director\\SKILL.md",
+        "sha256": "c279c01df96eba0407055c3d56641ebf5cdf831932f0cd81dfda2a133325b695",
+        "applied_to": [
+          "comparison_hold"
+        ],
+        "decision": "retain visual intent and frame-derived state; quiet comparison with functional labels"
+      },
+      {
+        "skill": "storyboard-motion-executor",
+        "file": "C:\\Users\\thebl\\.codex\\skills\\storyboard-motion-executor\\SKILL.md",
+        "sha256": "4acc2c5510083728916aeed8bc10ab9ddde6337b7354a9d0c95ef339f3322e50",
+        "applied_to": [
+          "comparison_hold"
+        ],
+        "decision": "retain visual intent and frame-derived state; quiet comparison with functional labels"
+      },
+      {
+        "skill": "cinematic-motion-director",
+        "file": "C:\\Users\\thebl\\.codex\\skills\\cinematic-motion-director\\SKILL.md",
+        "sha256": "df75ce36c4e714934b805ddf28d5080f83ba168a9796b461d4df2765bceb5ec4",
+        "applied_to": [
+          "comparison_hold"
+        ],
+        "decision": "retain visual intent and frame-derived state; quiet comparison with functional labels"
+      },
+      {
+        "skill": "cinematic-vfx-director",
+        "file": "C:\\Users\\thebl\\.codex\\skills\\cinematic-vfx-director\\SKILL.md",
+        "sha256": "5a5fb5c106c1e0765e670fb466df31febfd6ce3e2036919ae4a486242e82674a",
+        "applied_to": [
+          "comparison_hold"
+        ],
+        "decision": "retain visual intent and frame-derived state; quiet comparison with functional labels"
+      },
+      {
+        "skill": "remotion-best-practices",
+        "file": "C:\\Users\\thebl\\.codex\\skills\\remotion-best-practices\\SKILL.md",
+        "sha256": "b0aafdff260c3d6d0c91d4ea25ccdc5a1ff131606e48ef2a8677ada9537fb0e7",
+        "applied_to": [
+          "comparison_hold"
+        ],
+        "decision": "retain visual intent and frame-derived state; quiet comparison with functional labels"
+      }
+    ]
+  },
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "pacing": "narration",
+  "preserve_scene_duration": true,
+  "tts_speed": 1.0,
+  "workflow_revision": 2,
+  "visual_reference_policy": {
+    "kage": {
+      "enabled": true,
+      "reference": "https://github.com/MengTo/kage",
+      "manim_visual_share": 0.0,
+      "basis": "actual authored visual frame allocation",
+      "reason": "Image-rich storytelling uses original art direction informed by Kage",
+      "scope": "visual research only; do not copy code/artwork, UI, chapter counts or scroll time"
+    }
+  }
+}

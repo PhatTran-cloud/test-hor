@@ -1,0 +1,11 @@
+.venv-sfx/
+Code2Video/.venv/
+**/node_modules/
+**/__pycache__/
+outputs/
+models/
+voice_library/
+.audio-gpu.lock
+**/.env
+**/*.key
+Code2Video/references/kage/

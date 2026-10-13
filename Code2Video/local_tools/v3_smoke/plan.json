@@ -1,0 +1,22 @@
+{
+  "schema_version": 3,
+  "topic": "V3 mixed renderer integration check",
+  "sound_design": "voice_only",
+  "sections": [{
+    "id": "section_1", "title": "Renderer handoff", "renderer": "manim",
+    "narration": "This is a technical integration check, not a finished scientific film.",
+    "lecture_lines": [], "animations": ["Move a marker, then transfer the motif into a spatial diagram."],
+    "scientific_contract": {"mode": "schematic", "sources": [], "scale_exaggerations": []},
+    "shots": [
+      {"id": "geometry", "renderer": "manim", "scene_type": "2d", "duration_frames": 120,
+       "source": "section.py", "scene_name": "Section1Scene"},
+      {"id": "editorial", "renderer": "remotion", "scene_type": "2d", "duration_frames": 120,
+       "render_spec": {"project_dir": "browser", "entry_point": "src/index.tsx", "composition_id": "V3Diagram", "time_model": "absolute_frame"},
+       "vfx_events": [{"id": "arrival", "cause": "Marker reaches destination", "source": "Destination node", "trigger": "Marker arrival at 1s", "representation": "SVG information pulse", "start": 1, "peak": 1.08, "end": 1.8, "interaction": "Attached to destination, does not obscure marker", "residue": "Destination remains visible", "lighting_response": "None; schematic emphasis", "transition_handoff": "Circular motif enters spatial shot"}]},
+      {"id": "spatial", "renderer": "threejs", "scene_type": "3d", "duration_frames": 120,
+       "render_spec": {"project_dir": "browser", "entry_point": "src/index.tsx", "composition_id": "V3Spatial", "time_model": "absolute_frame"},
+       "three_contract": {"workflow": "lowbudget3d+3dviz-pro-max", "representation": "Authored analytical sphere and surface path, schematic", "coordinate_frame": "Right-handed, Y up", "units": "Normalized radius units", "scale_exaggerations": ["Path offset and marker enlarged for readability"], "asset_provenance": ["Procedural geometry authored locally"]}}
+    ],
+    "sfx_cues": []
+  }]
+}

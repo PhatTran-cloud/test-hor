@@ -1,0 +1,367 @@
+{
+  "topic": "El Nino: When the Ocean Shifts",
+  "target_audience": "General audience",
+  "duration_seconds": null,
+  "fiction": false,
+  "sound_design": "voice_only",
+  "tts_speed": 1.0,
+  "preserve_scene_duration": true,
+  "sound_theme": "climate",
+  "whisper_prompt": "El Nino. ENSO. Pacific Ocean. Trade winds. Thermocline. Upwelling. Walker circulation. Climate geography.",
+  "sources": [
+    {
+      "title": "NOAA El Nino and La Nina overview",
+      "url": "https://www.climate.gov/enso"
+    },
+    {
+      "title": "NOAA El Nino FAQ",
+      "url": "https://www.climate.gov/news-features/understanding-climate/el-nino-and-la-nina-frequently-asked-questions"
+    },
+    {
+      "title": "NOAA PMEL: El Nino mechanism",
+      "url": "https://www.pmel.noaa.gov/elnino/what-is-el-nino/"
+    },
+    {
+      "title": "NOAA PMEL: La Nina",
+      "url": "https://www.pmel.noaa.gov/elnino/what-is-la-nina/"
+    },
+    {
+      "title": "Natural Earth land 1:110 million",
+      "url": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson",
+      "license": "Public domain"
+    },
+    {
+      "title": "NASA: El Nino",
+      "url": "https://science.nasa.gov/earth/explore/el-nino/"
+    }
+  ],
+  "support_files": [
+    "elnino_scene_base.py"
+  ],
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "NORMAL PACIFIC",
+      "scene_type": "2d",
+      "lecture_lines": [
+        "Warm water west",
+        "Cold water rises east"
+      ],
+      "narration": "El Nino is a warming of the central and eastern tropical Pacific, with a matching change in the atmosphere. To understand it, first watch the normal ocean. Trade winds blow westward along the equator, pushing warm surface water toward Indonesia and Australia. Near South America, colder water rises from below. The warm pool helps air rise and clouds grow in the west. Wind, ocean, and rain work as one connected system.",
+      "visual_thesis": "The normal Pacific is an engine driven by wind and organized by temperature.",
+      "visual_metaphor": "A tilted reservoir of warm water with a cold fountain at the eastern edge.",
+      "primary_object": {
+        "name": "Pacific basin",
+        "role": "Connects wind, ocean, and rainfall"
+      },
+      "secondary_objects": [
+        {
+          "name": "Trade winds",
+          "role": "Push warm water west",
+          "behavior": "Move steadily east to west"
+        },
+        {
+          "name": "Upwelling",
+          "role": "Brings cold water up",
+          "behavior": "Rises near South America"
+        }
+      ],
+      "camera_plan": [
+        "Map view",
+        "Reveal warm pool and upwelling"
+      ],
+      "sfx_cues": [],
+      "source": "section_1.py",
+      "animations": [
+        "Reveal a Pacific map",
+        "Show trade winds and upwelling"
+      ],
+      "foreground": [
+        "A reserved label zone connects the visible mechanism to narration"
+      ],
+      "midground": [
+        "Pacific basin"
+      ],
+      "background": [
+        "Georeferenced Natural Earth coastline"
+      ],
+      "object_relationships": [
+        "The normal Pacific is an engine driven by wind and organized by temperature."
+      ],
+      "transition_in": "Continue the previous ocean-atmosphere mechanism with no black hold.",
+      "transition_out": "Cut directly to the next causal step while narration pauses less than one second."
+    },
+    {
+      "id": "section_2",
+      "title": "THE TILTED OCEAN",
+      "scene_type": "2d",
+      "lecture_lines": [
+        "Warm water piles west",
+        "Thermocline tilts"
+      ],
+      "narration": "Now cut through the ocean along the equator. This drawing exaggerates depth so we can see its structure. Warm surface water sits above colder deep water. Their transition is called the thermocline. Normally, the wind piles warm water in the west, making that warm layer deeper. In the east, the thermocline lies closer to the surface. Upwelling brings colder, nutrient rich water upward, helping support marine life and important fisheries.",
+      "visual_thesis": "Trade winds tilt the ocean's hidden thermal boundary.",
+      "visual_metaphor": "A sloping invisible floor separates a warm upper layer from a cold reservoir.",
+      "primary_object": {
+        "name": "Thermocline",
+        "role": "Separates warm surface water from colder deep water"
+      },
+      "secondary_objects": [
+        {
+          "name": "Warm layer",
+          "role": "Stores surface heat",
+          "behavior": "Deepens in the west"
+        },
+        {
+          "name": "Cold reservoir",
+          "role": "Feeds upwelling",
+          "behavior": "Rises in the east"
+        }
+      ],
+      "camera_plan": [
+        "Drop from map to cross section",
+        "Trace the thermocline"
+      ],
+      "sfx_cues": [],
+      "source": "section_2.py",
+      "animations": [
+        "Drop into an ocean cross section",
+        "Trace the sloping thermocline"
+      ],
+      "foreground": [
+        "A reserved label zone connects the visible mechanism to narration"
+      ],
+      "midground": [
+        "Thermocline"
+      ],
+      "background": [
+        "Stable reference frame and restrained palette"
+      ],
+      "object_relationships": [
+        "Trade winds tilt the ocean's hidden thermal boundary."
+      ],
+      "transition_in": "Continue the previous ocean-atmosphere mechanism with no black hold.",
+      "transition_out": "Cut directly to the next causal step while narration pauses less than one second."
+    },
+    {
+      "id": "section_3",
+      "title": "THE WIND RELAXES",
+      "scene_type": "2d",
+      "lecture_lines": [
+        "Trade winds weaken",
+        "Warm water moves east"
+      ],
+      "narration": "During El Nino, the trade winds weaken. Some bursts of wind can even blow eastward. Warm water spreads toward the central and eastern Pacific. The thermocline rises in the west and deepens in the east, becoming less tilted. Upwelling becomes less effective at cooling the eastern surface. The warmer ocean changes rising air and wind, which can reinforce the original warming. This is a feedback between the ocean and atmosphere.",
+      "visual_thesis": "El Nino is a coupled shift: weaker winds let warm water move, and warm water weakens the winds further.",
+      "visual_metaphor": "A tilted basin levels out and its warm layer rolls toward the opposite shore.",
+      "primary_object": {
+        "name": "Eastward warm-water pulse",
+        "role": "Starts the El Nino state"
+      },
+      "secondary_objects": [
+        {
+          "name": "Weakening wind arrows",
+          "role": "Shows the atmospheric trigger",
+          "behavior": "Fade and reverse"
+        },
+        {
+          "name": "Flattened thermocline",
+          "role": "Explains lost upwelling",
+          "behavior": "Rises in the west and sinks in the east"
+        }
+      ],
+      "camera_plan": [
+        "Hold the cross section",
+        "Animate the warm layer across the basin"
+      ],
+      "sfx_cues": [],
+      "source": "section_3.py",
+      "animations": [
+        "Fade the winds and slide warm water east",
+        "Flatten the thermocline"
+      ],
+      "foreground": [
+        "A reserved label zone connects the visible mechanism to narration"
+      ],
+      "midground": [
+        "Eastward warm-water pulse"
+      ],
+      "background": [
+        "Stable reference frame and restrained palette"
+      ],
+      "object_relationships": [
+        "El Nino is a coupled shift: weaker winds let warm water move, and warm water weakens the winds further."
+      ],
+      "transition_in": "Continue the previous ocean-atmosphere mechanism with no black hold.",
+      "transition_out": "Cut directly to the next causal step while narration pauses less than one second."
+    },
+    {
+      "id": "section_4",
+      "title": "RAIN FOLLOWS THE HEAT",
+      "scene_type": "2d",
+      "lecture_lines": [
+        "Convection moves east",
+        "Rainfall pattern changes"
+      ],
+      "narration": "The warmest water is a source of heat and moisture for the air above it. Rising moist air helps clouds and rain develop. Normally, strong tropical rainfall is concentrated near the western warm pool. As El Nino develops, the center of convection moves toward the central and eastern Pacific. Rainfall can increase there, while Indonesia and parts of Australia face greater drought risk. The rain belt has moved because the ocean changed.",
+      "visual_thesis": "Rainfall is carried by the warm-water center, not pinned to a continent.",
+      "visual_metaphor": "A moving cloud crown follows the heat like a spotlight crossing the ocean.",
+      "primary_object": {
+        "name": "Rain belt",
+        "role": "Translates ocean heat into weather"
+      },
+      "secondary_objects": [
+        {
+          "name": "Cloud crown",
+          "role": "Marks rising air",
+          "behavior": "Slides from west to east"
+        },
+        {
+          "name": "Rain streaks",
+          "role": "Shows convection",
+          "behavior": "Reappear over the warm pool"
+        }
+      ],
+      "camera_plan": [
+        "Map normal rainfall",
+        "Slide the cloud and rain belt east"
+      ],
+      "sfx_cues": [],
+      "source": "section_4.py",
+      "animations": [
+        "Move the cloud and rain belt east",
+        "Compare normal and El Nino rainfall"
+      ],
+      "foreground": [
+        "A reserved label zone connects the visible mechanism to narration"
+      ],
+      "midground": [
+        "Rain belt"
+      ],
+      "background": [
+        "Georeferenced Natural Earth coastline"
+      ],
+      "object_relationships": [
+        "Rainfall is carried by the warm-water center, not pinned to a continent."
+      ],
+      "transition_in": "Continue the previous ocean-atmosphere mechanism with no black hold.",
+      "transition_out": "Cut directly to the next causal step while narration pauses less than one second."
+    },
+    {
+      "id": "section_5",
+      "title": "ONE OCEAN, MANY RESPONSES",
+      "scene_type": "3d",
+      "lecture_lines": [
+        "Pacific heat moves air",
+        "Weather responds far away"
+      ],
+      "narration": "The influence reaches beyond the tropical Pacific. Moving the region of rising air changes large scale atmospheric circulation and distant storm tracks. Coastal Peru may experience heavier rainfall, while parts of Indonesia and Australia become drier. Other regions respond through atmospheric teleconnections. These are shifts in probability, not promises. Impacts depend on the season, the strength of the event, and other climate patterns.",
+      "visual_thesis": "A basin-scale ocean anomaly sends atmospheric consequences across the globe.",
+      "visual_metaphor": "One glowing region on a globe tugs several distant weather threads.",
+      "primary_object": {
+        "name": "Warm Pacific anomaly",
+        "role": "Source of atmospheric teleconnections"
+      },
+      "secondary_objects": [
+        {
+          "name": "South American rain node",
+          "role": "Shows enhanced rainfall risk",
+          "behavior": "Brightens from the Pacific signal"
+        },
+        {
+          "name": "Indonesia and Australia node",
+          "role": "Shows dry-risk response",
+          "behavior": "Dims as rain shifts east"
+        }
+      ],
+      "camera_plan": [
+        "Orbit a globe",
+        "Connect the Pacific to distant response points"
+      ],
+      "sfx_cues": [],
+      "source": "section_5.py",
+      "animations": [
+        "Orbit a globe",
+        "Connect Pacific heat to distant regions"
+      ],
+      "foreground": [
+        "A reserved label zone connects the visible mechanism to narration"
+      ],
+      "midground": [
+        "Warm Pacific anomaly"
+      ],
+      "background": [
+        "Stable reference frame and restrained palette"
+      ],
+      "object_relationships": [
+        "A basin-scale ocean anomaly sends atmospheric consequences across the globe."
+      ],
+      "transition_in": "Continue the previous ocean-atmosphere mechanism with no black hold.",
+      "transition_out": "Cut directly to the next causal step while narration pauses less than one second."
+    },
+    {
+      "id": "section_6",
+      "title": "THE ENSO SEESAW",
+      "scene_type": "2d",
+      "lecture_lines": [
+        "El Nino: warm phase",
+        "La Nina: cool phase"
+      ],
+      "narration": "El Nino is the warm phase of ENSO, the El Nino Southern Oscillation. La Nina is its cool phase. Stronger trade winds push warm water farther west, while colder water reaches the eastern surface more effectively. Between them lies a neutral state. These phases return irregularly, often over two to seven years, rather than on a fixed schedule. The lesson is simple: wind moves ocean heat, and ocean heat reorganizes weather.",
+      "visual_thesis": "ENSO is an ocean-atmosphere seesaw, not a single hot or cold day.",
+      "visual_metaphor": "Two opposing lanes show the same Pacific basin switching its circulation state.",
+      "primary_object": {
+        "name": "ENSO seesaw",
+        "role": "Summarizes the coupled climate pattern"
+      },
+      "secondary_objects": [
+        {
+          "name": "El Nino lane",
+          "role": "Warm phase",
+          "behavior": "Warm water and rain move east"
+        },
+        {
+          "name": "La Nina lane",
+          "role": "Cool phase",
+          "behavior": "Trade winds and upwelling strengthen"
+        }
+      ],
+      "camera_plan": [
+        "Compare both phases",
+        "End on the coupled rule"
+      ],
+      "sfx_cues": [],
+      "source": "section_6.py",
+      "animations": [
+        "Compare El Nino and La Nina lanes",
+        "End on the ENSO rule"
+      ],
+      "foreground": [
+        "A reserved label zone connects the visible mechanism to narration"
+      ],
+      "midground": [
+        "ENSO seesaw"
+      ],
+      "background": [
+        "Stable reference frame and restrained palette"
+      ],
+      "object_relationships": [
+        "ENSO is an ocean-atmosphere seesaw, not a single hot or cold day."
+      ],
+      "transition_in": "Continue the previous ocean-atmosphere mechanism with no black hold.",
+      "transition_out": "Cut directly to the next causal step while narration pauses less than one second."
+    }
+  ],
+  "asset_files": [
+    "assets/ne_110m_land.geojson"
+  ],
+  "render_timeout": 1800,
+  "audio_policy": {
+    "mode": "voice_only",
+    "scene_lead_seconds": 0.12,
+    "scene_tail_seconds": 0.15,
+    "natural_speech": true,
+    "no_time_stretch": true
+  },
+  "pacing": "narration"
+}

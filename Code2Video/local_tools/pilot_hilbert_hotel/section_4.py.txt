@@ -1,0 +1,27 @@
+from hotel_scene_base import *
+
+class Section4Scene(HotelScene):
+    def construct(self):
+        self.setup_layout("INFINITE BUSES: FOLD A GRID INTO A LIST", [], number=4)
+        self.chapter("Bus 0 = existing guests. Incoming buses start at 1.")
+        colors=[BLUE,PINK,GREEN,PURPLE]
+        cells=VGroup(*[room_front(f"{b},{s}",[-4.75+s*1.0,1.25-b*.9,0],width=.82,height=.68,color=colors[b]) for b in range(4) for s in range(4)])
+        headers=VGroup(*[label(f"s={s}",[-4.75+s,1.9,0],ICE,17) for s in range(4)],*[label(f"b={b}",[-5.6,1.25-b*.9,0],colors[b],17) for b in range(4)])
+        divider=Line([-.4,-2.2,0],[-.4,2.0,0],color=DIM,stroke_width=1)
+        formula=MathTex(r"r=2^b(2s+1)",color=GOLD,font_size=38).move_to([3.0,1.55,0])
+        self.play(FadeIn(cells),FadeIn(headers),Create(divider),run_time=2)
+        self.wait(2)
+        self.play(Write(formula),run_time=1.5)
+        examples=[(0,2,5),(1,1,6),(2,0,4),(3,1,24)]
+        results=VGroup(*[room_front(r,[1.3+i*1.25,-.8,0],width=1.03,height=1.18,color=colors[b]) for i,(b,s,r) in enumerate(examples)])
+        self.play(FadeIn(label("BUS / SEAT",[-3.2,-2.55,0],ICE,21)),FadeIn(label("UNIQUE ROOM NUMBER",[3.15,-2.55,0],GOLD,21)),run_time=.7)
+        for i,(b,s,r) in enumerate(examples):
+            source=cells[b*4+s]
+            token=Dot(source.get_center(),radius=.07,color=colors[b])
+            self.play(Indicate(source,color=colors[b]),run_time=.55)
+            self.play(FadeIn(results[i]),MoveAlongPath(token,travel_path(source.get_center(),results[i].get_center(),-.7)),run_time=1.6)
+            self.play(FadeOut(token),run_time=.2)
+        uniqueness=self.badge("ONE FACTORIZATION. ONE GUEST.",[3.0,.45,0],GREEN,20)
+        self.play(FadeIn(uniqueness),run_time=.8)
+        self.play(Indicate(formula,color=GOLD),run_time=1)
+        self.finish_slot()

@@ -1,0 +1,35 @@
+{
+  "schema_version": 4,
+  "profile": "horror-v4.1",
+  "phase": "draft",
+  "language_id": null,
+  "cast": {
+    "library": "D:\\manim-horror-v4.1\\voice_library\\manifest.json",
+    "narrator": null,
+    "characters": {},
+    "narrator_instruct": null
+  },
+  "horror": {
+    "artwork_style": "3d_horror_cartoon",
+    "artwork_provider": "flow",
+    "kage_reference": true,
+    "voice_provider": "omnivoice",
+    "sfx_provider": "stable_audio_3_small_sfx",
+    "style_bible": {
+      "canonical_prompt": null,
+      "proportions": null,
+      "materials": null,
+      "lighting": null,
+      "depth": null,
+      "identity_rules": null
+    },
+    "assets": []
+  },
+  "content_profile": {
+    "genre": "horror",
+    "kind": "storytelling_rich"
+  },
+  "sections": [],
+  "sound_design": "adaptive",
+  "tts_speed": 1.0
+}

@@ -1,0 +1,7 @@
+numpy
+scipy
+requests
+Pillow
+PyYAML
+gradio_client==2.7.2
+manim
