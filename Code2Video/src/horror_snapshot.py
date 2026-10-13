@@ -6,10 +6,45 @@ import shutil
 from v4_contract import sha256
 
 
+def freeze_native_model(asset, asset_base, folder):
+    """Preserve native module/resource layout and inspection content in the run."""
+    model = asset['model_spec']
+    asset_base, folder = Path(asset_base), Path(folder).resolve()
+    source = (asset_base / model['file']).resolve()
+    bundle = (asset_base / model.get('bundle_root', str(source.parent))).resolve()
+    destination = folder / 'art_assets' / asset['id'] / 'model'
+    if not destination.resolve().is_relative_to(folder):
+        raise ValueError('3D snapshot destination leaves the run')
+    for entry in [model, *model.get('resources', [])]:
+        original = (asset_base / entry['file']).resolve()
+        if not original.is_relative_to(bundle):
+            raise ValueError('3D resource leaves its asset bundle')
+        target = destination / original.relative_to(bundle)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(original, target)
+        if sha256(target) != entry['sha256']:
+            raise ValueError('3D asset snapshot changed')
+        entry['file'] = str(target)
+    model['bundle_root'] = str(destination.resolve())
+    for evidence in model['inspection_evidence']:
+        original = (asset_base / evidence['file']).resolve()
+        target = folder / 'art_assets' / asset['id'] / 'inspection' / (evidence['view_id'] + original.suffix)
+        if not target.resolve().is_relative_to(folder):
+            raise ValueError('3D inspection destination leaves the run')
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(original, target)
+        if sha256(target) != evidence['sha256']:
+            raise ValueError('3D inspection snapshot changed')
+        evidence['file'] = str(target)
+
+
 def freeze_horror_assets(plan,base,folder):
     if plan.get('profile')!='horror-v4.1': return
     folder=Path(folder)
     for asset in plan['horror'].get('assets',[]):
+        if asset['kind']=='model_3d':
+            freeze_native_model(asset, plan.get('asset_base_dir', base), folder)
+            continue
         for view in asset['views']:
             for pose in view['frames']:
                 source=(Path(plan.get('asset_base_dir',base))/pose['file']).resolve()

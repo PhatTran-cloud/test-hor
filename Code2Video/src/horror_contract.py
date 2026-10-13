@@ -37,11 +37,30 @@ def validate_horror(plan):
         raise ValueError("The user selects language_id en or vi per video; there is no default")
     need(plan, ("horror", "cast"), "horror plan")
     horror, cast = plan["horror"], plan["cast"]
+    from illustration_direction import directed, validate_model_request
+    new_direction = directed(plan)
     style = horror.get("artwork_style")
-    if style not in {"3d_horror_cartoon", "2d_flat_geometric_vector"} or horror.get("artwork_provider") != "flow":
+    if new_direction and style != 'kage_illustrated_hybrid':
+        raise ValueError('Illustration revision 1 requires the selected Kage hybrid artwork route')
+    if style not in {"3d_horror_cartoon", "2d_flat_geometric_vector", "kage_illustrated_hybrid"} or horror.get("artwork_provider") not in {"flow", "hybrid"}:
         raise ValueError("Horror artwork needs a supported user-selected style and Flow assets")
     reference=horror.get('visual_reference',{}).get('primary')
-    if reference=='oversimplified':
+    if style == 'kage_illustrated_hybrid':
+        decision = plan.get('production_packet',{}).get('visual_style_decision',{})
+        illustrator = horror.get('illustrator',{})
+        if (not new_direction or reference != 'kage' or horror.get('artwork_provider') != 'hybrid'
+                or decision.get('status') != 'USER_SELECTED' or decision.get('selected_style') != style
+                or decision.get('primary_reference') != 'kage'
+                or decision.get('authorization',{}).get('reviewer') != 'human user'
+                or not decision.get('authorization',{}).get('request')):
+            raise ValueError('Kage hybrid needs the current user direction and illustration contract')
+        if (illustrator.get('mode') != 'prompt_export_only' or illustrator.get('generation_operator') != 'human user'
+                or illustrator.get('chroma_key_color') != '#00FF00' or not illustrator.get('model')
+                or illustrator.get('three_d_skill') != 'lowbudget3d'):
+            raise ValueError('Kage routes 2D to human-run prompts and 3D to lowbudget3d fabrication')
+    elif horror.get('artwork_provider') != 'flow':
+        raise ValueError('Hybrid artwork provider requires the Kage hybrid contract')
+    elif reference=='oversimplified':
         if style!='2d_flat_geometric_vector': raise ValueError('OverSimplified direction uses the selected 2D illustrated style')
         decision=plan.get('production_packet',{}).get('visual_style_decision',{})
         if decision.get('primary_reference')!='oversimplified':
@@ -67,6 +86,8 @@ def validate_horror(plan):
         raise ValueError("Narrator instruction is forbidden")
     need(horror, ("style_bible",), "horror artwork direction")
     need(horror["style_bible"], ("canonical_prompt", "proportions", "materials", "lighting", "depth", "identity_rules"), "style bible")
+    from horror_characters import validate_character_direction
+    validate_character_direction(plan)
     from omnivoice_tts import line_identity
     for sec in plan["sections"]:
         for seg in sec.get("narration_segments", []):
@@ -92,14 +113,19 @@ def validate_horror(plan):
             if actual != [line_identity(plan, s) for s in sec["narration_segments"]]:
                 raise ValueError("Script, cast, instruction or acting brief changed after voice preparation")
     assets = horror.get("assets", [])
-    if reference=='oversimplified' and plan['phase']=='authored':
+    if (reference=='oversimplified' or new_direction) and plan['phase']=='authored':
         from horror_illustration import validate_illustration_coverage
         validate_illustration_coverage(plan)
     ids = unique(assets, "horror assets")
     all_objects = {o["id"] for sec in plan["sections"] for o in sec["objects"]}
     for asset in assets:
         need(asset, ("object_id", "kind", "identity", "action", "views"), "Flow asset")
-        if asset.get("provider") != "flow" or asset["kind"] not in {"sprite_sequence", "prop", "layer"}:
+        model = asset['kind'] == 'model_3d'
+        if model:
+            if not new_direction or asset.get('provider') != 'lowbudget3d':
+                raise ValueError('Native 3D assets require the directed lowbudget3d route')
+            validate_model_request(asset, plan['phase'])
+        elif asset.get("provider") != "flow" or asset["kind"] not in {"sprite_sequence", "prop", "layer"}:
             raise ValueError("Flow assets must be separate sprites, props or environment layers")
         refs([asset["object_id"]], all_objects, "asset object")
         action = asset["action"]
@@ -111,6 +137,8 @@ def validate_horror(plan):
         if not view_ids:
             raise ValueError("Asset needs the views required by the storyboard")
         for view in asset["views"]:
+            if model:
+                continue
             need(view, ("camera_region", "frames"), "asset view")
             if not view["frames"]:
                 raise ValueError("A view cannot have an empty pose list")
@@ -141,6 +169,8 @@ def validate_horror(plan):
                 refs([binding["asset_id"]], ids, "sprite asset")
                 refs([binding["object_id"]], set(shot["object_ids"]), "sprite instance")
                 asset = lookup[binding["asset_id"]]
+                if asset['kind'] == 'model_3d':
+                    raise ValueError('Native 3D assets use model_bindings, not sprite playback')
                 if asset["object_id"] != binding["object_id"]:
                     raise ValueError("Sprite asset belongs to another canonical object")
                 if binding["view_id"] not in {v["id"] for v in asset["views"]}:
@@ -156,6 +186,23 @@ def validate_horror(plan):
                     from horror_sprites import validate_binding
                     validate_binding(asset, binding)
             if plan["phase"] == "authored":
+                model_bindings = shot.get('model_bindings',[])
+                bound_models = set()
+                for binding in model_bindings:
+                    need(binding, ('object_id','asset_id','instance_symbol'), '3D model binding')
+                    asset = lookup.get(binding['asset_id'])
+                    if (not asset or asset['kind'] != 'model_3d' or asset['object_id'] != binding['object_id']
+                            or binding['object_id'] not in shot['object_ids']):
+                        raise ValueError('3D model binding needs the correct canonical asset/instance')
+                    if not (shot['renderer'] == 'threejs' or
+                            shot['renderer'] == 'remotion' and shot.get('scene_type') == '3d'):
+                        raise ValueError('Native 3D assets need an actual spatial Three.js assembly')
+                    if binding['asset_id'] in bound_models:
+                        raise ValueError('Duplicate native 3D binding')
+                    bound_models.add(binding['asset_id'])
+                required_models = {a['id'] for a in assets if a['kind']=='model_3d' and a['object_id'] in shot['object_ids']}
+                if bound_models != required_models:
+                    raise ValueError('Every visible native 3D asset needs a model binding before motion')
                 bound = {b["object_id"] for b in shot.get("sprite_bindings", [])}
                 for oid, execution in shot["execution"]["objects"].items():
                     if execution.get("asset_mode") == "sprite" and oid not in bound:
@@ -173,8 +220,13 @@ def asset_digest(asset):
     data = copy.deepcopy(asset)
     data.pop("review", None)
     for view in data["views"]:
-        for pose in view["frames"]:
+        for pose in view.get("frames",[]):
             pose.pop("file", None)  # bind content, not location after snapshot
+    if data.get('kind') == 'model_3d':
+        model = data['model_spec']
+        model.pop('file',None); model.pop('bundle_root',None)
+        for item in model.get('resources',[]) + model.get('inspection_evidence',[]):
+            item.pop('file',None)
     return digest(data)
 
 
@@ -220,6 +272,34 @@ def check_horror_files(plan, base):
     if plan["phase"] == "authored":
         from PIL import Image
         for asset in plan["horror"].get("assets", []):
+            if asset['kind'] == 'model_3d':
+                model = asset['model_spec']
+                asset_base = Path(plan.get('asset_base_dir',base))
+                file = (asset_base/model['file']).resolve()
+                if sha256(file) != model['sha256']:
+                    raise ValueError('Native 3D geometry/source changed after artwork review')
+                if model['representation']=='glb':
+                    import struct
+                    with file.open('rb') as handle: header=handle.read(12)
+                    if len(header)!=12 or header[:4]!=b'glTF' or struct.unpack('<II',header[4:])!=(2,file.stat().st_size):
+                        raise ValueError('Native model needs a valid GLB 2 container')
+                elif file.suffix.lower() not in {'.js','.mjs','.ts','.tsx'}:
+                    raise ValueError('Native Three.js module needs an editable source file')
+                bundle = (asset_base/model.get('bundle_root',str(file.parent))).resolve()
+                if not file.is_relative_to(bundle):
+                    raise ValueError('3D geometry leaves its declared asset bundle')
+                for resource in model.get('resources',[]):
+                    resource_file=(asset_base/resource['file']).resolve()
+                    if not resource_file.is_relative_to(bundle) or sha256(resource_file)!=resource['sha256']:
+                        raise ValueError('3D resource is outside its bundle or changed')
+                for evidence in model['inspection_evidence']:
+                    evidence_file=(asset_base/evidence['file']).resolve()
+                    if sha256(evidence_file)!=evidence['sha256']:
+                        raise ValueError('3D inspection evidence changed')
+                    with Image.open(evidence_file) as image:
+                        if image.width<1 or image.height<1:
+                            raise ValueError('3D inspection evidence must be an actual image')
+                continue
             for view in asset["views"]:
                 for pose in view["frames"]:
                     path = (Path(plan.get("asset_base_dir", base)) / pose["file"]).resolve()

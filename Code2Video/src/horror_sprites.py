@@ -2,6 +2,32 @@
 import math
 
 
+def validate_pose_track(view, binding):
+    keys = binding.get('pose_track')
+    if keys is None:
+        return
+    if not isinstance(keys, list) or not keys or binding['loop']:
+        raise ValueError('Explicit pose_track needs nonempty one-shot absolute-frame keys, not a loop')
+    poses = {p['id']:p for p in view['frames']}
+    previous = -1
+    for key in keys:
+        if not isinstance(key,dict):
+            raise ValueError('Pose track key must be an object')
+        frame = key.get('frame')
+        if (isinstance(frame, bool) or not isinstance(frame, int) or frame <= previous
+                or not binding['start_frame'] <= frame < binding['end_frame']):
+            raise ValueError('Pose keys must be ordered absolute frames inside sprite playback')
+        pose = poses.get(key.get('pose_id'))
+        if pose is None:
+            raise ValueError('Pose track references an unavailable view/pose')
+        state = key.get('performance_state_id')
+        if state is not None and state not in pose.get('performance_state_ids', []):
+            raise ValueError('Pose does not support the selected performance state')
+        previous = frame
+    if keys[0]['frame'] != binding['start_frame']:
+        raise ValueError('Pose track must establish the entry pose at playback start')
+
+
 def validate_binding(asset, binding):
     track = binding["root_track"]
     if not track or track[0]["frame"] != binding["start_frame"] or track[-1]["frame"] != binding["end_frame"]:
@@ -15,6 +41,7 @@ def validate_binding(asset, binding):
             raise ValueError("Root position must be finite [x,y]")
         previous = f
     view = next(v for v in asset["views"] if v["id"] == binding["view_id"])
+    validate_pose_track(view,binding)
     required = set(asset["action"]["contact_requirements"])
     windows = binding["contact_windows"]
     provided = {w["socket"] for w in windows}
@@ -44,6 +71,7 @@ def sprite_state(asset, binding, absolute_frame):
         raise ValueError("Frame must be finite")
     view = next(v for v in asset["views"] if v["id"] == binding["view_id"])
     poses = view["frames"]
+    validate_pose_track(view,binding)
     elapsed = max(0, absolute_frame-binding["start_frame"])
     total = sum(p["hold_frames"] for p in poses)
     t = elapsed % total if binding["loop"] else min(elapsed,total-1)
@@ -53,6 +81,14 @@ def sprite_state(asset, binding, absolute_frame):
             pose = candidate
             break
         t -= candidate["hold_frames"]
+    selected_key = None
+    if binding.get('pose_track'):
+        selected_key = binding['pose_track'][0]
+        for key in binding['pose_track']:
+            if key['frame'] > absolute_frame:
+                break
+            selected_key = key
+        pose = next(p for p in poses if p['id'] == selected_key['pose_id'])
     track = binding["root_track"]
     root = list(track[-1]["position"])
     if absolute_frame <= track[0]["frame"]:
@@ -73,7 +109,12 @@ def sprite_state(asset, binding, absolute_frame):
             root = [w-(s-a)*scale for w,s,a in zip(window["world_position"],socket,pose["root_anchor"])]
             contact = window["socket"]
             break
-    return {"pose_id":pose["id"],"file":pose.get("file"),"root_position":root,
+    result = {"pose_id":pose["id"],"file":pose.get("file"),"root_position":root,
             "image_position":[x-a*scale for x,a in zip(root,pose["root_anchor"])],
             "scale":scale,"contact":contact,"view_id":view["id"],
             "visible":binding["start_frame"] <= absolute_frame < binding["end_frame"]}
+    if selected_key and selected_key.get('performance_state_id') is not None:
+        result['performance_state_id']=selected_key['performance_state_id']
+    if 'member_count' in pose:
+        result['member_count']=pose['member_count']
+    return result

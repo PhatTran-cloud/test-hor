@@ -1,0 +1,826 @@
+{
+  "schema_version": 4,
+  "profile": "horror-v4.1",
+  "phase": "draft",
+  "technical_fixture": true,
+  "topic": "Kage request-only illustration benchmark",
+  "language_id": "vi",
+  "tts_speed": 1,
+  "cast": {
+    "library": "unused_fixture",
+    "narrator": "unused_fixture",
+    "characters": {}
+  },
+  "content_profile": {
+    "kind": "storytelling_rich",
+    "genre": "horror"
+  },
+  "sound_design": "adaptive",
+  "visual_system": {
+    "palette": [
+      "#112126",
+      "#bf9b69"
+    ],
+    "typography": "functional text only",
+    "shape_language": "original organic silhouettes",
+    "bindings": {
+      "color_roles": {
+        "latent": "#112126",
+        "revealed": "#bf9b69"
+      },
+      "shape_roles": {
+        "evidence": "localized shape"
+      },
+      "typography_roles": {
+        "functional": "only if necessary"
+      },
+      "transition_rules": {
+        "follow": "same source retains identity"
+      }
+    }
+  },
+  "horror": {
+    "artwork_style": "kage_illustrated_hybrid",
+    "artwork_provider": "hybrid",
+    "visual_reference": {
+      "primary": "kage"
+    },
+    "kage_reference": true,
+    "illustrator": {
+      "mode": "prompt_export_only",
+      "generation_operator": "human user",
+      "model": "fixture 2D model",
+      "chroma_key_color": "#00FF00",
+      "three_d_skill": "lowbudget3d"
+    },
+    "voice_provider": "omnivoice",
+    "sfx_provider": "stable_audio_3_small_sfx",
+    "style_bible": {
+      "canonical_prompt": "Original Kage-informed fixture artwork; request only, not approval",
+      "proportions": "Original Kage-informed fixture artwork; request only, not approval",
+      "materials": "Original Kage-informed fixture artwork; request only, not approval",
+      "lighting": "Original Kage-informed fixture artwork; request only, not approval",
+      "depth": "Original Kage-informed fixture artwork; request only, not approval",
+      "identity_rules": "Original Kage-informed fixture artwork; request only, not approval"
+    },
+    "assets": [
+      {
+        "id": "art_leaf_fg",
+        "object_id": "leaf_fg",
+        "provider": "flow",
+        "kind": "sprite_sequence",
+        "illustration_role": "environment_layer",
+        "requires_alpha": true,
+        "scene_ids": [
+          "forest_world"
+        ],
+        "identity": "leaf_fg; original fixture artwork request, no species claim",
+        "action": {
+          "intent": "make latent activity discoverable",
+          "mechanics": "separate stable anchors; no arbitrary idle loop",
+          "entry_state": "rest",
+          "exit_state": "recognizable evidence",
+          "source_ids": [
+            "construction_proposal"
+          ],
+          "contact_requirements": []
+        },
+        "design_semantics": {
+          "role": "hero",
+          "meaning": "a hidden activity becomes readable",
+          "recognition_traits": [
+            "consistent silhouette"
+          ],
+          "parts_or_layers": [
+            "independent component"
+          ],
+          "anchors": {
+            "root": "registered after artwork return"
+          },
+          "variants": [
+            "rest",
+            "revealed"
+          ],
+          "closest_camera_use": "macro-readable original surface, no flattened camera plate"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "front",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "readable isolated resting component",
+                "width": 256,
+                "height": 256,
+                "root_anchor": [
+                  128,
+                  128
+                ],
+                "ground_anchor": [
+                  128,
+                  256
+                ],
+                "sockets": {},
+                "hold_frames": 12
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_trunk_mg",
+        "object_id": "trunk_mg",
+        "provider": "lowbudget3d",
+        "kind": "model_3d",
+        "illustration_role": "prop",
+        "requires_alpha": false,
+        "scene_ids": [
+          "forest_world"
+        ],
+        "identity": "trunk_mg; original fixture artwork request, no species claim",
+        "action": {
+          "intent": "make latent activity discoverable",
+          "mechanics": "separate stable anchors; no arbitrary idle loop",
+          "entry_state": "rest",
+          "exit_state": "recognizable evidence",
+          "source_ids": [
+            "construction_proposal"
+          ],
+          "contact_requirements": []
+        },
+        "design_semantics": {
+          "role": "support",
+          "meaning": "a hidden activity becomes readable",
+          "recognition_traits": [
+            "consistent silhouette"
+          ],
+          "parts_or_layers": [
+            "independent component"
+          ],
+          "anchors": {
+            "root": "registered after artwork return"
+          },
+          "variants": [
+            "rest",
+            "revealed"
+          ],
+          "closest_camera_use": "macro-readable original surface, no flattened camera plate"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "front three-quarter",
+            "inspection_purpose": "silhouette and scale"
+          },
+          {
+            "id": "closest",
+            "camera_region": "closest macro use",
+            "inspection_purpose": "surface and part fidelity"
+          }
+        ],
+        "model_spec": {
+          "representation": "threejs_module",
+          "dimensions": {
+            "unit": "metres",
+            "size": [
+              1,
+              3,
+              1
+            ]
+          },
+          "parts": [
+            {
+              "id": "bole",
+              "parent_id": null,
+              "pivot": [
+                0,
+                0,
+                0
+              ],
+              "material_region": "bark"
+            }
+          ],
+          "anchors": {
+            "ground": [
+              0,
+              0,
+              0
+            ]
+          },
+          "variants": [
+            "dry"
+          ],
+          "surface_regions": [
+            "bark"
+          ],
+          "texture_plan": [
+            {
+              "region": "bark",
+              "method": "authored surface after domain research"
+            }
+          ],
+          "articulation": "fixed bole; no organic deformation claimed",
+          "closest_camera_use": "macro bark inspection"
+        }
+      },
+      {
+        "id": "art_forest_bg",
+        "object_id": "forest_bg",
+        "provider": "flow",
+        "kind": "layer",
+        "illustration_role": "background",
+        "requires_alpha": false,
+        "scene_ids": [
+          "forest_world"
+        ],
+        "identity": "forest_bg; original fixture artwork request, no species claim",
+        "action": {
+          "intent": "make latent activity discoverable",
+          "mechanics": "separate stable anchors; no arbitrary idle loop",
+          "entry_state": "rest",
+          "exit_state": "recognizable evidence",
+          "source_ids": [
+            "construction_proposal"
+          ],
+          "contact_requirements": []
+        },
+        "design_semantics": {
+          "role": "environment",
+          "meaning": "a hidden activity becomes readable",
+          "recognition_traits": [
+            "consistent silhouette"
+          ],
+          "parts_or_layers": [
+            "independent component"
+          ],
+          "anchors": {
+            "root": "registered after artwork return"
+          },
+          "variants": [
+            "rest",
+            "revealed"
+          ],
+          "closest_camera_use": "macro-readable original surface, no flattened camera plate"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "front",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "readable isolated resting component",
+                "width": 256,
+                "height": 256,
+                "root_anchor": [
+                  128,
+                  128
+                ],
+                "ground_anchor": [
+                  128,
+                  256
+                ],
+                "sockets": {},
+                "hold_frames": 12
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_insect",
+        "object_id": "insect",
+        "provider": "flow",
+        "kind": "prop",
+        "illustration_role": "prop",
+        "requires_alpha": true,
+        "scene_ids": [
+          "forest_world"
+        ],
+        "identity": "insect; original fixture artwork request, no species claim",
+        "action": {
+          "intent": "make latent activity discoverable",
+          "mechanics": "separate stable anchors; no arbitrary idle loop",
+          "entry_state": "rest",
+          "exit_state": "recognizable evidence",
+          "source_ids": [
+            "construction_proposal"
+          ],
+          "contact_requirements": []
+        },
+        "design_semantics": {
+          "role": "support",
+          "meaning": "a hidden activity becomes readable",
+          "recognition_traits": [
+            "consistent silhouette"
+          ],
+          "parts_or_layers": [
+            "independent component"
+          ],
+          "anchors": {
+            "root": "registered after artwork return"
+          },
+          "variants": [
+            "rest",
+            "revealed"
+          ],
+          "closest_camera_use": "macro-readable original surface, no flattened camera plate"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "front",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "readable isolated resting component",
+                "width": 256,
+                "height": 256,
+                "root_anchor": [
+                  128,
+                  128
+                ],
+                "ground_anchor": [
+                  128,
+                  256
+                ],
+                "sockets": {},
+                "hold_frames": 12
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "production_packet": {
+    "brief": {
+      "audience": "pipeline reviewers",
+      "question": "Do complete-shot asset requests preserve meaning?",
+      "takeaway": "request coverage is distinct from artwork",
+      "visual_thesis": "unseen activity becomes readable"
+    },
+    "research": {
+      "sources": [
+        {
+          "id": "construction_proposal",
+          "title": "Synthetic fixture proposal",
+          "url": "https://example.com/fixture",
+          "finding": "not an observational study",
+          "visual_decision": "request-only benchmark, no biology proof"
+        }
+      ],
+      "claims": [
+        {
+          "id": "forest_metaphor",
+          "text": "layered activity is like conversation",
+          "kind": "metaphor",
+          "visual_treatment": "original source revealed through layers"
+        }
+      ]
+    },
+    "representative": {
+      "shot_id": "forest_open",
+      "reason": "check mixed-route coverage",
+      "acceptance": [
+        "preserve the same source and world"
+      ]
+    },
+    "visual_style_decision": {
+      "status": "USER_SELECTED",
+      "selected_style": "kage_illustrated_hybrid",
+      "primary_reference": "kage",
+      "authorization": {
+        "reviewer": "human user",
+        "request": "SYNTHETIC TEST METADATA ONLY; NOT PRODUCTION AUTHORIZATION"
+      }
+    },
+    "character_setting_brief": {
+      "script_facts": [
+        "separate rainforest benchmark, no cast"
+      ],
+      "approved_setting": {
+        "status": "fixture only; era unspecified"
+      },
+      "style": "original layered Kage-informed artwork"
+    },
+    "illustration_direction": {
+      "contract_revision": 1,
+      "target_artwork": "kage",
+      "scene_worlds": [
+        {
+          "id": "forest_world",
+          "layout": "foreground leaf, midground trunk/source, deep forest",
+          "perspective": "coherent original depth",
+          "lighting": "same practical direction across layers",
+          "required_props": [
+            "trunk_mg",
+            "insect"
+          ],
+          "crop_safety": "reveal region stays readable",
+          "semantic_layers": [
+            {
+              "object_id": "leaf_fg",
+              "depth": "foreground",
+              "information": "support latent activity becoming visible",
+              "function": "evidence or meaningful occlusion"
+            },
+            {
+              "object_id": "trunk_mg",
+              "depth": "midground",
+              "information": "support latent activity becoming visible",
+              "function": "evidence or meaningful occlusion"
+            },
+            {
+              "object_id": "forest_bg",
+              "depth": "background",
+              "information": "support latent activity becoming visible",
+              "function": "evidence or meaningful occlusion"
+            },
+            {
+              "object_id": "insect",
+              "depth": "midground",
+              "information": "support latent activity becoming visible",
+              "function": "evidence or meaningful occlusion"
+            },
+            {
+              "object_id": "fog",
+              "depth": "background",
+              "information": "support latent activity becoming visible",
+              "function": "evidence or meaningful occlusion"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "request benchmark",
+      "visual_thesis": "latent activity becomes readable through occlusion",
+      "narration": "Rừng mưa không bao giờ thật sự im lặng.",
+      "narration_segments": [
+        {
+          "id": "n1",
+          "text": "Rừng mưa không bao giờ thật sự im lặng.",
+          "role": "narrator"
+        }
+      ],
+      "objects": [
+        {
+          "id": "leaf_fg",
+          "identity": "leaf_fg original benchmark component",
+          "role": "hero",
+          "initial_state": {
+            "activity": "rest"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_leaf_fg"
+            ]
+          },
+          "craft": {
+            "silhouette": "recognizable component",
+            "construction": "separate editable component",
+            "material": "authored original surface",
+            "references": [
+              "request-only construction proposal"
+            ],
+            "fidelity_limits": "synthetic fixture; not artwork or biology proof"
+          }
+        },
+        {
+          "id": "trunk_mg",
+          "identity": "trunk_mg original benchmark component",
+          "role": "support",
+          "initial_state": {
+            "activity": "rest"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_trunk_mg"
+            ]
+          },
+          "craft": {
+            "silhouette": "recognizable component",
+            "construction": "separate editable component",
+            "material": "authored original surface",
+            "references": [
+              "request-only construction proposal"
+            ],
+            "fidelity_limits": "synthetic fixture; not artwork or biology proof"
+          }
+        },
+        {
+          "id": "forest_bg",
+          "identity": "forest_bg original benchmark component",
+          "role": "environment",
+          "initial_state": {
+            "activity": "rest"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_forest_bg"
+            ]
+          },
+          "craft": {
+            "silhouette": "recognizable component",
+            "construction": "separate editable component",
+            "material": "authored original surface",
+            "references": [
+              "request-only construction proposal"
+            ],
+            "fidelity_limits": "synthetic fixture; not artwork or biology proof"
+          }
+        },
+        {
+          "id": "insect",
+          "identity": "insect original benchmark component",
+          "role": "support",
+          "initial_state": {
+            "activity": "rest"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_insect"
+            ]
+          },
+          "craft": {
+            "silhouette": "recognizable component",
+            "construction": "separate editable component",
+            "material": "authored original surface",
+            "references": [
+              "request-only construction proposal"
+            ],
+            "fidelity_limits": "synthetic fixture; not artwork or biology proof"
+          }
+        },
+        {
+          "id": "fog",
+          "identity": "fog original benchmark component",
+          "role": "environment",
+          "initial_state": {
+            "activity": "rest"
+          },
+          "illustration": {
+            "method": "procedural",
+            "reason": "Authored atmospheric layer, fixture only"
+          },
+          "craft": {
+            "silhouette": "recognizable component",
+            "construction": "separate editable component",
+            "material": "authored original surface",
+            "references": [
+              "request-only construction proposal"
+            ],
+            "fidelity_limits": "synthetic fixture; not artwork or biology proof"
+          }
+        }
+      ],
+      "beats": [
+        {
+          "id": "forest_idea",
+          "purpose": "discover activity instead of repeating a noun",
+          "before": "apparently quiet",
+          "after": "a source becomes readable",
+          "narration_anchor": {
+            "segment_id": "n1"
+          },
+          "visual_evidence": "layers open to reveal an original small source",
+          "completion": "source can be recognized",
+          "direction": {
+            "idea": "the forest is not truly silent",
+            "visual_proposition": "quietness is incomplete perception",
+            "metaphor": {
+              "source": "layered conversation",
+              "target": "many small activities coexist",
+              "mapping": "different regions yield evidence at different moments",
+              "limits": "no literal speech or botanical mechanism asserted"
+            },
+            "adds_information": "source and scale absent from the narration",
+            "object_ids": [
+              "leaf_fg",
+              "insect",
+              "forest_bg"
+            ],
+            "knowledge": {
+              "before": "only apparent quiet",
+              "after": "one activity source identified",
+              "withheld": "all other sources"
+            },
+            "payoff": "the same source can motivate a later macro"
+          }
+        }
+      ],
+      "shots": [
+        {
+          "id": "forest_open",
+          "scene_id": "forest_world",
+          "beat_ids": [
+            "forest_idea"
+          ],
+          "renderer": "remotion",
+          "scene_type": "3d",
+          "renderer_reason": "Remotion hosts spatial Three.js plus 2D layers",
+          "visual_thesis": "latent activity becomes readable through occlusion",
+          "attention": [
+            "insect"
+          ],
+          "camera": {
+            "purpose": "discover the source of a small signal",
+            "information_intent": {
+              "known_before": "forest looks quiet",
+              "hidden_before": "small source behind leaves",
+              "reveals": "a localized activity source",
+              "target_object": "insect",
+              "reason_for_move_or_hold": "open the occluded region before following the source"
+            }
+          },
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "leaf_fg",
+              "insect"
+            ],
+            "reading_logic": "occlusion opens into specific evidence"
+          },
+          "object_ids": [
+            "leaf_fg",
+            "trunk_mg",
+            "forest_bg",
+            "insect",
+            "fog"
+          ],
+          "components": {
+            "required_roles": [
+              "atmosphere",
+              "background",
+              "foreground",
+              "interactive_prop",
+              "midground",
+              "subject",
+              "support"
+            ],
+            "omissions": {},
+            "items": [
+              {
+                "object_id": "leaf_fg",
+                "roles": [
+                  "foreground"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "trunk_mg",
+                "roles": [
+                  "midground",
+                  "interactive_prop"
+                ],
+                "route": "3d"
+              },
+              {
+                "object_id": "forest_bg",
+                "roles": [
+                  "background"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "insect",
+                "roles": [
+                  "subject",
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "fog",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              }
+            ]
+          },
+          "attention_plan": [
+            {
+              "object_id": "leaf_fg",
+              "priority": "secondary",
+              "reason": "support the reveal without competing"
+            },
+            {
+              "object_id": "trunk_mg",
+              "priority": "secondary",
+              "reason": "support the reveal without competing"
+            },
+            {
+              "object_id": "forest_bg",
+              "priority": "secondary",
+              "reason": "support the reveal without competing"
+            },
+            {
+              "object_id": "insect",
+              "priority": "primary",
+              "reason": "support the reveal without competing"
+            },
+            {
+              "object_id": "fog",
+              "priority": "ambient",
+              "reason": "support the reveal without competing"
+            }
+          ],
+          "behaviors": {
+            "leaf_fg": {
+              "mode": "passive",
+              "motivation": "intentional baseline before discovery",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "establish the normal world"
+              },
+              "response": "hold",
+              "secondary_response": "none during baseline",
+              "settle": "remain stable",
+              "exit_state": {
+                "activity": "rest"
+              }
+            },
+            "trunk_mg": {
+              "mode": "passive",
+              "motivation": "intentional baseline before discovery",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "establish the normal world"
+              },
+              "response": "hold",
+              "secondary_response": "none during baseline",
+              "settle": "remain stable",
+              "exit_state": {
+                "activity": "rest"
+              }
+            },
+            "forest_bg": {
+              "mode": "passive",
+              "motivation": "intentional baseline before discovery",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "establish the normal world"
+              },
+              "response": "hold",
+              "secondary_response": "none during baseline",
+              "settle": "remain stable",
+              "exit_state": {
+                "activity": "rest"
+              }
+            },
+            "insect": {
+              "mode": "passive",
+              "motivation": "intentional baseline before discovery",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "establish the normal world"
+              },
+              "response": "hold",
+              "secondary_response": "none during baseline",
+              "settle": "remain stable",
+              "exit_state": {
+                "activity": "rest"
+              }
+            },
+            "fog": {
+              "mode": "passive",
+              "motivation": "intentional baseline before discovery",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "establish the normal world"
+              },
+              "response": "hold",
+              "secondary_response": "none during baseline",
+              "settle": "remain stable",
+              "exit_state": {
+                "activity": "rest"
+              }
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "end this request-only benchmark",
+            "carry_state": [],
+            "semantic_link": {
+              "to_shot_id": null,
+              "kind": "end",
+              "relation": "stop after discovery",
+              "invariants": []
+            }
+          }
+        }
+      ],
+      "sfx_cues": []
+    }
+  ]
+}

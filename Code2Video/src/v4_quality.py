@@ -18,8 +18,26 @@ def review_targets(plan, manifest):
     science = facts | {"shot:" + s["id"] for s in shots if s.get("scientific_contract") or s["pattern"]["kind"] in {"map", "evidence"}}
     if any(sec.get("scientific_contract") for sec in plan["sections"]):
         science |= ids
-    return {"visual": sorted(ids), "layout": sorted(ids), "motion": sorted(ids),
-            "editorial": sorted(ids | beats | {"boundary:" + s["id"] for s in shots}),
+    from illustration_direction import directed, lightweight
+    declared = {b['id'] for sec in plan['sections'] for b in sec['beats'] if b.get('direction',{}).get('metaphor')}
+    meanings = {'metaphor:'+b for b in {bid for s in shots for bid in s['beat_ids']}
+                if not lightweight(plan) or b in declared} if directed(plan) else set()
+    attention = {'attention:'+s['id'] for s in shots} if directed(plan) else set()
+    cameras = {'camera:'+s['id'] for s in shots} if directed(plan) else set()
+    relations = {'relation:'+s['id'] for s in shots} if directed(plan) else set()
+    from horror_characters import resolve_character_cast
+    casts=[(s,resolve_character_cast(plan,sec,s)) for sec in plan['sections'] for s in sec['shots'] if s['id'] in rendered]
+    character_designs={'character:'+cid for s,cast in casts if cast for cid in cast['characters']}
+    performances={'performance:'+s['id']+':'+e['object_id'] for s,cast in casts if cast for e in cast['entries']}
+    populations={'crowd:'+s['id']+':'+e['object_id'] for s,cast in casts if cast for e in cast['entries'] if 'count' in e}
+    tone={'horror_tone:'+s['id'] for s,cast in casts if cast and cast['entries']}
+    from horror_staging import resolve_staging
+    stages=[(s,resolve_staging(plan,s)) for s in shots]
+    framing={'staging:'+s['id'] for s,stage in stages if stage}
+    background_details={'background_detail:'+stage['scene_id']+':'+d['id'] for s,stage in stages if stage for d in stage['static_details']}
+    story_links={'story_link:'+s['id'] for s,stage in stages if stage}
+    return {"visual": sorted(ids | meanings | character_designs | populations | background_details), "layout": sorted(ids | framing), "motion": sorted(ids | attention | cameras | performances),
+            "editorial": sorted(ids | beats | relations | tone | story_links | {"boundary:" + s["id"] for s in shots}),
             "vfx": sorted(vfx), "scientific": sorted(science),
             "listening": [] if plan.get("technical_fixture") else ["film_mix"]}
 
@@ -98,6 +116,8 @@ def apply_review(folder, review, persist=True):
                 items = [e for e in evidence if e["id"] in observation["evidence_ids"]]
                 if name in {"visual", "layout"} and not any(e["kind"] in {"frame", "clip"} for e in items):
                     raise ValueError("Artwork/layout cannot pass from source JSON or measurements alone")
+                if observation['target'].startswith('metaphor:') and not any(e['kind']=='clip' for e in items):
+                    raise ValueError('Visual argument review needs the current clip, not an isolated flattering frame')
                 if name in {"motion", "editorial", "vfx"} and not any(e["kind"] == "clip" for e in items):
                     raise ValueError("Temporal quality cannot pass from stills/source JSON")
                 if name == "listening":

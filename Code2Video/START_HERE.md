@@ -1,13 +1,38 @@
 # V4.1 horror: one production route
 
-Current film direction (13 October 2026): OverSimplified is the primary visual
+CURRENT STAGING: read docs/HORROR_SCENE_STAGING.md. New plans use staging_revision=1: one shared world/plate, named shot views, meaningful static details and typed story links. Illustration prompts and motion tasks preserve the same staging. Research uses reference-sample/reference-check on real local video; current three-video access is blocked (0/540 frames), not completed analysis.
+
+CURRENT ENSEMBLE DIRECTION: read docs/HORROR_CHARACTERS.md. Register reusable
+principal/supporting characters, required original facial/body performances and
+anonymous groups once; shot.cast notes every present actor/group, gaze, blocking,
+state/view and group count. Illustration supplies those appearances; Motion
+executes absolute-frame performance/pose tracks and preserves them across cuts.
+Default tone is restrained horror with no humor. Review actual faces and crowds.
+
+CURRENT SIMPLIFICATION: read docs/HORROR_LIGHT_WORKFLOW.md. Default new horror
+plans to authoring_mode=horror_light: short storyboard cards, complete separate
+illustration assets, then motion/VFX authoring. Metaphors and seven-role/layer
+accounting are optional. The rainforest sample is an explainer reference and
+does not define horror scene complexity. Measured timing, identity, skill
+preservation and real-media evidence stay required.
+
+CURRENT USER DIRECTION (13 October 2026, repository upgrade): Kage is the artwork
+target; illustration exports 2D asset prompts and lowbudget3d native 3D fabrication
+briefs, completes each shot's component/direction contract, then hands reviewed
+assets to motion/VFX. Read Code2Video/docs/KAGE_ILLUSTRATION_PIPELINE.md (or
+its docs-relative path). This supersedes older statements excluding Kage/3D or
+fixing OverSimplified as the artwork target. Preserve existing story/cast/era and
+the schema 4, measured clock, evidence and stepwise production constraints.
+
+
+Previous film direction (historical frozen plans): OverSimplified is the primary visual
 reference, adapted to horror, AI art plus Remotion animation. Illustration exports
 prompts only; the human user runs Flow. Prompt every generated object, including
 backgrounds and props. Use uniform #00FF00 sources for objects requiring alpha;
 local code keys them to PNG. See docs/OVERSIMPLIFIED_ILLUSTRATION.md. Storytelling
 and usable action assets matter more than a rigid flat-fill drawing recipe.
-Historical 3D/Kage directions are superseded for this film, without artwork PASS
-or permission to render. Preserve the user's stepwise mode below.
+That earlier artwork policy remains only for frozen-plan reproducibility; the
+current Kage/hybrid direction above takes precedence. Preserve stepwise mode.
 
 Dedicated workspace: D:/manim-horror-v4.1. Original V4 is in D:/manim.
 This folder is the user's authorized comprehensive horror upgrade. Keep schema 4

@@ -204,7 +204,7 @@ def run_v4(plan, args, snapshot_browser_project):
     for section in frozen["sections"]:
         if preview and not excerpt and not any(s["id"] == preview for s in section["shots"]):
             continue
-        section_obj = SimpleNamespace(**section, production_contract=section)
+        section_obj = SimpleNamespace(**section, production_contract=section, production_plan=frozen)
         selected_shots = [s for s in section["shots"] if not preview or excerpt or s["id"] == preview]
         if excerpt:
             # Same renderer/shot contracts and original voice receipt; no remeasurement or stretching.
@@ -213,7 +213,7 @@ def run_v4(plan, args, snapshot_browser_project):
         elif preview:
             shot = selected_shots[0]
             video = render_unit(shot, folder, section["id"] + "__" + shot["id"], plan.get("render_timeout", 600),
-                                timing=section["speech"], production_contract=shot_contract(section, shot))
+                                timing=section["speech"], production_contract=shot_contract(section, shot, frozen))
             clip_frames = shot["duration_frames"]
         else:
             video = render_authored_section(section_obj, folder, plan.get("render_timeout", 600))

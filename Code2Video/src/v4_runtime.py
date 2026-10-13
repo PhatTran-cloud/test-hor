@@ -48,7 +48,7 @@ def envelope(event, frame):
     return 1 - progress(frame, event["peak_frame"], event["end_frame"])
 
 
-def record_execution(contract, frame, objects, pattern_kind):
+def record_execution(contract, frame, objects, pattern_kind, observed=None):
     """Record actual Manim mobject bounds at an authored sample frame.
 
     Call after evaluating objects at that absolute frame. Projected 3D objects
@@ -67,6 +67,13 @@ def record_execution(contract, frame, objects, pattern_kind):
                       (config.frame_height/2-top)*1080/config.frame_height-padding,
                       (right-left)*1920/config.frame_width+stroke,
                       (top-bottom)*1080/config.frame_height+stroke]
+    channels = {'camera', 'object_states', 'visibility', 'event_phases'}
+    if observed is not None and (not isinstance(observed, dict) or not set(observed) <= channels | {'cast_states'}):
+        raise ValueError('Observations may only contain camera/object/visibility/event/cast channels')
+    if contract.get('resolved_direction',{}).get('contract_revision') == 1 and (observed is None or not channels <= set(observed)):
+        raise ValueError('Directed audit requires evaluated camera/object/visibility/event observations')
+    if contract.get('resolved_direction',{}).get('character_cast',{}).get('entries') and not (observed or {}).get('cast_states'):
+        raise ValueError('Character audit requires evaluated cast state/gaze/crowd population')
     print("V4_EXECUTION_SAMPLE " + json.dumps({"shot": contract["shot"]["id"], "frame": frame,
         "contract_sha256": contract["contract_sha256"], "object_ids": list(objects),
-        "pattern_kind": pattern_kind, "bounds": bounds}))
+        "pattern_kind": pattern_kind, "bounds": bounds, **(observed or {})}))

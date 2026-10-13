@@ -120,7 +120,7 @@ def render_authored_section(section, output_dir, timeout=600, preview_frames=Non
         from v4_contract import shot_contract
     clips = [render_unit(shot, output_dir, f"{section.id}__{shot['id']}", timeout,
                          timing=timing if production else None,
-                         production_contract=shot_contract(production, shot) if production else None)
+                         production_contract=shot_contract(production, shot, getattr(section,'production_plan',None)) if production else None)
              for shot in section.shots]
     listing = output_dir / f"{section.id}_shots.txt"
     listing.write_text("".join("file '" + Path(clip).as_posix().replace("'", "'\\''") + "'\n" for clip in clips), encoding="utf-8")

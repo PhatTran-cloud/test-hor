@@ -1,5 +1,7 @@
 # OverSimplified → hướng sản xuất hoạt hình kinh dị
 
+Later request: [the actual sampling attempt](2026-10-13_oversimplified_sampling_status.md) was blocked with 0/540 images. The transcript/web analysis below does not establish frame-level staging, camera or cut findings.
+
 Ngày nghiên cứu: 13/10/2026. Workspace: `D:/manim-horror-v4.1`.
 
 Yêu cầu hiện tại: tập trung hoàn toàn vào OverSimplified, nghiên cứu trước khi sửa repo; AI tạo artwork, Remotion ghép và motion. Camera chủ yếu focus và zoom in/out; diễn xuất, biểu cảm, bối cảnh và đạo cụ phải theo nội dung từng cảnh.

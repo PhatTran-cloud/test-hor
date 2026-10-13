@@ -1,5 +1,30 @@
 # Current-session V4.1 horror authoring
 
+For current horror_light plans, follow [HORROR_SCENE_STAGING.md](HORROR_SCENE_STAGING.md): keep scene geography shared across shots, select a named view and explain a typed next-shot link. Static background evidence stays in the illustration prompt; cropped cast is not deleted. Do not treat the blocked reference study as inspected video.
+
+Read HORROR_CHARACTERS.md for ensemble direction. Write reusable character design
+and expression/body states once; note only present actors, state sequence, gaze,
+blocking, required view and anonymous count per shot. Principal design supports
+recognition and closer viewing; support/extras retain appropriate readability.
+At Motion, author absolute-frame performance_tracks and actual 2D pose_track or
+native controls; record evaluated cast_states. Preserve fear/aftermath through
+cuts and default to humor=none. This is part of the same light packet.
+
+Current default is horror_light per HORROR_LIGHT_WORKFLOW.md. Storyboard captures
+purpose, visible assets, main action, camera/focus, sound and handoff. The full
+semantic/metaphor fields below apply to full-detail mode. Add fabrication detail
+at Illustration and object/camera/event mechanics at Motion/VFX; do not require
+them as repeated prose in each light storyboard card.
+
+CURRENT USER DIRECTION (13 October 2026, repository upgrade): Kage is the artwork
+target; illustration exports 2D asset prompts and lowbudget3d native 3D fabrication
+briefs, completes each shot's component/direction contract, then hands reviewed
+assets to motion/VFX. Read Code2Video/docs/KAGE_ILLUSTRATION_PIPELINE.md (or
+its docs-relative path). This supersedes older statements excluding Kage/3D or
+fixing OverSimplified as the artwork target. Preserve existing story/cast/era and
+the schema 4, measured clock, evidence and stepwise production constraints.
+
+
 Read HORROR_CONTRACT.md for the additive current artwork/cast/SFX fields.
 No old provider reference below overrides it.
 

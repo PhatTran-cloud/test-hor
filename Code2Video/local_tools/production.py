@@ -27,11 +27,11 @@ def read_plan(path):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     commands=parser.add_subparsers(dest='command',required=True)
-    for name in ['context','check','prepare','sfx','asset-brief','sheet','flow-submit','flow-status','preview','render']:
+    for name in ['context','check','prepare','sfx','asset-brief','motion-brief','sheet','flow-submit','flow-status','preview','render']:
         sub=commands.add_parser(name); sub.add_argument('plan',type=Path)
         if name=='context':
             sub.add_argument('--shot'); sub.add_argument('--output',type=Path,required=True)
-        elif name in {'asset-brief','sheet','flow-submit','flow-status'}:
+        elif name in {'asset-brief','motion-brief','sheet','flow-submit','flow-status'}:
             sub.add_argument('--output',type=Path,required=True)
             if name=='sheet': sub.add_argument('--asset',required=True); sub.add_argument('--view',required=True)
         else:
@@ -48,9 +48,23 @@ def main():
     asr=commands.add_parser('reference-asr',help='Word-level ASR drafts for explicitly scoped references; no listening approval')
     asr.add_argument('manifest',type=Path); asr.add_argument('--model',type=Path,required=True)
     asr.add_argument('--python',type=Path,required=True,help='Existing CUDA ASR runtime')
+    sample=commands.add_parser('reference-sample',help='Sample a real local reference video at 1 image/second; no download, analysis or film production')
+    sample.add_argument('source',type=Path); sample.add_argument('--source-url',required=True)
+    sample.add_argument('--start',type=float,default=0); sample.add_argument('--seconds',type=int,default=180)
+    sample.add_argument('--source-offset',type=float,default=0,help='Original-source time at local file time zero; declared provenance')
+    sample.add_argument('--output',type=Path,required=True)
+    reference_check=commands.add_parser('reference-check',help='Verify reference frame hashes and annotation coverage; never auto-approve analysis')
+    reference_check.add_argument('folder',type=Path); reference_check.add_argument('--annotations',type=Path)
     review=commands.add_parser('review'); review.add_argument('run',type=Path); review.add_argument('file',type=Path)
     release=commands.add_parser('release'); release.add_argument('run',type=Path)
     args=parser.parse_args()
+    if args.command=='reference-sample':
+        from reference_study import sample_reference
+        result=sample_reference(args.source,args.output,args.source_url,args.start,args.seconds,args.source_offset)
+        print(json.dumps({'output':str(args.output.resolve()),'status':result['status'],'sample_count':len(result['frames'])},indent=2)); return
+    if args.command=='reference-check':
+        from reference_study import check_reference
+        print(json.dumps(check_reference(args.folder,args.annotations),indent=2)); return
     if args.command=='flow-submit':
         parser.error('Illustration exports prompts only. Use asset-brief; the human user runs Flow manually.')
     if args.command=='chroma-key':
@@ -92,12 +106,15 @@ def main():
         if args.command=='flow-submit': submit(plan,args.output)
         else: status(plan,args.output)
         print(args.output.resolve()); return
-    if args.command in {'asset-brief','sheet'}:
+    if args.command in {'asset-brief','motion-brief','sheet'}:
         from horror_assets import write_asset_briefs,contact_sheet
         args.output.parent.mkdir(parents=True,exist_ok=True)
-        if args.command=='asset-brief':
+        if args.command in {'asset-brief','motion-brief'}:
             if args.output.resolve()==args.plan: raise ValueError('Do not overwrite the input plan with exported prompts')
-            write_asset_briefs(plan,args.output)
+            if args.command=='asset-brief': write_asset_briefs(plan,args.output)
+            else:
+                from horror_motion import write_motion_brief
+                write_motion_brief(plan,args.output)
         else: contact_sheet(plan,args.asset,args.view,args.output)
         print(args.output.resolve()); return
     if args.command=='sfx':

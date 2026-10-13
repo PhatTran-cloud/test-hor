@@ -39,6 +39,22 @@ Research, artwork and motion remain separately authorized steps. This guidance
 does not change schema_version=4, the V4 runner or the complete 3D skill route.
 """
 
+CHARACTER_GUIDANCE = """Current horror character direction: read docs/HORROR_CHARACTERS.md.
+Any scene can have zero, one or many principal/supporting characters and anonymous
+crowd groups. Define identity/design/performance states once in character_direction;
+shot.cast records only present instance IDs, attention, state sequence, blocking,
+gaze/view and anonymous group count. Promote dialogue, independent acting or an
+individual close-up from a crowd to an individual character ID. Give principal
+characters recognizable silhouettes, face features, costume anchors and the
+required eyes/brows/mouth/body range; details serve recognition and fear.
+Keep original Kage artwork and OverSimplified-informed economy/staging distinct.
+Current tone is restrained_horror, humor=none: no automatic meme faces, rubber
+gags, laughter or comic reset after a scare. Plan only needed states/views.
+At motion authoring, performance_tracks and 2D pose_track use section-absolute
+frames. Report actual evaluated cast_states, gaze and crowd population; intent
+helpers/metadata do not prove acting. Review artwork and encoded performance.
+"""
+
 
 def _kage_guidance(profile):
     kind = profile.get("kind", "mixed")
@@ -50,6 +66,13 @@ def _kage_guidance(profile):
 
 
 def _reference_guidance(plan):
+    from illustration_direction import lightweight
+    if lightweight(plan):
+        root=Path(__file__).resolve().parents[1]/'docs'
+        return (root/'HORROR_LIGHT_WORKFLOW.md').read_text(encoding='utf-8')+'\n'+(root/'HORROR_CHARACTERS.md').read_text(encoding='utf-8')+'\n'+(root/'HORROR_SCENE_STAGING.md').read_text(encoding='utf-8')
+    if plan.get('horror',{}).get('visual_reference',{}).get('primary')=='kage':
+        root = Path(__file__).resolve().parents[1]/'docs'
+        return (root/'KAGE_VISUAL_REFERENCE.md').read_text(encoding='utf-8') + '\n' + (root/'KAGE_ILLUSTRATION_PIPELINE.md').read_text(encoding='utf-8')
     if plan.get('horror',{}).get('visual_reference',{}).get('primary')=='oversimplified':
         return (Path(__file__).resolve().parents[1]/'docs'/'OVERSIMPLIFIED_ILLUSTRATION.md').read_text(encoding='utf-8')
     return _kage_guidance(plan.get('content_profile',{}))
@@ -58,8 +81,12 @@ def _reference_guidance(plan):
 def get_v4_direction_prompt(brief, research, script):
     guide = (Path(__file__).resolve().parents[1] / "docs" / "V4_AUTHORING_GUIDE.md").read_text(encoding="utf-8")
     guide += "\n" + (Path(__file__).resolve().parents[1] / "docs" / "HORROR_CONTRACT.md").read_text(encoding="utf-8")
+    from illustration_direction import lightweight
+    light_note = ('CURRENT USER MODE: horror_light. Write short shot cards; no mandatory per-beat metaphor, seven-role inventory, semantic layers or storyboard motion ledger. Use action, focal IDs, camera purpose, sound_intent and handoff.to_shot_id. Illustration authors asset detail; Motion/VFX authors per-object behavior, camera execution and event physics before authored rendering.' if isinstance(brief,dict) and lightweight(brief) else '')
     return f"""Act as the visual director in the current assistant conversation.
 {STEPWISE}
+{light_note}
+{CHARACTER_GUIDANCE if isinstance(brief,dict) and brief.get('profile')=='horror-v4.1' else ''}
 Read the complete relevant skill resources, not just a renderer's API summary.
 Research: {research}
 Brief: {brief}
@@ -81,18 +108,27 @@ def get_v4_execution_prompt(timed_plan, shot_id):
     if section is None:
         raise ValueError("Unknown shot ID")
     shot = next(sh for sh in section["shots"] if sh["id"] == shot_id)
+    from illustration_direction import resolve_shot_direction
+    resolved = resolve_shot_direction(timed_plan, section, shot)
+    scoped_shot = copy.deepcopy(shot)
+    scoped_shot['events'] = resolved['active_events']
     # Keep the selected section's state/anchors and immediate boundaries. Do not
     # flood each implementation turn with every unrelated shot/object in a film.
     focused = copy.deepcopy({k: v for k, v in timed_plan.items() if k != "sections"})
-    focused["sections"] = [{**section, "shots": [shot]}]
-    focused["sections"][0]["beats"] = [b for b in section["beats"] if b["id"] in shot["beat_ids"]]
-    focused["sections"][0]["objects"] = [o for o in section["objects"] if o["id"] in shot["object_ids"]]
+    focused["sections"] = [{**section, "shots": [scoped_shot]}]
+    focused["sections"][0]["beats"] = resolved['beats']
+    focused["sections"][0]["objects"] = resolved['objects']
+    focused['resolved_direction'] = resolved
+    if resolved.get('character_cast') is not None:
+        registry=focused['production_packet']['character_direction']
+        registry['characters']=list(resolved['character_cast']['characters'].values())
+        registry['crowd_groups']=list(resolved['character_cast']['crowd_groups'].values())
     film_shots = [s for sec in timed_plan["sections"] for s in sec["shots"]]
     index = film_shots.index(shot)
     focused["adjacent_handoffs"] = [{"id": s["id"], "handoff": s["handoff"]} for s in film_shots[max(0,index-1):index+2]]
     focused["visual_reference_policy"] = visual_reference_policy(timed_plan)
     policy = focused["visual_reference_policy"].get("kage", {})
-    reference = (_reference_guidance(timed_plan) if focused['visual_reference_policy'].get('oversimplified',{}).get('enabled') else
+    reference = (_reference_guidance(timed_plan) if timed_plan.get('horror',{}).get('visual_reference',{}).get('primary') in {'kage','oversimplified'} else
                  (Path(__file__).resolve().parents[1] / "docs" / "KAGE_VISUAL_REFERENCE.md").read_text(encoding="utf-8")
                  if policy.get("enabled") else "Kage visual reference is not active for this plan.")
     return f"""Execution context for shot {shot_id}; implement only what the current human-authorized step permits:
@@ -100,6 +136,7 @@ def get_v4_execution_prompt(timed_plan, shot_id):
 {json.dumps(focused, ensure_ascii=False, indent=2)}
 {reference}
 {SPRITE_25D_GUIDANCE}
+{CHARACTER_GUIDANCE if timed_plan.get('profile')=='horror-v4.1' else ''}
 {(Path(__file__).resolve().parents[1] / "docs" / "HORROR_CONTRACT.md").read_text(encoding="utf-8")}
 Use productionContract in Remotion/Three.js or CODE2VIDEO_SHOT_CONTRACT in Manim.
 Derive state from the section-absolute frame. Keep object identity through shot changes.

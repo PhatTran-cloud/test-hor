@@ -1,6 +1,14 @@
 # Illustration direction: OverSimplified storytelling for horror
 
-Current user direction, 13 October 2026: AI supplies artwork; the human user runs
+Current staging and research status: [HORROR_SCENE_STAGING.md](HORROR_SCENE_STAGING.md) applies to new Kage/horror light plans; [the three-video sampling request](research/2026-10-13_oversimplified_sampling_status.md) has 0/540 frames. The earlier text below is not a completed frame-level study.
+
+Current ensemble/performance contract is [HORROR_CHARACTERS.md](HORROR_CHARACTERS.md).
+Kage remains the current artwork target; OverSimplified is an explicitly recorded
+staging/character-hierarchy reference. Use original restrained horror performances,
+humor=none, and the shared registry/cast/state/count checks. The earlier primary
+artwork direction below remains only for frozen-plan reproduction.
+
+Historical primary-artwork direction (superseded by KAGE_ILLUSTRATION_PIPELINE.md): AI supplies artwork; the human user runs
 Flow; Remotion composes and animates. Illustration exports prompts only. Use the
 [inspected reference research](research/2026-10-13_oversimplified_horror_direction.md)
 for observed examples and its explicit uncertainties. OverSimplified is the primary

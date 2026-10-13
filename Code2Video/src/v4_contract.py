@@ -359,12 +359,24 @@ def normalize_v4(plan):
     validate_packet(result)
     from horror_contract import validate_horror
     validate_horror(result)
+    from illustration_direction import validate_direction, directed
+    validate_direction(result)
+    if directed(result):
+        for section in result['sections']:
+            section['illustration_revision'] = 1
     return result
 
 
 def visual_reference_policy(plan):
     profile = plan.get("content_profile", {})
     if plan.get("profile") == "horror-v4.1":
+        if plan.get('horror',{}).get('visual_reference',{}).get('primary')=='kage':
+            storytelling=plan.get('horror',{}).get('storytelling_reference',{}).get('primary')=='oversimplified'
+            return {'kage':{'enabled':True,'reference':'https://github.com/MengTo/kage',
+                    'scope':'original layered artwork, readable depth/light/materials; generated 2D assets and lowbudget3d fabrication'},
+                    'oversimplified':{'enabled':storytelling,'reference':'https://www.youtube.com/@OverSimplified',
+                        'scope':'economical ensemble staging and original character hierarchy adapted to restrained horror; no inherited comedy or copied designs',
+                        'reason':'Recorded storytelling reference; Kage remains artwork target' if storytelling else 'No separate storytelling reference selected'}}
         if plan.get('horror',{}).get('visual_reference',{}).get('primary')=='oversimplified':
             return {'oversimplified':{'enabled':True,'reference':'https://www.youtube.com/@OverSimplified',
                     'scope':'story-led staging, shared scene worlds, expressive cutout acting and focus/zoom; original horror assets'},
@@ -447,6 +459,7 @@ def validate_files(plan, base_dir):
             symbols = [shot["execution"]["contract_consumer"], shot["pattern"]["implementation"],
                        shot["camera"]["implementation"], *[o["symbol"] for o in shot["execution"]["objects"].values()],
                        *[e["implementation"] for e in shot.get("events", [])],
+                       *[b['instance_symbol'] for b in shot.get('model_bindings',[])],
                        *[b["contact_solver"]["implementation"] for b in shot.get("sprite_bindings", []) if b.get("contact_solver", {}).get("implementation")]]
             if shot["handoff"]["type"] != "cut":
                 symbols.append(shot["handoff"]["implementation"])
@@ -468,12 +481,14 @@ def validate_files(plan, base_dir):
                 raise ValueError("Measured narration join exceeds one second without story justification")
 
 
-def shot_contract(section, shot):
+def shot_contract(section, shot, plan=None):
     """Transport semantics + section clock intact; never restart beats per shot."""
+    if section.get('illustration_revision') and plan is None:
+        raise ValueError('Directed shot contract requires its owning plan')
     active_events = [e for s in section["shots"] for e in s.get("events", [])
                      if e["start_frame"] < shot["end_frame"] and e["end_frame"] > shot["start_frame"]]
     effective_shot = {**shot, "events": active_events}
-    return {"schema_version": 4, "fps": 60, "section_id": section["id"],
+    result = {"schema_version": 4, "fps": 60, "section_id": section["id"],
             "speech": section["speech"], "objects": section["objects"],
             "beats": [b for b in section["beats"] if b["id"] in shot["beat_ids"]],
             "shot": effective_shot, "absolute_start_frame": shot["start_frame"],
@@ -481,3 +496,9 @@ def shot_contract(section, shot):
             "duration_frames": shot["duration_frames"],
             "state_tracks": section.get("state_tracks", []),
             "horror_assets": [a for a in section.get("horror_assets", []) if a["object_id"] in shot["object_ids"]]}
+    if plan is not None:
+        from illustration_direction import resolve_shot_direction
+        result['resolved_direction'] = resolve_shot_direction(plan, section, shot)
+        result['visual_system'] = copy.deepcopy(plan['visual_system'])
+        result['scene_world'] = result['resolved_direction']['scene_world']
+    return result

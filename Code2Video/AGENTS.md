@@ -1,25 +1,37 @@
 # V4.1 horror project rules
 
+Current shared-scene staging: follow docs/HORROR_SCENE_STAGING.md. Keep one reusable scene geography/plate, named shot views, meaningful static details and typed links; preserve offscreen cast/state. Read docs/REFERENCE_VIDEO_STUDY.md for actual local reference sampling. The current OverSimplified study has 0/540 frames and no observed findings.
+
+Current ensemble direction: follow docs/HORROR_CHARACTERS.md. Any number of
+principal/supporting characters is valid; register design/performance states once
+and present cast/crowd count per shot. Preserve expression/view coverage, actual
+gaze/support, state persistence and current character design hashes. Current
+tone is restrained_horror, humor=none; original designs, no inherited comedy.
+
+Current simplification: default new horror plans to horror_light authoring per
+docs/HORROR_LIGHT_WORKFLOW.md. Short scene cards preserve purpose, visible IDs,
+main action, camera/focus, sound and handoff. Metaphor/layer-role quotas are
+optional; asset fabrication and full motion/VFX detail belong to their stages.
+Do not weaken actual native/alpha registration, identity, timing or review gates.
+
 Read START_HERE.md and docs/HORROR_CONTRACT.md before work. The user authorized a
 separate horror fork at D:/manim-horror-v4.1 on 11 October 2026. The original V4
 workspace is preserved in D:/manim; source working-tree changes were copied.
 
-Current film direction, 13 October 2026: OverSimplified is the primary reference
-for story-led 2D illustration, complete scene worlds, expressive character acting
-and focus/zoom. Follow docs/OVERSIMPLIFIED_ILLUSTRATION.md and the recorded user
-decision. Illustration exports prompts only; the human user runs Flow. Every
-generated character/component/prop/background needs a prompt. Alpha assets use
-uniform green #00FF00 source backgrounds, then local code produces real alpha PNG.
-Do not impose a rigid flat-fill recipe; shading/illustrative detail may support
-the reference's storytelling. Historical Kage/3D directions do not apply to this film.
+Current illustration direction, 13 October 2026: Kage is the artwork target.
+Follow docs/KAGE_ILLUSTRATION_PIPELINE.md. Illustration exports human-run prompts
+for separate 2D assets and full lowbudget3d + 3dviz-pro-max native 3D fabrication
+requests. Account for every shot component and its semantic/causal role, then
+hand off reviewed assets to motion/VFX. Older OverSimplified artwork exclusions
+of Kage/3D are superseded; preserve approved story, cast, ages and era.
 
 - Do only the current human-authorized step, declare task/rule/source/skill purpose,
   command or manual action, inputs/outputs and stop; report actual work, linked
   evidence, unmet checks and a declared next step (proposed, not run), then stop.
 - Use local_tools/production.py and schema_version=4 with profile=horror-v4.1.
   No custom runner, provider LLM adapter, future-stage background work or auto-PASS.
-- Flow supplies human-generated reusable per-object action/component/view/layer
-  assets in the user's selected style. Code supplies motion/camera/environment/VFX.
+- Flow supplies human-generated reusable 2D action/component/view/layer assets;
+  lowbudget3d fabricates native 3D with its complete base. Code supplies motion/camera/environment/VFX.
   Research behavior, weight/support/contact/gaze before pose prompts. Multiple main
   characters are allowed; no shot/beat/pose quotas. Sprite sheet polish is not acting.
 - Before character references or pose generation, record character descriptions,
@@ -27,7 +39,7 @@ the reference's storytelling. Historical Kage/3D directions do not apply to this
   Separate facts, proposals and user decisions; ask about unresolved material
   design choices. Voice age does not determine visual age. Follow the character
   and setting brief in docs/HORROR_CONTRACT.md.
-- Animated characters require reusable action/view sprite sequences; standing
+- Animated 2D characters require reusable action/view sprite sequences; standing
   references establish identity only. Character cutouts use real transparent PNG,
   not a painted checkerboard. Props/backgrounds keep their original format unless
   compositing needs alpha. Review actual dark horror cartoon style and readable

@@ -1,5 +1,28 @@
 # Behavior-led artwork and pose review
 
+Read Code2Video/docs/HORROR_SCENE_STAGING.md. Select scene view/plate from the packet; preserve named static details in background prompts and actual close-use checks. Scene geography is shared; crop changes do not reset actors/events. Bind returned backgrounds to current scene_staging_sha256 and actual file review. Carry selected view, outside-shot inventory and story link into motion. Reference study claims require actual inspected images under REFERENCE_VIDEO_STUDY.md; retrieval counts never establish analysis.
+
+For every ensemble, read Code2Video/docs/HORROR_CHARACTERS.md. Use one reusable
+character/group registry and compact cast notes per shot. Character importance
+and per-shot attention are separate. Principal designs sustain recognition and
+close-use facial/body acting; support/extras remain readable. Groups declare
+count and shared behavior; promoted individuals get their own design and IDs.
+Check state/view/count coverage before export, use only frame-relevant expression
+recipes in each prompt, and keep restrained_horror/humor=none. Actual registration
+binds character_design_sha256 and real visual review; metadata is not art approval.
+
+Default new work to Code2Video/docs/HORROR_LIGHT_WORKFLOW.md: a small storyboard
+feeds complete reusable asset requests, then `production.py motion-brief`
+exports the assembly tasks. Motion/VFX adds its own detailed ledger later.
+Do not inflate storyboard to satisfy layer/metaphor/pose quotas.
+
+For the current Kage route, follow Code2Video/docs/KAGE_ILLUSTRATION_PIPELINE.md
+first. 2D exports image prompts; native 3D exports editable lowbudget3d fabrication
+briefs with full base preservation. Check every required shot role, semantic
+layer, asset, part/view, behavior and camera/handoff dependency. No flattened
+whole-shot substitute. Motion and VFX remain downstream of reviewed assets.
+
+
 ## Preflight before image requests
 
 Follow the character and setting brief in Code2Video/docs/HORROR_CONTRACT.md.
@@ -36,8 +59,8 @@ record source/page/time, observed mechanics and the decision, separately from fi
 departures. Explain intention/gaze, support/center of mass, contacts/grips, anticipation,
 action, follow-through and terminal state; justify intentional stillness.
 
-Use the packet's current primary reference. OverSimplified uses the inspected
-research and illustration direction; Kage is historical for this film. The cinematic-video-prompt-skill
+Use the packet's current primary reference. New light plans use Kage artwork;
+earlier OverSimplified artwork choices remain valid only for their frozen plans. The cinematic-video-prompt-skill
 snapshot in Code2Video/references offers camera/light/material/style/pose vocabulary;
 read relevant references, not its AI-video provider limits as global video rules.
 

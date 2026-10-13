@@ -1,0 +1,714 @@
+{
+  "schema_version": 4,
+  "profile": "horror-v4.1",
+  "phase": "draft",
+  "language_id": "vi",
+  "cast": {
+    "library": "D:\\manim-horror-v4.1\\voice_library\\manifest.json",
+    "narrator": "UNASSIGNED_STORYBOARD_ONLY",
+    "characters": {},
+    "narrator_instruct": null,
+    "selection_status": "NOT_SELECTED_NO_RECORDING"
+  },
+  "horror": {
+    "artwork_style": "kage_illustrated_hybrid",
+    "artwork_provider": "hybrid",
+    "kage_reference": true,
+    "voice_provider": "omnivoice",
+    "sfx_provider": "stable_audio_3_small_sfx",
+    "style_bible": {
+      "canonical_prompt": "Original restrained illustrated utility-room horror. Kage-informed crafted surfaces, matte blue-charcoal framing, coherent cool upper-left light, a small warm practical accent, readable worn materials and silhouettes. No text, UI, baked movement or copied artwork.",
+      "proportions": "One original household washer; stable body, hatch and plug scale.",
+      "materials": "Worn painted metal, rubber gasket, glass reflection, ceramic tiles; distinguish their surface response.",
+      "lighting": "Soft cool upper-left light; stable warm practical reflection at the hatch edge.",
+      "depth": "Separate opaque room plate, washer body, hatch and unplugged lead.",
+      "identity_rules": "Same washer seam, hatch latch, gasket outline and loose plug in every shot."
+    },
+    "assets": [
+      {
+        "id": "art_room_bg",
+        "object_id": "room_bg",
+        "provider": "flow",
+        "kind": "layer",
+        "illustration_role": "background",
+        "requires_alpha": false,
+        "scene_ids": [
+          "utility_room"
+        ],
+        "identity": "An empty original tiled utility-room clean plate with a clearly visible empty wall socket beside the planned loose-lead region. No plug/cable inserted; leave the washer and loose lead clear for separate assets.",
+        "action": {
+          "intent": "make one physical clue readable",
+          "mechanics": "fixed registered component; motion executes later with its anchors. No whole-shot composition or moving effect baked in.",
+          "source_ids": [
+            "trial_proposal"
+          ],
+          "entry_state": "same stable identity",
+          "exit_state": "same identity; actual event state belongs to motion",
+          "contact_requirements": []
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "frontal utility-room assembly",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "Single neutral reusable state. Show only the named component; exclude separately registered actors and dynamic shadows/effects.",
+                "width": 1920,
+                "height": 1080,
+                "root_anchor": [
+                  960,
+                  540
+                ],
+                "ground_anchor": [
+                  960,
+                  1080
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "PROVISIONAL_REQUEST_ONLY"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_washer_body",
+        "object_id": "washer_body",
+        "provider": "flow",
+        "kind": "prop",
+        "illustration_role": "prop",
+        "requires_alpha": true,
+        "scene_ids": [
+          "utility_room"
+        ],
+        "identity": "One worn original washer body with a stable seam and circular opening; hatch and power lead are separate assets.",
+        "action": {
+          "intent": "make one physical clue readable",
+          "mechanics": "fixed registered component; motion executes later with its anchors. No whole-shot composition or moving effect baked in.",
+          "source_ids": [
+            "trial_proposal"
+          ],
+          "entry_state": "same stable identity",
+          "exit_state": "same identity; actual event state belongs to motion",
+          "contact_requirements": []
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "frontal utility-room assembly",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "Single neutral reusable state. Show only the named component; exclude separately registered actors and dynamic shadows/effects.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "hatch_centre": [
+                    512,
+                    512
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "PROVISIONAL_REQUEST_ONLY"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_washer_hatch",
+        "object_id": "washer_hatch",
+        "provider": "flow",
+        "kind": "prop",
+        "illustration_role": "prop",
+        "requires_alpha": true,
+        "scene_ids": [
+          "utility_room"
+        ],
+        "identity": "One closed circular glass hatch with its gasket and asymmetric latch, aligned to the body opening; no separate monster or internal figure.",
+        "action": {
+          "intent": "make one physical clue readable",
+          "mechanics": "fixed registered component; motion executes later with its anchors. No whole-shot composition or moving effect baked in.",
+          "source_ids": [
+            "trial_proposal"
+          ],
+          "entry_state": "same stable identity",
+          "exit_state": "same identity; actual event state belongs to motion",
+          "contact_requirements": [
+            "hatch/body centre alignment"
+          ]
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "frontal utility-room assembly",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "Single neutral reusable state. Show only the named component; exclude separately registered actors and dynamic shadows/effects.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "PROVISIONAL_REQUEST_ONLY"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_loose_plug",
+        "object_id": "loose_plug",
+        "provider": "flow",
+        "kind": "prop",
+        "illustration_role": "prop",
+        "requires_alpha": true,
+        "scene_ids": [
+          "utility_room"
+        ],
+        "identity": "One original disconnected power lead and plug, fully visible with cable crop margin; no socket baked into this cutout.",
+        "action": {
+          "intent": "make one physical clue readable",
+          "mechanics": "fixed registered component; motion executes later with its anchors. No whole-shot composition or moving effect baked in.",
+          "source_ids": [
+            "trial_proposal"
+          ],
+          "entry_state": "same stable identity",
+          "exit_state": "same identity; actual event state belongs to motion",
+          "contact_requirements": []
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "frontal utility-room assembly",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "Single neutral reusable state. Show only the named component; exclude separately registered actors and dynamic shadows/effects.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "PROVISIONAL_REQUEST_ONLY"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "visual_reference": {
+      "primary": "kage"
+    },
+    "illustrator": {
+      "mode": "prompt_export_only",
+      "generation_operator": "human user",
+      "model": "Nano Banana 2.1",
+      "chroma_key_color": "#00FF00",
+      "three_d_skill": "lowbudget3d"
+    }
+  },
+  "content_profile": {
+    "genre": "horror",
+    "kind": "storytelling_rich"
+  },
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Máy giặt ngắt điện",
+      "visual_thesis": "Show the disconnected supply and the same localized response.",
+      "narration": "Máy giặt đã ngắt điện. Nhưng tiếng gõ vẫn tiếp tục.",
+      "narration_segments": [
+        {
+          "id": "n1",
+          "text": "Máy giặt đã ngắt điện. Nhưng tiếng gõ vẫn tiếp tục.",
+          "role": "narrator"
+        }
+      ],
+      "objects": [
+        {
+          "id": "room_bg",
+          "identity": "An empty original tiled utility-room clean plate with a clearly visible empty wall socket beside the planned loose-lead region. No plug/cable inserted; leave the washer and loose lead clear for separate assets.",
+          "role": "environment",
+          "initial_state": {
+            "condition": "fixed"
+          },
+          "craft": {
+            "silhouette": "An empty original tiled utility-room clean plate with a clearly visible empty wall socket beside the planned loose-lead region. No plug/cable inserted; leave the washer and loose lead clear for separate assets.",
+            "construction": "one separate reusable component",
+            "material": "shared authored material/light bible",
+            "references": [
+              "trial_proposal"
+            ],
+            "fidelity_limits": "proposal; no returned art or pixel review"
+          },
+          "illustration": {
+            "method": "generated",
+            "route": "2d",
+            "asset_ids": [
+              "art_room_bg"
+            ]
+          }
+        },
+        {
+          "id": "washer_body",
+          "identity": "One worn original washer body with a stable seam and circular opening; hatch and power lead are separate assets.",
+          "role": "support",
+          "initial_state": {
+            "condition": "fixed"
+          },
+          "craft": {
+            "silhouette": "One worn original washer body with a stable seam and circular opening; hatch and power lead are separate assets.",
+            "construction": "one separate reusable component",
+            "material": "shared authored material/light bible",
+            "references": [
+              "trial_proposal"
+            ],
+            "fidelity_limits": "proposal; no returned art or pixel review"
+          },
+          "illustration": {
+            "method": "generated",
+            "route": "2d",
+            "asset_ids": [
+              "art_washer_body"
+            ]
+          }
+        },
+        {
+          "id": "washer_hatch",
+          "identity": "One closed circular glass hatch with its gasket and asymmetric latch, aligned to the body opening; no separate monster or internal figure.",
+          "role": "hero",
+          "initial_state": {
+            "pressure": 0
+          },
+          "craft": {
+            "silhouette": "One closed circular glass hatch with its gasket and asymmetric latch, aligned to the body opening; no separate monster or internal figure.",
+            "construction": "one separate reusable component",
+            "material": "shared authored material/light bible",
+            "references": [
+              "trial_proposal"
+            ],
+            "fidelity_limits": "proposal; no returned art or pixel review"
+          },
+          "illustration": {
+            "method": "generated",
+            "route": "2d",
+            "asset_ids": [
+              "art_washer_hatch"
+            ]
+          }
+        },
+        {
+          "id": "loose_plug",
+          "identity": "One original disconnected power lead and plug, fully visible with cable crop margin; no socket baked into this cutout.",
+          "role": "support",
+          "initial_state": {
+            "condition": "fixed"
+          },
+          "craft": {
+            "silhouette": "One original disconnected power lead and plug, fully visible with cable crop margin; no socket baked into this cutout.",
+            "construction": "one separate reusable component",
+            "material": "shared authored material/light bible",
+            "references": [
+              "trial_proposal"
+            ],
+            "fidelity_limits": "proposal; no returned art or pixel review"
+          },
+          "illustration": {
+            "method": "generated",
+            "route": "2d",
+            "asset_ids": [
+              "art_loose_plug"
+            ]
+          }
+        }
+      ],
+      "beats": [
+        {
+          "id": "beat_1",
+          "purpose": "The powered-motor explanation is ruled out.",
+          "before": "ordinary closed washer",
+          "after": "The powered-motor explanation is ruled out.",
+          "depends_on": [],
+          "narration_anchor": {
+            "segment_id": "n1"
+          },
+          "visual_evidence": "View the room with the loose plug clearly separated from its socket. Hold enough to read the disconnected state.",
+          "completion": "The powered-motor explanation is ruled out."
+        },
+        {
+          "id": "beat_2",
+          "purpose": "A confined physical response persists without power.",
+          "before": "The powered-motor explanation is ruled out.",
+          "after": "A confined physical response persists without power.",
+          "depends_on": [
+            "beat_1"
+          ],
+          "narration_anchor": {
+            "segment_id": "n1"
+          },
+          "visual_evidence": "Hold the same hatch through the first two knocks of a short three-knock pattern; its gasket/glass reflection responds locally. Leave the body rooted.",
+          "completion": "A confined physical response persists without power."
+        },
+        {
+          "id": "beat_3",
+          "purpose": "The original explanation remains impossible; the clue is unresolved.",
+          "before": "A confined physical response persists without power.",
+          "after": "The original explanation remains impossible; the clue is unresolved.",
+          "depends_on": [
+            "beat_2"
+          ],
+          "narration_anchor": {
+            "segment_id": "n1"
+          },
+          "visual_evidence": "Return to the same disconnected lead while one final offscreen knock comes from the same machine. The plug never reconnects.",
+          "completion": "The original explanation remains impossible; the clue is unresolved."
+        }
+      ],
+      "shots": [
+        {
+          "id": "establish_supply",
+          "scene_id": "utility_room",
+          "beat_ids": [
+            "beat_1"
+          ],
+          "renderer": "remotion",
+          "scene_type": "2d",
+          "renderer_reason": "existing 2D assembly with separate reusable artwork",
+          "visual_thesis": "The powered-motor explanation is ruled out.",
+          "action": "View the room with the loose plug clearly separated from its socket. Hold enough to read the disconnected state.",
+          "object_ids": [
+            "room_bg",
+            "washer_body",
+            "washer_hatch",
+            "loose_plug"
+          ],
+          "attention": [
+            "loose_plug"
+          ],
+          "camera": {
+            "purpose": "Wide frontal view; show plug/socket separation before inspecting the hatch.",
+            "supported_sprite_views": [
+              "front"
+            ],
+            "stage_view_id": "wide"
+          },
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "loose_plug"
+            ],
+            "reading_logic": "The powered-motor explanation is ruled out."
+          },
+          "sound_intent": "Quiet room; no music or dialogue. VO reading window is provisional.",
+          "planning_window": {
+            "start_seconds": 0,
+            "end_seconds": 5,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "handoff": {
+            "type": "cut",
+            "to_shot_id": "hatch_reply",
+            "reason": "The established disconnected supply raises the question of what is moving inside; the next shot inspects that source.",
+            "carry_state": [
+              "disconnected plug",
+              "rooted body",
+              "closed hatch",
+              "machine sound direction"
+            ],
+            "link_kind": "question_answer"
+          }
+        },
+        {
+          "id": "hatch_reply",
+          "scene_id": "utility_room",
+          "beat_ids": [
+            "beat_2"
+          ],
+          "renderer": "remotion",
+          "scene_type": "2d",
+          "renderer_reason": "existing 2D assembly with separate reusable artwork",
+          "visual_thesis": "A confined physical response persists without power.",
+          "action": "Hold the same hatch through the first two knocks of a short three-knock pattern; its gasket/glass reflection responds locally. Leave the body rooted.",
+          "object_ids": [
+            "room_bg",
+            "washer_body",
+            "washer_hatch",
+            "loose_plug"
+          ],
+          "attention": [
+            "washer_hatch"
+          ],
+          "camera": {
+            "purpose": "Near-frontal hatch insert; hold to make pressure/reaction readable, without camera shake.",
+            "supported_sprite_views": [
+              "front"
+            ],
+            "stage_view_id": "hatch_detail"
+          },
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "washer_hatch"
+            ],
+            "reading_logic": "A confined physical response persists without power."
+          },
+          "sound_intent": "Two localized dry knocks; room ambience stays quiet; no sting.",
+          "planning_window": {
+            "start_seconds": 5,
+            "end_seconds": 12,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "handoff": {
+            "type": "cut",
+            "to_shot_id": "supply_still_off",
+            "reason": "After the knock and reaction, recheck the same disconnected supply instead of declaring a supernatural explanation.",
+            "carry_state": [
+              "disconnected plug",
+              "rooted body",
+              "closed hatch",
+              "machine sound direction"
+            ],
+            "link_kind": "evidence_return",
+            "returns_to_shot_id": "establish_supply"
+          },
+          "events": [
+            {
+              "id": "hatch_knock",
+              "kind": "vfx",
+              "source_object": "washer_body",
+              "target_objects": [
+                "washer_hatch"
+              ],
+              "cause": "authored fictional internal pressure with supply disconnected",
+              "action": "three knocks: two in the hatch detail view; the last is heard from the established washer outside the supply-return frame. The loose plug is never inserted into the socket.",
+              "reaction": "local gasket/glass response where visible; preserve the same offscreen event state in the last shot, without drawing an offscreen response over the plug. No body bounce.",
+              "aftermath": "same closed hatch and disconnected supply; no new entity",
+              "representation": "restrained local contact/optical response in the existing assembly",
+              "transport": "no emitted particles; impulse stays at the hatch contact",
+              "interaction": "registered hatch/body centre and gasket contact",
+              "lighting_response": "small reflection change from local response; no flash",
+              "implementation": "PENDING_hatch_knock",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "carry_across_shots": true
+            }
+          ]
+        },
+        {
+          "id": "supply_still_off",
+          "scene_id": "utility_room",
+          "beat_ids": [
+            "beat_3"
+          ],
+          "renderer": "remotion",
+          "scene_type": "2d",
+          "renderer_reason": "existing 2D assembly with separate reusable artwork",
+          "visual_thesis": "The original explanation remains impossible; the clue is unresolved.",
+          "action": "Return to the same disconnected lead while one final offscreen knock comes from the same machine. The plug never reconnects.",
+          "object_ids": [
+            "room_bg",
+            "loose_plug"
+          ],
+          "attention": [
+            "loose_plug"
+          ],
+          "camera": {
+            "purpose": "Plug/socket insert in the original geography; retain machine direction so offscreen sound has a known source.",
+            "supported_sprite_views": [
+              "front"
+            ],
+            "stage_view_id": "supply_return"
+          },
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "loose_plug"
+            ],
+            "reading_logic": "The original explanation remains impossible; the clue is unresolved."
+          },
+          "sound_intent": "One last knock from the established machine, then a short listening hold; no music.",
+          "planning_window": {
+            "start_seconds": 12,
+            "end_seconds": 18,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "handoff": {
+            "type": "cut",
+            "to_shot_id": null,
+            "reason": "End with the same explanation excluded and source unresolved.",
+            "carry_state": [],
+            "link_kind": "end"
+          },
+          "event_ids": [
+            "hatch_knock"
+          ]
+        }
+      ],
+      "sfx_cues": [],
+      "sound_notes": "Brief only; real Small-SFX cues and utterance timing are authored after measured VO."
+    }
+  ],
+  "sound_design": "adaptive",
+  "tts_speed": 1.0,
+  "visual_system": {
+    "palette": [
+      "#16222D",
+      "#657B85",
+      "#C2A275"
+    ],
+    "typography": "none in this short",
+    "shape_language": "simple original silhouettes; one round hatch is the clue"
+  },
+  "production_packet": {
+    "brief": {
+      "audience": "reviewers of a small horror cartoon workflow",
+      "question": "What keeps knocking after the supply is disconnected?",
+      "takeaway": "One ordinary explanation fails; the physical clue persists.",
+      "visual_thesis": "Show the disconnected supply and the same localized response.",
+      "approval_status": "TRIAL_PROPOSAL_ONLY"
+    },
+    "research": {
+      "sources": [
+        {
+          "id": "trial_proposal",
+          "title": "Original fiction mechanics proposal, not appliance evidence",
+          "url": "urn:storyboard:horror-light:washer",
+          "finding": "A visible loose plug excludes the ordinary powered motor explanation; a confined internal knock causes a short hatch/gasket response.",
+          "visual_decision": "Use one localized fictional event and preserve the disconnected lead; no full monster reveal or extra effects."
+        }
+      ],
+      "claims": [
+        {
+          "id": "unpowered_knock",
+          "kind": "fiction",
+          "text": "The same machine knocks with its lead disconnected.",
+          "visual_treatment": "Read plug state, then localized hatch reaction, then retain both evidence states."
+        }
+      ]
+    },
+    "representative": {
+      "shot_id": "hatch_reply",
+      "reason": "small action, separate asset alignment and restrained VFX",
+      "acceptance": [
+        "Same washer/hatch identity and alignment.",
+        "Pressure response remains localized and legible.",
+        "Sound and camera preserve the disconnected-supply meaning."
+      ]
+    },
+    "character_setting_brief": {
+      "script_facts": [
+        "The trial depicts one disconnected washer; no visible human cast."
+      ],
+      "approved_setting": {
+        "status": "PROPOSED_TRIAL_ONLY",
+        "location": "a plain original utility room",
+        "era": "unspecified contemporary appliance context, no exact year"
+      },
+      "style": "user-selected Kage artwork target",
+      "unresolved": [
+        "Actual narrator remains unselected; art and final timing are unverified."
+      ]
+    },
+    "visual_style_decision": {
+      "status": "USER_SELECTED",
+      "selected_style": "kage_illustrated_hybrid",
+      "primary_reference": "kage",
+      "authorization": {
+        "reviewer": "human user",
+        "request": "nâng cấp repo goups đại ca, ở bước illustration, sẽ xuất prompt vẽ asset, target artwork : https://github.com/MengTo/kage, 3d se dyngf skill lowbudget3d de ve, 2d thi gen asset tu prompt, dam bao 1 shot day du cac thanh phan, sau do motion va vfx"
+      }
+    },
+    "illustration_direction": {
+      "contract_revision": 1,
+      "target_artwork": "kage",
+      "scene_worlds": [
+        {
+          "id": "utility_room",
+          "layout": "Washer front at frame centre; hatch aligned to its circular opening; loose plug clearly separated from the wall socket at lower right. Shared anchors persist across wide and inserts. Empty wall socket is a fixed readable architectural detail beside the loose-lead region; the separate plug stays physically clear of it.",
+          "perspective": "Fixed frontal/near-frontal views; no unsupported backside reveal.",
+          "lighting": "Soft cool upper-left light; stable warm practical reflection at the hatch edge.",
+          "required_props": [
+            "washer_body",
+            "washer_hatch",
+            "loose_plug",
+            "empty_wall_socket"
+          ],
+          "crop_safety": "Wide establishes socket/plug separation; hatch insert retains latch/gasket margin. Plug insert must show the separation, not just a cable.",
+          "staging": {
+            "master_plate_object_id": "room_bg",
+            "views": [
+              {
+                "id": "wide",
+                "kind": "master",
+                "plate_object_id": "room_bg",
+                "framing": "Establish the same room, washer, empty socket and disconnected plug. Preserve fixed geography and leave the focal clue clear."
+              },
+              {
+                "id": "hatch_detail",
+                "kind": "crop",
+                "plate_object_id": "room_bg",
+                "framing": "Reframe the same plate toward hatch and visible reactions; do not rebuild the room or interpret out-of-frame people as departures."
+              },
+              {
+                "id": "supply_return",
+                "kind": "crop",
+                "plate_object_id": "room_bg",
+                "framing": "Return attention to the same empty socket and disconnected lead; the established hatch direction and remaining reaction persist. Washer body/hatch are outside this view, with their event state and sound source preserved; show no inserted plug."
+              }
+            ],
+            "static_details": [
+              {
+                "id": "empty_socket",
+                "plate_object_id": "room_bg",
+                "description": "A clearly empty wall socket. The separate loose plug stays physically clear of it; no inserted plug or cable baked into the wall.",
+                "readable_in_view_ids": [
+                  "wide",
+                  "supply_return"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "authoring_mode": "horror_light",
+      "staging_revision": 1
+    },
+    "consulted_resources": [],
+    "staging_basis": {
+      "status": "PROJECT_PROPOSAL_NOT_OBSERVED_VIDEO_FINDING",
+      "basis": "Existing user requirements and original washer trial; reference-video sampling was blocked, so this revision is not claimed to be empirically derived from 540 frames."
+    }
+  },
+  "topic": "Horror light — máy giặt ngắt điện",
+  "technical_fixture": false,
+  "trial": {
+    "purpose": "separate small workflow trial, not an approved film",
+    "clock_status": "PROVISIONAL_NOT_MEASURED",
+    "planning_duration_seconds": 18,
+    "media": "NOT_GENERATED_NOT_RENDERED"
+  }
+}

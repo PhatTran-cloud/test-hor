@@ -21,6 +21,11 @@ def skill_routes(plan):
         skills.add("remotion-horror-vfx")
     if plan.get("profile") == "horror-v4.1":
         skills.update({"horror-asset-director", "horror-audio-director", "cinematic-vfx-director"})
+        characters=plan.get('production_packet',{}).get('character_direction',{})
+        if characters.get('characters') or characters.get('crowd_groups'):
+            skills.add('horror-cartoon-storyboard')
+    if any(a.get('kind') == 'model_3d' for a in plan.get('horror',{}).get('assets',[])):
+        skills.update({'lowbudget3d','3dviz-pro-max','lowbudget3d-illustration-bridge'})
     return sorted(skills)
 
 
@@ -74,7 +79,7 @@ def representative_fingerprint(plan, base):
     section = next(s for s in plan["sections"] if any(sh["id"] == shot_id for sh in s["shots"]))
     shot = next(sh for sh in section["shots"] if sh["id"] == shot_id)
     from v4_contract import shot_contract
-    contract = shot_contract(section, shot)
+    contract = shot_contract(section, shot, plan)
     shot_data = copy.deepcopy(contract["shot"])
     if shot["renderer"] == "manim":
         source = Path(base) / shot["source"]

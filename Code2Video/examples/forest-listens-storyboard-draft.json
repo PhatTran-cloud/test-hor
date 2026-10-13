@@ -1,0 +1,3664 @@
+{
+  "schema_version": 4,
+  "profile": "horror-v4.1",
+  "phase": "draft",
+  "language_id": "vi",
+  "cast": {
+    "library": "D:\\manim-horror-v4.1\\voice_library\\manifest.json",
+    "narrator": "UNASSIGNED_STORYBOARD_ONLY",
+    "characters": {},
+    "narrator_instruct": null,
+    "selection_status": "NOT_SELECTED_NO_RECORDING"
+  },
+  "horror": {
+    "artwork_style": "kage_illustrated_hybrid",
+    "artwork_provider": "hybrid",
+    "kage_reference": true,
+    "voice_provider": "omnivoice",
+    "sfx_provider": "stable_audio_3_small_sfx",
+    "style_bible": {
+      "canonical_prompt": "Original nocturnal rainforest illustration with crafted irregular silhouettes, fine bark/vein linework, matte blue-charcoal surfaces, restrained ivory and amber practical highlights, readable layered depth, selective painted shading and coherent cool canopy light. Kage-informed artwork principles; original composition and designs. No text or UI.",
+      "proportions": "One 3.6 m trunk; a 5 cm fictional light-bearing insect; two concealed eyes whose scale is revealed only in macro. No human cast.",
+      "materials": "Rough damp bark, waxy dark blue leaves, translucent insect wings; no polished plastic or generic neon.",
+      "lighting": "Cool diffuse canopy light from upper left; insect contributes a local ivory glint, recognized eyes warm to restrained amber. All assets agree.",
+      "depth": "Separate foreground leaf, spatial trunk/fern/contact, distant opaque canopy, optical haze and independently occluded gaze.",
+      "identity_rules": "Keep leaf notch, trunk hollow/ridge, insect abdomen mark, paired eye spacing and fern wet trace unchanged through approach/macro/withdrawal."
+    },
+    "assets": [
+      {
+        "id": "art_entry_leaf",
+        "object_id": "entry_leaf",
+        "provider": "flow",
+        "kind": "sprite_sequence",
+        "illustration_role": "environment_layer",
+        "requires_alpha": true,
+        "scene_ids": [
+          "forest_clearing"
+        ],
+        "identity": "one asymmetrical dark leaf with a chipped tip, hinged at its petiole",
+        "action": {
+          "intent": "Support the scripted discovery without replacing its meaning",
+          "mechanics": "petiole hinge, occlusion and parallax; no global idle sway",
+          "source_ids": [
+            "trial_mechanics",
+            "kage_artwork"
+          ],
+          "entry_state": "{'opening': 0}",
+          "exit_state": "unchanged identity; persistent story state belongs to the shared assembly",
+          "contact_requirements": [
+            "named attachment/occlusion anchors stay registered; measure returned art"
+          ]
+        },
+        "design_semantics": {
+          "role": "support",
+          "meaning": "Looking is an act of opening access, not a wide forest postcard.",
+          "recognition_traits": [
+            "one asymmetrical dark leaf with a chipped tip, hinged at its petiole"
+          ],
+          "parts_or_layers": [
+            "independent entry_leaf component; do not precompose neighbouring actors"
+          ],
+          "anchors": {
+            "root": "provisional request anchor; measured after fabrication",
+            "scene": "forest_clearing named anchor"
+          },
+          "variants": [
+            "rest"
+          ],
+          "closest_camera_use": "view-specific crop and closest permitted framing; never reveal an undrawn side"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "front plane; small parallax only",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "Single intact leaf with a chipped tip; petiole at lower left; no movement or forest drawn.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "petiole": [
+                    130,
+                    820
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_interactive_trunk",
+        "object_id": "interactive_trunk",
+        "provider": "lowbudget3d",
+        "kind": "model_3d",
+        "illustration_role": "prop",
+        "requires_alpha": false,
+        "scene_ids": [
+          "forest_clearing"
+        ],
+        "identity": "damp buttressed trunk with one narrow hollow and a diagonal bark ridge",
+        "action": {
+          "intent": "Support the scripted discovery without replacing its meaning",
+          "mechanics": "rooted mass; minute local pressure response; named hollow and fern attachment remain fixed",
+          "source_ids": [
+            "trial_mechanics",
+            "kage_artwork"
+          ],
+          "entry_state": "{'pressure': 0}",
+          "exit_state": "unchanged identity; persistent story state belongs to the shared assembly",
+          "contact_requirements": [
+            "named attachment/occlusion anchors stay registered; measure returned art"
+          ]
+        },
+        "design_semantics": {
+          "role": "environment",
+          "meaning": "One local source of pressure precedes the unseen observer reveal.",
+          "recognition_traits": [
+            "damp buttressed trunk with one narrow hollow and a diagonal bark ridge"
+          ],
+          "parts_or_layers": [
+            "independent interactive_trunk component; do not precompose neighbouring actors"
+          ],
+          "anchors": {
+            "root": "provisional request anchor; measured after fabrication",
+            "scene": "forest_clearing named anchor"
+          },
+          "variants": [
+            "neutral",
+            "minute_pressure"
+          ],
+          "closest_camera_use": "macro/readable damp bark at 0.45 m"
+        },
+        "views": [
+          {
+            "id": "wide",
+            "camera_region": "frontal clearing at initial camera",
+            "inspection_purpose": "root support, silhouette, hollow/fern layout"
+          },
+          {
+            "id": "macro",
+            "camera_region": "closest 0.45 m bark/hollow use",
+            "inspection_purpose": "authored bark, hollow rim thickness, no primitive/cylinder replacement"
+          },
+          {
+            "id": "withdrawal",
+            "camera_region": "same clearing on reverse approach",
+            "inspection_purpose": "preserve geography, resources and occlusion on pullback"
+          }
+        ],
+        "model_spec": {
+          "representation": "threejs_module",
+          "dimensions": {
+            "unit": "metres",
+            "size": [
+              1.4,
+              3.6,
+              1.1
+            ]
+          },
+          "parts": [
+            {
+              "id": "buttress_roots",
+              "parent_id": null,
+              "pivot": [
+                0,
+                0,
+                0
+              ],
+              "material_region": "wet_root"
+            },
+            {
+              "id": "bole",
+              "parent_id": "buttress_roots",
+              "pivot": [
+                0,
+                0,
+                0
+              ],
+              "material_region": "rough_bark"
+            },
+            {
+              "id": "hollow_rim",
+              "parent_id": "bole",
+              "pivot": [
+                0.2,
+                1.2,
+                0
+              ],
+              "material_region": "inner_bark"
+            },
+            {
+              "id": "fern_attachment",
+              "parent_id": "bole",
+              "pivot": [
+                -0.08,
+                1.05,
+                0.16
+              ],
+              "material_region": "rough_bark"
+            }
+          ],
+          "anchors": {
+            "ground": [
+              0,
+              0,
+              0
+            ],
+            "hollow": [
+              0.2,
+              1.2,
+              0
+            ],
+            "fern_contact": [
+              -0.08,
+              1.05,
+              0.16
+            ]
+          },
+          "variants": [
+            "neutral",
+            "minute_pressure"
+          ],
+          "surface_regions": [
+            "wet_root",
+            "rough_bark",
+            "inner_bark"
+          ],
+          "texture_plan": [
+            {
+              "region": "rough_bark",
+              "method": "authored irregular relief and damp roughness; inspect closest use after full domain research"
+            },
+            {
+              "region": "inner_bark",
+              "method": "dark matte cavity with physically separate occluding rim"
+            },
+            {
+              "region": "wet_root",
+              "method": "wetness variation tied to real surface regions, not uniform gloss"
+            }
+          ],
+          "articulation": "roots remain planted; minute bole response cannot disconnect rim/attachment. No generic sine-loop deformation.",
+          "closest_camera_use": "0.45 m; original bark relief and cavity depth must survive macro inspection"
+        }
+      },
+      {
+        "id": "art_fern_tip",
+        "object_id": "fern_tip",
+        "provider": "flow",
+        "kind": "sprite_sequence",
+        "illustration_role": "environment_layer",
+        "requires_alpha": true,
+        "scene_ids": [
+          "forest_clearing"
+        ],
+        "identity": "a five-pinna fern tip attached beside the hollow",
+        "action": {
+          "intent": "Support the scripted discovery without replacing its meaning",
+          "mechanics": "attached elastic tip: pressure -> recoil -> droplet release -> settle",
+          "source_ids": [
+            "trial_mechanics",
+            "kage_artwork"
+          ],
+          "entry_state": "{'bend': 0}",
+          "exit_state": "unchanged identity; persistent story state belongs to the shared assembly",
+          "contact_requirements": [
+            "named attachment/occlusion anchors stay registered; measure returned art"
+          ]
+        },
+        "design_semantics": {
+          "role": "support",
+          "meaning": "The world has a mechanically connected secondary response.",
+          "recognition_traits": [
+            "a five-pinna fern tip attached beside the hollow"
+          ],
+          "parts_or_layers": [
+            "independent fern_tip component; do not precompose neighbouring actors"
+          ],
+          "anchors": {
+            "root": "provisional request anchor; measured after fabrication",
+            "scene": "forest_clearing named anchor"
+          },
+          "variants": [
+            "rest",
+            "recoil",
+            "settled"
+          ],
+          "closest_camera_use": "view-specific crop and closest permitted framing; never reveal an undrawn side"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "front/three-quarter inside a 15 degree range",
+            "frames": [
+              {
+                "id": "rest",
+                "description": "Five visible pinnae, relaxed downward tip, dry surface; attachment remains at the left socket.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "attachment": [
+                    130,
+                    450
+                  ],
+                  "dew_contact": [
+                    700,
+                    640
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "recoil",
+                "description": "Same fern in one restrained elastic recoil pose; intact pinnae and unchanged attachment socket; dry surface.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "attachment": [
+                    130,
+                    450
+                  ],
+                  "dew_contact": [
+                    700,
+                    600
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "settled",
+                "description": "Same fern settled slightly lower; no painted wet spot because wet residue is separately composited.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "attachment": [
+                    130,
+                    450
+                  ],
+                  "dew_contact": [
+                    700,
+                    665
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_canopy_plate",
+        "object_id": "canopy_plate",
+        "provider": "flow",
+        "kind": "layer",
+        "illustration_role": "background",
+        "requires_alpha": false,
+        "scene_ids": [
+          "forest_clearing"
+        ],
+        "identity": "distant original rainforest canopy with a readable path behind the foreground",
+        "action": {
+          "intent": "Support the scripted discovery without replacing its meaning",
+          "mechanics": "passive geography with camera-induced depth reading",
+          "source_ids": [
+            "trial_mechanics",
+            "kage_artwork"
+          ],
+          "entry_state": "{'geography': 'fixed'}",
+          "exit_state": "unchanged identity; persistent story state belongs to the shared assembly",
+          "contact_requirements": [
+            "named attachment/occlusion anchors stay registered; measure returned art"
+          ]
+        },
+        "design_semantics": {
+          "role": "environment",
+          "meaning": "Return to the same geography with changed knowledge.",
+          "recognition_traits": [
+            "distant original rainforest canopy with a readable path behind the foreground"
+          ],
+          "parts_or_layers": [
+            "independent canopy_plate component; do not precompose neighbouring actors"
+          ],
+          "anchors": {
+            "root": "provisional request anchor; measured after fabrication",
+            "scene": "forest_clearing named anchor"
+          },
+          "variants": [
+            "clean"
+          ],
+          "closest_camera_use": "view-specific crop and closest permitted framing; never reveal an undrawn side"
+        },
+        "views": [
+          {
+            "id": "wide",
+            "camera_region": "frontal distant background clean plate for the same clearing",
+            "frames": [
+              {
+                "id": "clean",
+                "description": "One coherent empty distant canopy/ground plate. Leave the central clearing and hollow area free. Exclude the interactive trunk, foreground leaf, fern, insect, paired glints/eyes, fog, particles and water effects.",
+                "width": 2560,
+                "height": 1440,
+                "root_anchor": [
+                  1280,
+                  720
+                ],
+                "ground_anchor": [
+                  1280,
+                  1440
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_light_insect",
+        "object_id": "light_insect",
+        "provider": "flow",
+        "kind": "sprite_sequence",
+        "illustration_role": "character_pose",
+        "requires_alpha": true,
+        "scene_ids": [
+          "forest_clearing"
+        ],
+        "identity": "one original fictional beetle-like insect with ivory abdomen mark and notched translucent wings",
+        "action": {
+          "intent": "Support the scripted discovery without replacing its meaning",
+          "mechanics": "hover -> approach named contact -> feet grip -> release -> side departure; no teleportation",
+          "source_ids": [
+            "trial_mechanics",
+            "kage_artwork"
+          ],
+          "entry_state": "{'phase': 'hover'}",
+          "exit_state": "unchanged identity; persistent story state belongs to the shared assembly",
+          "contact_requirements": [
+            "named attachment/occlusion anchors stay registered; measure returned art"
+          ]
+        },
+        "design_semantics": {
+          "role": "hero",
+          "meaning": "A moving question leads attention from ambience to a source.",
+          "recognition_traits": [
+            "one original fictional beetle-like insect with ivory abdomen mark and notched translucent wings"
+          ],
+          "parts_or_layers": [
+            "independent light_insect component; do not precompose neighbouring actors"
+          ],
+          "anchors": {
+            "root": "provisional request anchor; measured after fabrication",
+            "scene": "forest_clearing named anchor"
+          },
+          "variants": [
+            "hover_open",
+            "hover_closed",
+            "perched",
+            "depart_open",
+            "depart_closed"
+          ],
+          "closest_camera_use": "view-specific crop and closest permitted framing; never reveal an undrawn side"
+        },
+        "views": [
+          {
+            "id": "front_three_quarter",
+            "camera_region": "front three-quarter, no backside reveal",
+            "frames": [
+              {
+                "id": "hover_open",
+                "description": "One six-legged fictional beetle-like insect, wings open at one instant; ivory abdomen marking; all limbs separated.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "feet": [
+                    512,
+                    610
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "hover_closed",
+                "description": "Same identity, wings in one closed flight phase; no trajectory, glow halo, other insect or environment.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "feet": [
+                    512,
+                    610
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "perched",
+                "description": "Same insect at rest, feet capable of gripping the declared contact; folded wings; no baked branch.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "feet": [
+                    512,
+                    650
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              }
+            ]
+          },
+          {
+            "id": "side",
+            "camera_region": "side view for final departure; not a back view",
+            "frames": [
+              {
+                "id": "depart_open",
+                "description": "Same six-legged fictional insect in one side-view open-wing departure pose; same ivory mark and wing notch.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "feet": [
+                    512,
+                    610
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "depart_closed",
+                "description": "Same side-view identity in the corresponding closed-wing phase; no flight path or motion blur.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {
+                  "feet": [
+                    512,
+                    610
+                  ]
+                },
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "art_watcher_eyes",
+        "object_id": "watcher_eyes",
+        "provider": "flow",
+        "kind": "sprite_sequence",
+        "illustration_role": "character_part",
+        "requires_alpha": true,
+        "scene_ids": [
+          "forest_clearing"
+        ],
+        "identity": "one paired signal: initially unrecognizable ivory glints; later recessed amber irises, no face or body",
+        "action": {
+          "intent": "Support the scripted discovery without replacing its meaning",
+          "mechanics": "ambiguous glints -> local focus revelation -> correlated pupil direction; no autonomous body reveal",
+          "source_ids": [
+            "trial_mechanics",
+            "kage_artwork"
+          ],
+          "entry_state": "{'gaze': 'unrecognized'}",
+          "exit_state": "unchanged identity; persistent story state belongs to the shared assembly",
+          "contact_requirements": [
+            "named attachment/occlusion anchors stay registered; measure returned art"
+          ]
+        },
+        "design_semantics": {
+          "role": "support",
+          "meaning": "Reclassify a background signal as a reciprocal observer.",
+          "recognition_traits": [
+            "one paired signal: initially unrecognizable ivory glints; later recessed amber irises, no face or body"
+          ],
+          "parts_or_layers": [
+            "independent watcher_eyes component; do not precompose neighbouring actors"
+          ],
+          "anchors": {
+            "root": "provisional request anchor; measured after fabrication",
+            "scene": "forest_clearing named anchor"
+          },
+          "variants": [
+            "ambiguous_glints",
+            "recognition",
+            "follow_right"
+          ],
+          "closest_camera_use": "view-specific crop and closest permitted framing; never reveal an undrawn side"
+        },
+        "views": [
+          {
+            "id": "front",
+            "camera_region": "frontal recessed pair; shared centre and inter-eye spacing in every state",
+            "frames": [
+              {
+                "id": "ambiguous_glints",
+                "description": "PRE-REVEAL STATE ONLY: exactly two tiny disconnected ivory points. No pupil, iris, eyelid, face, monster silhouette or recognizable eye anatomy. Keep the registered pair spacing.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "recognition",
+                "description": "REVEAL STATE ONLY: two recessed amber irises and small dark pupils looking toward screen left. No surrounding face/body/teeth. Keep the same pair spacing and root.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              },
+              {
+                "id": "follow_right",
+                "description": "REVEAL STATE ONLY: the same two recessed amber irises; pupils shifted right, same size/spacing/colour. No full creature or additional eyes.",
+                "width": 1024,
+                "height": 1024,
+                "root_anchor": [
+                  512,
+                  512
+                ],
+                "ground_anchor": [
+                  512,
+                  1024
+                ],
+                "sockets": {},
+                "hold_frames": 6,
+                "registration_status": "REQUEST_ONLY_MEASURE_AFTER_RETURN"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "visual_reference": {
+      "primary": "kage"
+    },
+    "illustrator": {
+      "mode": "prompt_export_only",
+      "generation_operator": "human user",
+      "model": "Nano Banana 2.1",
+      "chroma_key_color": "#00FF00",
+      "three_d_skill": "lowbudget3d"
+    }
+  },
+  "content_profile": {
+    "genre": "horror",
+    "kind": "storytelling_rich"
+  },
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Rừng nghe lại",
+      "visual_thesis": "A leaf aperture becomes a listening aperture, then a reciprocal gaze.",
+      "narration": "Rừng mưa không bao giờ thật sự im lặng.",
+      "narration_segments": [
+        {
+          "id": "n1",
+          "text": "Rừng mưa không bao giờ thật sự im lặng.",
+          "role": "narrator"
+        }
+      ],
+      "objects": [
+        {
+          "id": "entry_leaf",
+          "identity": "one asymmetrical dark leaf with a chipped tip, hinged at its petiole",
+          "role": "support",
+          "initial_state": {
+            "opening": 0
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_entry_leaf"
+            ]
+          },
+          "craft": {
+            "silhouette": "one asymmetrical dark leaf with a chipped tip, hinged at its petiole",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "interactive_trunk",
+          "identity": "damp buttressed trunk with one narrow hollow and a diagonal bark ridge",
+          "role": "environment",
+          "initial_state": {
+            "pressure": 0
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_interactive_trunk"
+            ]
+          },
+          "craft": {
+            "silhouette": "damp buttressed trunk with one narrow hollow and a diagonal bark ridge",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "fern_tip",
+          "identity": "a five-pinna fern tip attached beside the hollow",
+          "role": "support",
+          "initial_state": {
+            "bend": 0
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_fern_tip"
+            ]
+          },
+          "craft": {
+            "silhouette": "a five-pinna fern tip attached beside the hollow",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "canopy_plate",
+          "identity": "distant original rainforest canopy with a readable path behind the foreground",
+          "role": "environment",
+          "initial_state": {
+            "geography": "fixed"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_canopy_plate"
+            ]
+          },
+          "craft": {
+            "silhouette": "distant original rainforest canopy with a readable path behind the foreground",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "light_insect",
+          "identity": "one original fictional beetle-like insect with ivory abdomen mark and notched translucent wings",
+          "role": "hero",
+          "initial_state": {
+            "phase": "hover"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_light_insect"
+            ]
+          },
+          "craft": {
+            "silhouette": "one original fictional beetle-like insect with ivory abdomen mark and notched translucent wings",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "watcher_eyes",
+          "identity": "one paired signal: initially unrecognizable ivory glints; later recessed amber irises, no face or body",
+          "role": "support",
+          "initial_state": {
+            "gaze": "unrecognized"
+          },
+          "illustration": {
+            "method": "generated",
+            "asset_ids": [
+              "art_watcher_eyes"
+            ]
+          },
+          "craft": {
+            "silhouette": "one paired signal: initially unrecognizable ivory glints; later recessed amber irises, no face or body",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "low_fog",
+          "identity": "low translucent atmospheric wisps behind the subject plane",
+          "role": "environment",
+          "initial_state": {
+            "density": "low"
+          },
+          "illustration": {
+            "method": "procedural",
+            "reason": "A time-dependent optical/physical layer must react and retain state in the motion/VFX assembly, not be baked into artwork."
+          },
+          "craft": {
+            "silhouette": "low translucent atmospheric wisps behind the subject plane",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "dew_drop",
+          "identity": "one clear droplet at the fern upper attachment",
+          "role": "support",
+          "initial_state": {
+            "phase": "attached"
+          },
+          "illustration": {
+            "method": "procedural",
+            "reason": "A time-dependent optical/physical layer must react and retain state in the motion/VFX assembly, not be baked into artwork."
+          },
+          "craft": {
+            "silhouette": "one clear droplet at the fern upper attachment",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "wet_mark",
+          "identity": "one persistent damp highlight on the fern below the droplet",
+          "role": "support",
+          "initial_state": {
+            "wetness": 0
+          },
+          "illustration": {
+            "method": "procedural",
+            "reason": "A time-dependent optical/physical layer must react and retain state in the motion/VFX assembly, not be baked into artwork."
+          },
+          "craft": {
+            "silhouette": "one persistent damp highlight on the fern below the droplet",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        },
+        {
+          "id": "ambient_specks",
+          "identity": "a grouped distant field of subtle moisture glints with one shared temporal envelope",
+          "role": "environment",
+          "initial_state": {
+            "activity": "low"
+          },
+          "illustration": {
+            "method": "procedural",
+            "reason": "A time-dependent optical/physical layer must react and retain state in the motion/VFX assembly, not be baked into artwork."
+          },
+          "craft": {
+            "silhouette": "a grouped distant field of subtle moisture glints with one shared temporal envelope",
+            "construction": "separately editable canonical component with declared scene anchor",
+            "material": "consistent with the shared night/light bible; fabrication still pending",
+            "references": [
+              "kage_artwork",
+              "trial_mechanics"
+            ],
+            "fidelity_limits": "Design proposal, not generated pixels or species/anatomy verification"
+          }
+        }
+      ],
+      "beats": [
+        {
+          "id": "aperture",
+          "purpose": "The apparent quiet hides multiple sources.",
+          "before": "apparent quiet",
+          "after": "only a small unclassified signal",
+          "depends_on": [],
+          "narration_anchor": {
+            "segment_id": "n1",
+            "relation": "visual development after/beyond the single source sentence"
+          },
+          "visual_evidence": "occlusion is a limit on hearing/seeing",
+          "completion": "only a small unclassified signal",
+          "planning_window": {
+            "start_seconds": 0,
+            "end_seconds": 5
+          },
+          "tension_editorial": {
+            "before": 0,
+            "after": 1
+          },
+          "dramatic_question": "What is moving there?",
+          "reveal_ceiling": "only a small unclassified signal",
+          "attention_anchor": "entry_leaf",
+          "direction": {
+            "idea": "The apparent quiet hides multiple sources.",
+            "visual_proposition": "occlusion is a limit on hearing/seeing",
+            "metaphor": {
+              "source": "leaf as curtain",
+              "target": "The apparent quiet hides multiple sources.",
+              "mapping": "occlusion is a limit on hearing/seeing",
+              "limits": "No literal curtain, choir, labels or peephole prop. Local pressure/gaze are fictional; no ecology claim."
+            },
+            "adds_information": "only a small unclassified signal; this is not stated by the VO",
+            "object_ids": [
+              "entry_leaf",
+              "interactive_trunk",
+              "fern_tip",
+              "light_insect",
+              "watcher_eyes",
+              "wet_mark"
+            ],
+            "knowledge": {
+              "before": "apparent quiet",
+              "after": "only a small unclassified signal",
+              "withheld": "a source behind the leaf"
+            },
+            "payoff": {
+              "plant_id": "hidden_sources",
+              "state_change": "only a small unclassified signal"
+            }
+          }
+        },
+        {
+          "id": "question",
+          "purpose": "A small signal has local consequences.",
+          "before": "only a small unclassified signal",
+          "after": "one moving source and a mechanical wet trace",
+          "depends_on": [
+            "aperture"
+          ],
+          "narration_anchor": {
+            "segment_id": "n1",
+            "relation": "visual development after/beyond the single source sentence"
+          },
+          "visual_evidence": "pressure/reaction is a local reply",
+          "completion": "one moving source and a mechanical wet trace",
+          "planning_window": {
+            "start_seconds": 5,
+            "end_seconds": 10
+          },
+          "tension_editorial": {
+            "before": 1,
+            "after": 2
+          },
+          "dramatic_question": "Why did the trunk respond without wind?",
+          "reveal_ceiling": "one moving source and a mechanical wet trace",
+          "attention_anchor": "light_insect",
+          "direction": {
+            "idea": "A small signal has local consequences.",
+            "visual_proposition": "pressure/reaction is a local reply",
+            "metaphor": {
+              "source": "insect pulse as a question",
+              "target": "A small signal has local consequences.",
+              "mapping": "pressure/reaction is a local reply",
+              "limits": "No literal curtain, choir, labels or peephole prop. Local pressure/gaze are fictional; no ecology claim."
+            },
+            "adds_information": "one moving source and a mechanical wet trace; this is not stated by the VO",
+            "object_ids": [
+              "entry_leaf",
+              "interactive_trunk",
+              "fern_tip",
+              "light_insect",
+              "watcher_eyes",
+              "wet_mark"
+            ],
+            "knowledge": {
+              "before": "only a small unclassified signal",
+              "after": "one moving source and a mechanical wet trace",
+              "withheld": "the agent inside the hollow"
+            },
+            "payoff": {
+              "plant_id": "hidden_sources",
+              "state_change": "one moving source and a mechanical wet trace"
+            }
+          }
+        },
+        {
+          "id": "false_explanation",
+          "purpose": "Identifying one source does not explain the whole space.",
+          "before": "one moving source and a mechanical wet trace",
+          "after": "the insect at a stable bark contact",
+          "depends_on": [
+            "question"
+          ],
+          "narration_anchor": {
+            "segment_id": "n1",
+            "relation": "visual development after/beyond the single source sentence"
+          },
+          "visual_evidence": "one insect is readable while a second pair remains undecoded",
+          "completion": "the insect at a stable bark contact",
+          "planning_window": {
+            "start_seconds": 10,
+            "end_seconds": 15
+          },
+          "tension_editorial": {
+            "before": 2,
+            "after": 1
+          },
+          "dramatic_question": "Are the remaining lights the same thing?",
+          "reveal_ceiling": "the insect at a stable bark contact",
+          "attention_anchor": "light_insect",
+          "direction": {
+            "idea": "Identifying one source does not explain the whole space.",
+            "visual_proposition": "one insect is readable while a second pair remains undecoded",
+            "metaphor": {
+              "source": "a labelled voice in an unresolved chorus",
+              "target": "Identifying one source does not explain the whole space.",
+              "mapping": "one insect is readable while a second pair remains undecoded",
+              "limits": "No literal curtain, choir, labels or peephole prop. Local pressure/gaze are fictional; no ecology claim."
+            },
+            "adds_information": "the insect at a stable bark contact; this is not stated by the VO",
+            "object_ids": [
+              "entry_leaf",
+              "interactive_trunk",
+              "fern_tip",
+              "light_insect",
+              "watcher_eyes",
+              "wet_mark"
+            ],
+            "knowledge": {
+              "before": "one moving source and a mechanical wet trace",
+              "after": "the insect at a stable bark contact",
+              "withheld": "identity of paired glints behind it"
+            },
+            "payoff": {
+              "plant_id": "paired_glints",
+              "state_change": "the insect at a stable bark contact"
+            }
+          }
+        },
+        {
+          "id": "reciprocal_gaze",
+          "purpose": "The observer becomes observed.",
+          "before": "the insect at a stable bark contact",
+          "after": "only two eyes; no full creature",
+          "depends_on": [
+            "false_explanation"
+          ],
+          "narration_anchor": {
+            "segment_id": "n1",
+            "relation": "visual development after/beyond the single source sentence"
+          },
+          "visual_evidence": "paired pupils correlate with departure, changing the meaning of looking",
+          "completion": "only two eyes; no full creature",
+          "planning_window": {
+            "start_seconds": 15,
+            "end_seconds": 21
+          },
+          "tension_editorial": {
+            "before": 1,
+            "after": 4
+          },
+          "dramatic_question": "Has it seen us?",
+          "reveal_ceiling": "only two eyes; no full creature",
+          "attention_anchor": "watcher_eyes",
+          "direction": {
+            "idea": "The observer becomes observed.",
+            "visual_proposition": "paired pupils correlate with departure, changing the meaning of looking",
+            "metaphor": {
+              "source": "an aperture as a peephole looking back",
+              "target": "The observer becomes observed.",
+              "mapping": "paired pupils correlate with departure, changing the meaning of looking",
+              "limits": "No literal curtain, choir, labels or peephole prop. Local pressure/gaze are fictional; no ecology claim."
+            },
+            "adds_information": "only two eyes; no full creature; this is not stated by the VO",
+            "object_ids": [
+              "entry_leaf",
+              "interactive_trunk",
+              "fern_tip",
+              "light_insect",
+              "watcher_eyes",
+              "wet_mark"
+            ],
+            "knowledge": {
+              "before": "the insect at a stable bark contact",
+              "after": "only two eyes; no full creature",
+              "withheld": "body, species and cause of the presence"
+            },
+            "payoff": {
+              "plant_id": "paired_glints",
+              "state_change": "only two eyes; no full creature"
+            }
+          }
+        },
+        {
+          "id": "afterimage",
+          "purpose": "The old view now contains persistent threat knowledge.",
+          "before": "only two eyes; no full creature",
+          "after": "the same clearing; the paired points are still there",
+          "depends_on": [
+            "reciprocal_gaze"
+          ],
+          "narration_anchor": {
+            "segment_id": "n1",
+            "relation": "visual development after/beyond the single source sentence"
+          },
+          "visual_evidence": "foreground closes while gaze and wet evidence stay put",
+          "completion": "the same clearing; the paired points are still there",
+          "planning_window": {
+            "start_seconds": 21,
+            "end_seconds": 24
+          },
+          "tension_editorial": {
+            "before": 4,
+            "after": 4
+          },
+          "dramatic_question": "The source was never merely decoration.",
+          "reveal_ceiling": "the same clearing; the paired points are still there",
+          "attention_anchor": "watcher_eyes",
+          "direction": {
+            "idea": "The old view now contains persistent threat knowledge.",
+            "visual_proposition": "foreground closes while gaze and wet evidence stay put",
+            "metaphor": {
+              "source": "quiet as a held reply",
+              "target": "The old view now contains persistent threat knowledge.",
+              "mapping": "foreground closes while gaze and wet evidence stay put",
+              "limits": "No literal curtain, choir, labels or peephole prop. Local pressure/gaze are fictional; no ecology claim."
+            },
+            "adds_information": "the same clearing; the paired points are still there; this is not stated by the VO",
+            "object_ids": [
+              "entry_leaf",
+              "interactive_trunk",
+              "fern_tip",
+              "light_insect",
+              "watcher_eyes",
+              "wet_mark"
+            ],
+            "knowledge": {
+              "before": "only two eyes; no full creature",
+              "after": "the same clearing; the paired points are still there",
+              "withheld": "what happens if the viewer returns"
+            },
+            "payoff": {
+              "plant_id": "paired_glints",
+              "state_change": "the same clearing; the paired points are still there"
+            }
+          }
+        }
+      ],
+      "shots": [
+        {
+          "id": "leaf_aperture",
+          "scene_id": "forest_clearing",
+          "beat_ids": [
+            "aperture"
+          ],
+          "object_ids": [
+            "entry_leaf",
+            "interactive_trunk",
+            "fern_tip",
+            "canopy_plate",
+            "light_insect",
+            "watcher_eyes",
+            "low_fog",
+            "dew_drop",
+            "wet_mark",
+            "ambient_specks"
+          ],
+          "renderer": "remotion",
+          "scene_type": "3d",
+          "renderer_reason": "One existing Remotion assembly hosts native Three.js trunk plus separate 2D/optical layers; this draft creates no renderer.",
+          "visual_thesis": "The apparent quiet hides multiple sources.",
+          "planning_window": {
+            "start_seconds": 0,
+            "end_seconds": 5,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "panel_plan": {
+            "start": "Leaf fills the lower-left foreground; a narrow dark aperture remains.",
+            "primary_action": "Glide 0.7 m forward around the leaf edge. Layer parallax opens the aperture; a small ivory point pulses in the hollow direction.",
+            "end": "Leaf still partly masks frame; the moving point is now discoverable."
+          },
+          "attention": [
+            "entry_leaf"
+          ],
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "light_insect",
+              "watcher_eyes"
+            ],
+            "reading_logic": "occlusion is a limit on hearing/seeing"
+          },
+          "camera": {
+            "purpose": "Opening the leaf aperture makes previously hidden space readable; no scenic orbit.",
+            "planning_path": "Glide 0.7 m forward around the leaf edge. Layer parallax opens the aperture; a small ivory point pulses in the hollow direction.",
+            "supported_sprite_views": [
+              "front",
+              "front_three_quarter",
+              "wide",
+              "side"
+            ],
+            "information_intent": {
+              "known_before": "only dark leaf and apparent quiet",
+              "hidden_before": "the source behind the aperture",
+              "reveals": "one distant moving pinprick",
+              "target_object": "entry_leaf",
+              "reason_for_move_or_hold": "Opening the leaf aperture makes previously hidden space readable; no scenic orbit."
+            }
+          },
+          "components": {
+            "required_roles": [
+              "atmosphere",
+              "background",
+              "foreground",
+              "interactive_prop",
+              "midground",
+              "subject",
+              "support"
+            ],
+            "omissions": {},
+            "items": [
+              {
+                "object_id": "entry_leaf",
+                "roles": [
+                  "foreground"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "interactive_trunk",
+                "roles": [
+                  "midground",
+                  "interactive_prop"
+                ],
+                "route": "3d"
+              },
+              {
+                "object_id": "fern_tip",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "canopy_plate",
+                "roles": [
+                  "background"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "light_insect",
+                "roles": [
+                  "subject"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "watcher_eyes",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "low_fog",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "dew_drop",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "wet_mark",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "ambient_specks",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              }
+            ]
+          },
+          "attention_plan": [
+            {
+              "object_id": "entry_leaf",
+              "priority": "primary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "interactive_trunk",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "fern_tip",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "canopy_plate",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "light_insect",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "watcher_eyes",
+              "priority": "suppressed",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "low_fog",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "dew_drop",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "wet_mark",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "ambient_specks",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            }
+          ],
+          "reveal_ceiling": "only a small unclassified signal",
+          "withheld": "a source behind the leaf",
+          "audience_knowledge": {
+            "in": "apparent quiet",
+            "out": "only a small unclassified signal"
+          },
+          "character_knowledge": {
+            "viewer": "only a small unclassified signal",
+            "watcher": "not audience-verifiable before S4"
+          },
+          "sound_plan": {
+            "vo": {
+              "text": "Rừng mưa không bao giờ thật sự im lặng.",
+              "window_seconds": [
+                0.6,
+                3.8
+              ],
+              "status": "reading estimate, not recording"
+            },
+            "dialogue": "none",
+            "music": "none",
+            "ambience": "low spatial insect/wet-leaf bed; gently attenuate after S4 discovery, never add a drone by default",
+            "cue": "quiet source/space evidence",
+            "silence_buses": [
+              "VO outside its proposed window",
+              "dialogue throughout",
+              "music throughout"
+            ],
+            "status": "BRIEF_ONLY_SMALL_SFX_NOT_GENERATED"
+          },
+          "behaviors": {
+            "entry_leaf": {
+              "mode": "camera_induced",
+              "motivation": "Leaf masks access; it is not an idle dancer",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Leaf masks access; it is not an idle dancer",
+                "ref": "leaf_aperture"
+              },
+              "response": "relative screen occlusion changes only from the camera path",
+              "secondary_response": "petiole stays anchored; retain chipped-tip silhouette",
+              "settle": "hold after camera stops",
+              "exit_state": {
+                "opening": 1
+              }
+            },
+            "interactive_trunk": {
+              "mode": "reactive",
+              "motivation": "Local pressure is the authored fictional discrepancy",
+              "trigger": {
+                "kind": "event",
+                "reason": "Local pressure is the authored fictional discrepancy",
+                "ref": "trunk_pressure",
+                "phase": "start"
+              },
+              "response": "minute local pressure response; do not sway the forest",
+              "secondary_response": "fern lags through named attachment",
+              "settle": "pressure settles without resetting geography",
+              "exit_state": {
+                "pressure": 0
+              }
+            },
+            "fern_tip": {
+              "mode": "reactive",
+              "motivation": "Fern provides a secondary contact/weight consequence",
+              "trigger": {
+                "kind": "event",
+                "reason": "Fern provides a secondary contact/weight consequence",
+                "ref": "trunk_pressure",
+                "phase": "start"
+              },
+              "response": "delayed recoil at attachment",
+              "secondary_response": "one droplet releases, then damp mark stays",
+              "settle": "damped response; no repeating wobble",
+              "exit_state": {
+                "bend": 0.08
+              }
+            },
+            "canopy_plate": {
+              "mode": "camera_induced",
+              "motivation": "Background proves we remain in the same clearing",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Background proves we remain in the same clearing",
+                "ref": "leaf_aperture"
+              },
+              "response": "projection/parallax only",
+              "secondary_response": "no independent tree wobble, new characters or resetting foliage",
+              "settle": "fixed geography after movement",
+              "exit_state": {
+                "geography": "fixed"
+              }
+            },
+            "light_insect": {
+              "mode": "active",
+              "motivation": "The same source motivates entry, contact and departure",
+              "trigger": {
+                "kind": "event",
+                "reason": "The same source motivates entry, contact and departure",
+                "ref": "signal_question",
+                "phase": "start"
+              },
+              "response": "hover and begin approach",
+              "secondary_response": "wings and feet follow the phase; never substitute a new insect",
+              "settle": "perched hold or continued departure, no teleport",
+              "exit_state": {
+                "phase": "approach"
+              }
+            },
+            "watcher_eyes": {
+              "mode": "optical",
+              "motivation": "Glints remain unclassified until the planned reveal",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Glints remain unclassified until the planned reveal",
+                "ref": "leaf_aperture"
+              },
+              "response": "render ambiguous points only through existing hollow mask",
+              "secondary_response": "no visible eyelid/pupil/body before S4",
+              "settle": "keep the same spatial source at the end",
+              "exit_state": {
+                "gaze": "unrecognized"
+              }
+            },
+            "low_fog": {
+              "mode": "optical",
+              "motivation": "Low haze supports depth, not screen-filling atmosphere",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Low haze supports depth, not screen-filling atmosphere",
+                "ref": "forest_clearing"
+              },
+              "response": "slow low-density transport behind hero plane",
+              "secondary_response": "no foreground veil over the intended clue",
+              "settle": "continuing restrained field, no per-shot reset",
+              "exit_state": {
+                "density": "low"
+              }
+            },
+            "dew_drop": {
+              "mode": "reactive",
+              "motivation": "The droplet makes the small pressure mechanically consequential",
+              "trigger": {
+                "kind": "event",
+                "reason": "The droplet makes the small pressure mechanically consequential",
+                "ref": "dew_release",
+                "phase": "start"
+              },
+              "response": "remain attached before onset; detach and fall once after onset",
+              "secondary_response": "one contact response on fern, no repeated splash",
+              "settle": "drop consumed on contact; do not respawn",
+              "exit_state": {
+                "phase": "attached"
+              }
+            },
+            "wet_mark": {
+              "mode": "reactive",
+              "motivation": "Residue proves prior activity survives a cut",
+              "trigger": {
+                "kind": "event",
+                "reason": "Residue proves prior activity survives a cut",
+                "ref": "dew_release",
+                "phase": "start"
+              },
+              "response": "wetness rises only after contact",
+              "secondary_response": "highlight follows fern surface/light, no new object or glow bloom",
+              "settle": "retain wetness until sequence ends",
+              "exit_state": {
+                "wetness": 0
+              }
+            },
+            "ambient_specks": {
+              "mode": "optical",
+              "motivation": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+                "ref": "forest_clearing"
+              },
+              "response": "subtle shared optical activity",
+              "secondary_response": "no independent hero action or whole-screen strobing",
+              "settle": "field persists deterministically",
+              "exit_state": {
+                "activity": "low"
+              }
+            }
+          },
+          "events": [
+            {
+              "id": "signal_question",
+              "kind": "motion",
+              "source_object": "light_insect",
+              "target_objects": [
+                "interactive_trunk"
+              ],
+              "cause": "The already present light_insect makes a small local signal and approaches the existing hollow.",
+              "action": "one insect emits an understated ivory pulse and approaches the named contact",
+              "reaction": "a local pressure hint appears in the trunk; no whole-forest movement",
+              "aftermath": "insect remains the same canonical source",
+              "implementation": "PENDING_signal_question",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "planning_phases": {
+                "start_seconds": 3.8,
+                "peak_seconds": 4.6,
+                "end_seconds": 9.2
+              },
+              "carry_across_shots": true
+            },
+            {
+              "id": "trunk_pressure",
+              "kind": "motion",
+              "source_object": "interactive_trunk",
+              "target_objects": [
+                "fern_tip",
+                "dew_drop"
+              ],
+              "cause": "Authored fictional local pressure inside the hollow replies to the insect signal.",
+              "action": "minute rooted local pressure; supernatural departure is intentional fiction",
+              "reaction": "attached fern recoils with lag; its droplet loses contact",
+              "aftermath": "trunk settles; fern is slightly lowered",
+              "implementation": "PENDING_trunk_pressure",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "planning_phases": {
+                "start_seconds": 4.6,
+                "peak_seconds": 5.8,
+                "end_seconds": 7.1
+              },
+              "carry_across_shots": true,
+              "cause_event_ids": [
+                "signal_question"
+              ]
+            }
+          ],
+          "handoff": {
+            "type": "follow",
+            "reason": "Opening the aperture exposes the moving source that motivates the follow.",
+            "carry_state": [
+              "insect identity/phase",
+              "trunk/hollow geography",
+              "fern bend and wet trace",
+              "eye spacing/occlusion",
+              "practical light and restrained ambience"
+            ],
+            "semantic_link": {
+              "to_shot_id": "signal_follow",
+              "kind": "causal",
+              "relation": "Opening the aperture exposes the moving source that motivates the follow.",
+              "invariants": [
+                "same source IDs/positions",
+                "wet residue is not reset",
+                "no eye relocation or early reveal"
+              ],
+              "trigger_event_id": "signal_question"
+            }
+          },
+          "motion_prompt": "Start: Leaf fills the lower-left foreground; a narrow dark aperture remains. Action/camera: Glide 0.7 m forward around the leaf edge. Layer parallax opens the aperture; a small ivory point pulses in the hollow direction. End: Leaf still partly masks frame; the moving point is now discoverable.. Preserve canonical IDs, attention and all declared contacts/occlusion; derive later execution from measured section-absolute time.",
+          "keyframe_prompt": "Original layered night forest, same world/light bible. End keyframe only: Leaf still partly masks frame; the moving point is now discoverable. Reveal ceiling: only a small unclassified signal. Do not show a source behind the leaf. No montage, text, UI or full creature."
+        },
+        {
+          "id": "signal_follow",
+          "scene_id": "forest_clearing",
+          "beat_ids": [
+            "question"
+          ],
+          "object_ids": [
+            "entry_leaf",
+            "interactive_trunk",
+            "fern_tip",
+            "canopy_plate",
+            "light_insect",
+            "watcher_eyes",
+            "low_fog",
+            "dew_drop",
+            "wet_mark",
+            "ambient_specks"
+          ],
+          "renderer": "remotion",
+          "scene_type": "3d",
+          "renderer_reason": "One existing Remotion assembly hosts native Three.js trunk plus separate 2D/optical layers; this draft creates no renderer.",
+          "visual_thesis": "A small signal has local consequences.",
+          "planning_window": {
+            "start_seconds": 5,
+            "end_seconds": 10,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "panel_plan": {
+            "start": "Follow the same ivory point rightward, with tree and fern geography established.",
+            "primary_action": "The insect approaches bark; a slight trunk pressure drives fern recoil and releases one droplet onto the lower fern.",
+            "end": "Insect nears its grip; fern is lower and a wet highlight remains."
+          },
+          "attention": [
+            "light_insect"
+          ],
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "light_insect",
+              "watcher_eyes"
+            ],
+            "reading_logic": "pressure/reaction is a local reply"
+          },
+          "camera": {
+            "purpose": "Track that source so a secondary pressure response is read as a relation, not arbitrary world motion.",
+            "planning_path": "The insect approaches bark; a slight trunk pressure drives fern recoil and releases one droplet onto the lower fern.",
+            "supported_sprite_views": [
+              "front",
+              "front_three_quarter",
+              "wide",
+              "side"
+            ],
+            "information_intent": {
+              "known_before": "one signal exists behind the leaf",
+              "hidden_before": "its relation to nearby material",
+              "reveals": "insect/pressure/fern/contact geography",
+              "target_object": "light_insect",
+              "reason_for_move_or_hold": "Track that source so a secondary pressure response is read as a relation, not arbitrary world motion."
+            }
+          },
+          "components": {
+            "required_roles": [
+              "atmosphere",
+              "background",
+              "foreground",
+              "interactive_prop",
+              "midground",
+              "subject",
+              "support"
+            ],
+            "omissions": {},
+            "items": [
+              {
+                "object_id": "entry_leaf",
+                "roles": [
+                  "foreground"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "interactive_trunk",
+                "roles": [
+                  "midground",
+                  "interactive_prop"
+                ],
+                "route": "3d"
+              },
+              {
+                "object_id": "fern_tip",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "canopy_plate",
+                "roles": [
+                  "background"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "light_insect",
+                "roles": [
+                  "subject"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "watcher_eyes",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "low_fog",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "dew_drop",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "wet_mark",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "ambient_specks",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              }
+            ]
+          },
+          "attention_plan": [
+            {
+              "object_id": "entry_leaf",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "interactive_trunk",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "fern_tip",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "canopy_plate",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "light_insect",
+              "priority": "primary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "watcher_eyes",
+              "priority": "suppressed",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "low_fog",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "dew_drop",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "wet_mark",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "ambient_specks",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            }
+          ],
+          "reveal_ceiling": "one moving source and a mechanical wet trace",
+          "withheld": "the agent inside the hollow",
+          "audience_knowledge": {
+            "in": "only a small unclassified signal",
+            "out": "one moving source and a mechanical wet trace"
+          },
+          "character_knowledge": {
+            "viewer": "one moving source and a mechanical wet trace",
+            "watcher": "not audience-verifiable before S4"
+          },
+          "sound_plan": {
+            "vo": {
+              "text": null,
+              "reason": "let visual evidence change the sentence meaning"
+            },
+            "dialogue": "none",
+            "music": "none",
+            "ambience": "low spatial insect/wet-leaf bed; gently attenuate after S4 discovery, never add a drone by default",
+            "cue": "subtle local pressure and one wet contact",
+            "silence_buses": [
+              "VO outside its proposed window",
+              "dialogue throughout",
+              "music throughout"
+            ],
+            "status": "BRIEF_ONLY_SMALL_SFX_NOT_GENERATED"
+          },
+          "behaviors": {
+            "entry_leaf": {
+              "mode": "camera_induced",
+              "motivation": "Leaf masks access; it is not an idle dancer",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Leaf masks access; it is not an idle dancer",
+                "ref": "signal_follow"
+              },
+              "response": "relative screen occlusion changes only from the camera path",
+              "secondary_response": "petiole stays anchored; retain chipped-tip silhouette",
+              "settle": "hold after camera stops",
+              "exit_state": {
+                "opening": 1
+              }
+            },
+            "interactive_trunk": {
+              "mode": "reactive",
+              "motivation": "Local pressure is the authored fictional discrepancy",
+              "trigger": {
+                "kind": "event",
+                "reason": "Local pressure is the authored fictional discrepancy",
+                "ref": "trunk_pressure",
+                "phase": "start"
+              },
+              "response": "minute local pressure response; do not sway the forest",
+              "secondary_response": "fern lags through named attachment",
+              "settle": "pressure settles without resetting geography",
+              "exit_state": {
+                "pressure": 0
+              }
+            },
+            "fern_tip": {
+              "mode": "reactive",
+              "motivation": "Fern provides a secondary contact/weight consequence",
+              "trigger": {
+                "kind": "event",
+                "reason": "Fern provides a secondary contact/weight consequence",
+                "ref": "trunk_pressure",
+                "phase": "start"
+              },
+              "response": "delayed recoil at attachment",
+              "secondary_response": "one droplet releases, then damp mark stays",
+              "settle": "damped response; no repeating wobble",
+              "exit_state": {
+                "bend": 0.08
+              }
+            },
+            "canopy_plate": {
+              "mode": "camera_induced",
+              "motivation": "Background proves we remain in the same clearing",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Background proves we remain in the same clearing",
+                "ref": "signal_follow"
+              },
+              "response": "projection/parallax only",
+              "secondary_response": "no independent tree wobble, new characters or resetting foliage",
+              "settle": "fixed geography after movement",
+              "exit_state": {
+                "geography": "fixed"
+              }
+            },
+            "light_insect": {
+              "mode": "active",
+              "motivation": "The same source motivates entry, contact and departure",
+              "trigger": {
+                "kind": "event",
+                "reason": "The same source motivates entry, contact and departure",
+                "ref": "signal_question",
+                "phase": "start"
+              },
+              "response": "approach the named grip",
+              "secondary_response": "wings and feet follow the phase; never substitute a new insect",
+              "settle": "perched hold or continued departure, no teleport",
+              "exit_state": {
+                "phase": "arriving"
+              }
+            },
+            "watcher_eyes": {
+              "mode": "optical",
+              "motivation": "Glints remain unclassified until the planned reveal",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Glints remain unclassified until the planned reveal",
+                "ref": "signal_follow"
+              },
+              "response": "render ambiguous points only through existing hollow mask",
+              "secondary_response": "no visible eyelid/pupil/body before S4",
+              "settle": "keep the same spatial source at the end",
+              "exit_state": {
+                "gaze": "unrecognized"
+              }
+            },
+            "low_fog": {
+              "mode": "optical",
+              "motivation": "Low haze supports depth, not screen-filling atmosphere",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Low haze supports depth, not screen-filling atmosphere",
+                "ref": "forest_clearing"
+              },
+              "response": "slow low-density transport behind hero plane",
+              "secondary_response": "no foreground veil over the intended clue",
+              "settle": "continuing restrained field, no per-shot reset",
+              "exit_state": {
+                "density": "low"
+              }
+            },
+            "dew_drop": {
+              "mode": "reactive",
+              "motivation": "The droplet makes the small pressure mechanically consequential",
+              "trigger": {
+                "kind": "event",
+                "reason": "The droplet makes the small pressure mechanically consequential",
+                "ref": "dew_release",
+                "phase": "start"
+              },
+              "response": "remain attached before onset; detach and fall once after onset",
+              "secondary_response": "one contact response on fern, no repeated splash",
+              "settle": "drop consumed on contact; do not respawn",
+              "exit_state": {
+                "phase": "consumed"
+              }
+            },
+            "wet_mark": {
+              "mode": "reactive",
+              "motivation": "Residue proves prior activity survives a cut",
+              "trigger": {
+                "kind": "event",
+                "reason": "Residue proves prior activity survives a cut",
+                "ref": "dew_release",
+                "phase": "start"
+              },
+              "response": "wetness rises only after contact",
+              "secondary_response": "highlight follows fern surface/light, no new object or glow bloom",
+              "settle": "retain wetness until sequence ends",
+              "exit_state": {
+                "wetness": 1
+              }
+            },
+            "ambient_specks": {
+              "mode": "optical",
+              "motivation": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+                "ref": "forest_clearing"
+              },
+              "response": "subtle shared optical activity",
+              "secondary_response": "no independent hero action or whole-screen strobing",
+              "settle": "field persists deterministically",
+              "exit_state": {
+                "activity": "low"
+              }
+            }
+          },
+          "events": [
+            {
+              "id": "dew_release",
+              "kind": "vfx",
+              "source_object": "dew_drop",
+              "target_objects": [
+                "fern_tip",
+                "wet_mark"
+              ],
+              "cause": "trunk_pressure reaches the attached fern; the droplet loses its upper contact.",
+              "action": "one loosened droplet falls from the registered upper attachment",
+              "reaction": "droplet hits the named lower fern contact; one small splash/wet highlight, not a particle shower",
+              "aftermath": "drop is gone; wet_mark remains through S5",
+              "implementation": "PENDING_dew_release",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "planning_phases": {
+                "start_seconds": 6.8,
+                "peak_seconds": 7.45,
+                "end_seconds": 11.0
+              },
+              "carry_across_shots": true,
+              "representation": "one editable physical droplet and minimal contact response",
+              "transport": "gravity-directed path from declared attachment to fern contact; no horizontal teleport",
+              "interaction": "contact at fern_tip named socket",
+              "lighting_response": "local low-contrast wet highlight, no global bloom",
+              "cause_event_ids": [
+                "trunk_pressure"
+              ]
+            },
+            {
+              "id": "insect_land",
+              "kind": "motion",
+              "source_object": "light_insect",
+              "target_objects": [
+                "interactive_trunk"
+              ],
+              "cause": "The same approach reaches the previously established bark grip.",
+              "action": "feet reach the existing bark grip point, wings close",
+              "reaction": "no sliding root/contact as the camera approaches",
+              "aftermath": "same insect remains perched into the macro",
+              "implementation": "PENDING_insect_land",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "planning_phases": {
+                "start_seconds": 9.2,
+                "peak_seconds": 10.2,
+                "end_seconds": 10.8
+              },
+              "carry_across_shots": true,
+              "cause_event_ids": [
+                "signal_question"
+              ]
+            }
+          ],
+          "handoff": {
+            "type": "scale",
+            "reason": "The source reaches a specific grip, motivating closer inspection of that same contact.",
+            "carry_state": [
+              "insect identity/phase",
+              "trunk/hollow geography",
+              "fern bend and wet trace",
+              "eye spacing/occlusion",
+              "practical light and restrained ambience"
+            ],
+            "semantic_link": {
+              "to_shot_id": "macro_identify",
+              "kind": "spatial",
+              "relation": "The source reaches a specific grip, motivating closer inspection of that same contact.",
+              "invariants": [
+                "same source IDs/positions",
+                "wet residue is not reset",
+                "no eye relocation or early reveal"
+              ],
+              "trigger_event_id": "insect_land"
+            }
+          },
+          "motion_prompt": "Start: Follow the same ivory point rightward, with tree and fern geography established. Action/camera: The insect approaches bark; a slight trunk pressure drives fern recoil and releases one droplet onto the lower fern. End: Insect nears its grip; fern is lower and a wet highlight remains.. Preserve canonical IDs, attention and all declared contacts/occlusion; derive later execution from measured section-absolute time.",
+          "keyframe_prompt": "Original layered night forest, same world/light bible. End keyframe only: Insect nears its grip; fern is lower and a wet highlight remains. Reveal ceiling: one moving source and a mechanical wet trace. Do not show the agent inside the hollow. No montage, text, UI or full creature.",
+          "event_ids": [
+            "signal_question",
+            "trunk_pressure"
+          ]
+        },
+        {
+          "id": "macro_identify",
+          "scene_id": "forest_clearing",
+          "beat_ids": [
+            "false_explanation"
+          ],
+          "object_ids": [
+            "entry_leaf",
+            "interactive_trunk",
+            "fern_tip",
+            "canopy_plate",
+            "light_insect",
+            "watcher_eyes",
+            "low_fog",
+            "wet_mark",
+            "ambient_specks"
+          ],
+          "renderer": "remotion",
+          "scene_type": "3d",
+          "renderer_reason": "One existing Remotion assembly hosts native Three.js trunk plus separate 2D/optical layers; this draft creates no renderer.",
+          "visual_thesis": "Identifying one source does not explain the whole space.",
+          "planning_window": {
+            "start_seconds": 10,
+            "end_seconds": 15,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "panel_plan": {
+            "start": "The same insect reaches its bark grip as the camera crosses into macro.",
+            "primary_action": "Approach the same contact without orbiting behind the 2D sprite. Resolve feet/wings. Paired glints behind remain soft and unrecognizable.",
+            "end": "Insect is legible; paired background glints remain a question, with wet evidence at the frame edge."
+          },
+          "attention": [
+            "light_insect"
+          ],
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "light_insect",
+              "watcher_eyes"
+            ],
+            "reading_logic": "one insect is readable while a second pair remains undecoded"
+          },
+          "camera": {
+            "purpose": "Approach the question at constant screen direction; do not expose the hollow answer yet.",
+            "planning_path": "Approach the same contact without orbiting behind the 2D sprite. Resolve feet/wings. Paired glints behind remain soft and unrecognizable.",
+            "supported_sprite_views": [
+              "front",
+              "front_three_quarter",
+              "wide",
+              "side"
+            ],
+            "information_intent": {
+              "known_before": "a signal led to this exact grip point",
+              "hidden_before": "what the pinprick is",
+              "reveals": "the insect feet/wings at the same contact",
+              "target_object": "light_insect",
+              "reason_for_move_or_hold": "Approach the question at constant screen direction; do not expose the hollow answer yet."
+            }
+          },
+          "components": {
+            "required_roles": [
+              "atmosphere",
+              "background",
+              "foreground",
+              "interactive_prop",
+              "midground",
+              "subject",
+              "support"
+            ],
+            "omissions": {},
+            "items": [
+              {
+                "object_id": "entry_leaf",
+                "roles": [
+                  "foreground"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "interactive_trunk",
+                "roles": [
+                  "midground",
+                  "interactive_prop"
+                ],
+                "route": "3d"
+              },
+              {
+                "object_id": "fern_tip",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "canopy_plate",
+                "roles": [
+                  "background"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "light_insect",
+                "roles": [
+                  "subject"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "watcher_eyes",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "low_fog",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "wet_mark",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "ambient_specks",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              }
+            ]
+          },
+          "attention_plan": [
+            {
+              "object_id": "entry_leaf",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "interactive_trunk",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "fern_tip",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "canopy_plate",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "light_insect",
+              "priority": "primary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "watcher_eyes",
+              "priority": "suppressed",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "low_fog",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "wet_mark",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "ambient_specks",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            }
+          ],
+          "reveal_ceiling": "the insect at a stable bark contact",
+          "withheld": "identity of paired glints behind it",
+          "audience_knowledge": {
+            "in": "one moving source and a mechanical wet trace",
+            "out": "the insect at a stable bark contact"
+          },
+          "character_knowledge": {
+            "viewer": "the insect at a stable bark contact",
+            "watcher": "not audience-verifiable before S4"
+          },
+          "sound_plan": {
+            "vo": {
+              "text": null,
+              "reason": "let visual evidence change the sentence meaning"
+            },
+            "dialogue": "none",
+            "music": "none",
+            "ambience": "low spatial insect/wet-leaf bed; gently attenuate after S4 discovery, never add a drone by default",
+            "cue": "quiet source/space evidence",
+            "silence_buses": [
+              "VO outside its proposed window",
+              "dialogue throughout",
+              "music throughout"
+            ],
+            "status": "BRIEF_ONLY_SMALL_SFX_NOT_GENERATED"
+          },
+          "behaviors": {
+            "entry_leaf": {
+              "mode": "camera_induced",
+              "motivation": "Leaf masks access; it is not an idle dancer",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Leaf masks access; it is not an idle dancer",
+                "ref": "macro_identify"
+              },
+              "response": "relative screen occlusion changes only from the camera path",
+              "secondary_response": "petiole stays anchored; retain chipped-tip silhouette",
+              "settle": "hold after camera stops",
+              "exit_state": {
+                "opening": 1
+              }
+            },
+            "interactive_trunk": {
+              "mode": "passive",
+              "motivation": "Stable rooted geography makes later focus and gaze interpretable",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "Stable rooted geography makes later focus and gaze interpretable"
+              },
+              "response": "hold rooted mass",
+              "secondary_response": "cavity rim continues to mask the same pair",
+              "settle": "pressure settles without resetting geography",
+              "exit_state": {
+                "pressure": 0
+              }
+            },
+            "fern_tip": {
+              "mode": "passive",
+              "motivation": "The lower fern position is persistent aftermath",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "The lower fern position is persistent aftermath"
+              },
+              "response": "hold the lowered terminal pose",
+              "secondary_response": "wet_mark remains anchored to its same surface",
+              "settle": "damped response; no repeating wobble",
+              "exit_state": {
+                "bend": 0.08
+              }
+            },
+            "canopy_plate": {
+              "mode": "camera_induced",
+              "motivation": "Background proves we remain in the same clearing",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Background proves we remain in the same clearing",
+                "ref": "macro_identify"
+              },
+              "response": "projection/parallax only",
+              "secondary_response": "no independent tree wobble, new characters or resetting foliage",
+              "settle": "fixed geography after movement",
+              "exit_state": {
+                "geography": "fixed"
+              }
+            },
+            "light_insect": {
+              "mode": "active",
+              "motivation": "The same source motivates entry, contact and departure",
+              "trigger": {
+                "kind": "event",
+                "reason": "The same source motivates entry, contact and departure",
+                "ref": "insect_land",
+                "phase": "start"
+              },
+              "response": "complete feet contact, fold wings and hold",
+              "secondary_response": "wings and feet follow the phase; never substitute a new insect",
+              "settle": "perched hold or continued departure, no teleport",
+              "exit_state": {
+                "phase": "perched"
+              }
+            },
+            "watcher_eyes": {
+              "mode": "optical",
+              "motivation": "Glints remain unclassified until the planned reveal",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Glints remain unclassified until the planned reveal",
+                "ref": "macro_identify"
+              },
+              "response": "render ambiguous points only through existing hollow mask",
+              "secondary_response": "no visible eyelid/pupil/body before S4",
+              "settle": "keep the same spatial source at the end",
+              "exit_state": {
+                "gaze": "unrecognized"
+              }
+            },
+            "low_fog": {
+              "mode": "optical",
+              "motivation": "Low haze supports depth, not screen-filling atmosphere",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Low haze supports depth, not screen-filling atmosphere",
+                "ref": "forest_clearing"
+              },
+              "response": "slow low-density transport behind hero plane",
+              "secondary_response": "no foreground veil over the intended clue",
+              "settle": "continuing restrained field, no per-shot reset",
+              "exit_state": {
+                "density": "low"
+              }
+            },
+            "wet_mark": {
+              "mode": "reactive",
+              "motivation": "Residue proves prior activity survives a cut",
+              "trigger": {
+                "kind": "event",
+                "reason": "Residue proves prior activity survives a cut",
+                "ref": "dew_release",
+                "phase": "start"
+              },
+              "response": "wetness rises only after contact",
+              "secondary_response": "highlight follows fern surface/light, no new object or glow bloom",
+              "settle": "retain wetness until sequence ends",
+              "exit_state": {
+                "wetness": 1
+              }
+            },
+            "ambient_specks": {
+              "mode": "optical",
+              "motivation": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+                "ref": "forest_clearing"
+              },
+              "response": "subtle shared optical activity",
+              "secondary_response": "no independent hero action or whole-screen strobing",
+              "settle": "field persists deterministically",
+              "exit_state": {
+                "activity": "low"
+              }
+            }
+          },
+          "events": [],
+          "handoff": {
+            "type": "authored_bridge",
+            "reason": "One explained source leaves the paired glints unresolved; focus changes their meaning in the same space.",
+            "carry_state": [
+              "insect identity/phase",
+              "trunk/hollow geography",
+              "fern bend and wet trace",
+              "eye spacing/occlusion",
+              "practical light and restrained ambience"
+            ],
+            "semantic_link": {
+              "to_shot_id": "gaze_return",
+              "kind": "semantic",
+              "relation": "One explained source leaves the paired glints unresolved; focus changes their meaning in the same space.",
+              "invariants": [
+                "same source IDs/positions",
+                "wet residue is not reset",
+                "no eye relocation or early reveal"
+              ]
+            }
+          },
+          "motion_prompt": "Start: The same insect reaches its bark grip as the camera crosses into macro. Action/camera: Approach the same contact without orbiting behind the 2D sprite. Resolve feet/wings. Paired glints behind remain soft and unrecognizable. End: Insect is legible; paired background glints remain a question, with wet evidence at the frame edge.. Preserve canonical IDs, attention and all declared contacts/occlusion; derive later execution from measured section-absolute time.",
+          "keyframe_prompt": "Original layered night forest, same world/light bible. End keyframe only: Insect is legible; paired background glints remain a question, with wet evidence at the frame edge. Reveal ceiling: the insect at a stable bark contact. Do not show identity of paired glints behind it. No montage, text, UI or full creature.",
+          "event_ids": [
+            "dew_release",
+            "insect_land"
+          ]
+        },
+        {
+          "id": "gaze_return",
+          "scene_id": "forest_clearing",
+          "beat_ids": [
+            "reciprocal_gaze"
+          ],
+          "object_ids": [
+            "entry_leaf",
+            "interactive_trunk",
+            "fern_tip",
+            "canopy_plate",
+            "light_insect",
+            "watcher_eyes",
+            "low_fog",
+            "wet_mark",
+            "ambient_specks"
+          ],
+          "renderer": "remotion",
+          "scene_type": "3d",
+          "renderer_reason": "One existing Remotion assembly hosts native Three.js trunk plus separate 2D/optical layers; this draft creates no renderer.",
+          "visual_thesis": "The observer becomes observed.",
+          "planning_window": {
+            "start_seconds": 15,
+            "end_seconds": 21,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "panel_plan": {
+            "start": "Hold the macro framing; perched insect is apparently an explanation.",
+            "primary_action": "Focus transfers behind it. The insect releases and exits right/up. The same two points become amber irises whose pupils follow it, then face the departing viewer.",
+            "end": "Only paired gaze is recognized; body remains concealed and the wet mark persists."
+          },
+          "attention": [
+            "watcher_eyes"
+          ],
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "light_insect",
+              "watcher_eyes"
+            ],
+            "reading_logic": "paired pupils correlate with departure, changing the meaning of looking"
+          },
+          "camera": {
+            "purpose": "Hold position while focus and subject behavior reverse who observes whom; shake would hide the correlation.",
+            "planning_path": "Focus transfers behind it. The insect releases and exits right/up. The same two points become amber irises whose pupils follow it, then face the departing viewer.",
+            "supported_sprite_views": [
+              "front",
+              "front_three_quarter",
+              "wide",
+              "side"
+            ],
+            "information_intent": {
+              "known_before": "one insect appears to explain the signal",
+              "hidden_before": "the agent behind the paired glints",
+              "reveals": "two correlated pupils and their attention",
+              "target_object": "watcher_eyes",
+              "reason_for_move_or_hold": "Hold position while focus and subject behavior reverse who observes whom; shake would hide the correlation."
+            }
+          },
+          "components": {
+            "required_roles": [
+              "atmosphere",
+              "background",
+              "foreground",
+              "interactive_prop",
+              "midground",
+              "subject",
+              "support"
+            ],
+            "omissions": {},
+            "items": [
+              {
+                "object_id": "entry_leaf",
+                "roles": [
+                  "foreground"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "interactive_trunk",
+                "roles": [
+                  "midground",
+                  "interactive_prop"
+                ],
+                "route": "3d"
+              },
+              {
+                "object_id": "fern_tip",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "canopy_plate",
+                "roles": [
+                  "background"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "light_insect",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "watcher_eyes",
+                "roles": [
+                  "subject"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "low_fog",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "wet_mark",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "ambient_specks",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              }
+            ]
+          },
+          "attention_plan": [
+            {
+              "object_id": "entry_leaf",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "interactive_trunk",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "fern_tip",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "canopy_plate",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "light_insect",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "watcher_eyes",
+              "priority": "primary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "low_fog",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "wet_mark",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "ambient_specks",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            }
+          ],
+          "reveal_ceiling": "only two eyes; no full creature",
+          "withheld": "body, species and cause of the presence",
+          "audience_knowledge": {
+            "in": "the insect at a stable bark contact",
+            "out": "only two eyes; no full creature"
+          },
+          "character_knowledge": {
+            "viewer": "only two eyes; no full creature",
+            "watcher": "not audience-verifiable before S4"
+          },
+          "sound_plan": {
+            "vo": {
+              "text": null,
+              "reason": "let visual evidence change the sentence meaning"
+            },
+            "dialogue": "none",
+            "music": "none",
+            "ambience": "low spatial insect/wet-leaf bed; gently attenuate after S4 discovery, never add a drone by default",
+            "cue": "one localized click at the hollow; no volume jump",
+            "silence_buses": [
+              "VO outside its proposed window",
+              "dialogue throughout",
+              "music throughout"
+            ],
+            "status": "BRIEF_ONLY_SMALL_SFX_NOT_GENERATED"
+          },
+          "behaviors": {
+            "entry_leaf": {
+              "mode": "camera_induced",
+              "motivation": "Leaf masks access; it is not an idle dancer",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Leaf masks access; it is not an idle dancer",
+                "ref": "gaze_return"
+              },
+              "response": "relative screen occlusion changes only from the camera path",
+              "secondary_response": "petiole stays anchored; retain chipped-tip silhouette",
+              "settle": "hold after camera stops",
+              "exit_state": {
+                "opening": 1
+              }
+            },
+            "interactive_trunk": {
+              "mode": "passive",
+              "motivation": "Stable rooted geography makes later focus and gaze interpretable",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "Stable rooted geography makes later focus and gaze interpretable"
+              },
+              "response": "hold rooted mass",
+              "secondary_response": "cavity rim continues to mask the same pair",
+              "settle": "pressure settles without resetting geography",
+              "exit_state": {
+                "pressure": 0
+              }
+            },
+            "fern_tip": {
+              "mode": "passive",
+              "motivation": "The lower fern position is persistent aftermath",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "The lower fern position is persistent aftermath"
+              },
+              "response": "hold the lowered terminal pose",
+              "secondary_response": "wet_mark remains anchored to its same surface",
+              "settle": "damped response; no repeating wobble",
+              "exit_state": {
+                "bend": 0.08
+              }
+            },
+            "canopy_plate": {
+              "mode": "camera_induced",
+              "motivation": "Background proves we remain in the same clearing",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Background proves we remain in the same clearing",
+                "ref": "gaze_return"
+              },
+              "response": "projection/parallax only",
+              "secondary_response": "no independent tree wobble, new characters or resetting foliage",
+              "settle": "fixed geography after movement",
+              "exit_state": {
+                "geography": "fixed"
+              }
+            },
+            "light_insect": {
+              "mode": "active",
+              "motivation": "The same source motivates entry, contact and departure",
+              "trigger": {
+                "kind": "event",
+                "reason": "The same source motivates entry, contact and departure",
+                "ref": "insect_depart",
+                "phase": "start"
+              },
+              "response": "release and leave right/up",
+              "secondary_response": "wings and feet follow the phase; never substitute a new insect",
+              "settle": "perched hold or continued departure, no teleport",
+              "exit_state": {
+                "phase": "departing"
+              }
+            },
+            "watcher_eyes": {
+              "mode": "reactive",
+              "motivation": "Reciprocal gaze is the principal threat evidence",
+              "trigger": {
+                "kind": "event",
+                "reason": "Reciprocal gaze is the principal threat evidence",
+                "ref": "gaze_reply",
+                "phase": "start"
+              },
+              "response": "bounded iris state/pupil direction follows insect, then viewer departure",
+              "secondary_response": "background salience reduces; preserve eye spacing/anchors",
+              "settle": "keep the same spatial source at the end",
+              "exit_state": {
+                "gaze": "following_viewer"
+              }
+            },
+            "low_fog": {
+              "mode": "optical",
+              "motivation": "Low haze supports depth, not screen-filling atmosphere",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Low haze supports depth, not screen-filling atmosphere",
+                "ref": "forest_clearing"
+              },
+              "response": "slow low-density transport behind hero plane",
+              "secondary_response": "no foreground veil over the intended clue",
+              "settle": "continuing restrained field, no per-shot reset",
+              "exit_state": {
+                "density": "low"
+              }
+            },
+            "wet_mark": {
+              "mode": "passive",
+              "motivation": "Hold the contact evidence through reveal and withdrawal",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "Hold the contact evidence through reveal and withdrawal"
+              },
+              "response": "hold same wet trace",
+              "secondary_response": "highlight follows fern surface/light, no new object or glow bloom",
+              "settle": "retain wetness until sequence ends",
+              "exit_state": {
+                "wetness": 1
+              }
+            },
+            "ambient_specks": {
+              "mode": "optical",
+              "motivation": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+              "trigger": {
+                "kind": "event",
+                "reason": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+                "ref": "gaze_reply",
+                "phase": "start"
+              },
+              "response": "reduce local salience during gaze recognition",
+              "secondary_response": "no independent hero action or whole-screen strobing",
+              "settle": "field persists deterministically",
+              "exit_state": {
+                "activity": "reduced"
+              }
+            }
+          },
+          "events": [
+            {
+              "id": "insect_depart",
+              "kind": "motion",
+              "source_object": "light_insect",
+              "target_objects": [
+                "watcher_eyes"
+              ],
+              "cause": "The same insect releases its earlier grip as the hollow becomes readable.",
+              "action": "release feet, turn into supported side view and move right/up toward the aperture",
+              "reaction": "paired pupils follow the moving source, then hold toward the viewer departure",
+              "aftermath": "insect exits; gaze remains anchored",
+              "implementation": "PENDING_insect_depart",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "planning_phases": {
+                "start_seconds": 15.3,
+                "peak_seconds": 17.2,
+                "end_seconds": 23.2
+              },
+              "carry_across_shots": true,
+              "cause_event_ids": [
+                "insect_land"
+              ]
+            },
+            {
+              "id": "gaze_reply",
+              "kind": "vfx",
+              "source_object": "watcher_eyes",
+              "target_objects": [
+                "ambient_specks",
+                "low_fog"
+              ],
+              "cause": "The viewer inspects the same paired source behind the insect; no newly spawned monster.",
+              "action": "same registered paired glints become recognizable as the focus/iris state changes",
+              "reaction": "supporting optical activity reduces locally so gaze reads; camera does not shake",
+              "aftermath": "pair stays behind the same hollow rim on withdrawal",
+              "implementation": "PENDING_gaze_reply",
+              "implementation_status": "NOT_IMPLEMENTED_DRAFT",
+              "planning_phases": {
+                "start_seconds": 15.0,
+                "peak_seconds": 16.6,
+                "end_seconds": 24.0
+              },
+              "carry_across_shots": true,
+              "representation": "masked eye state change and restrained local optical response",
+              "transport": "no world translation of the pair; pupils turn inside stable irises",
+              "interaction": "hollow rim masks the pair; focus cannot invent geometry",
+              "lighting_response": "ivory points become bounded amber iris highlights, no full-frame flash",
+              "cause_event_ids": [
+                "insect_land"
+              ]
+            }
+          ],
+          "handoff": {
+            "type": "follow",
+            "reason": "The tracked departure motivates withdrawing through the same aperture; gaze remains.",
+            "carry_state": [
+              "insect identity/phase",
+              "trunk/hollow geography",
+              "fern bend and wet trace",
+              "eye spacing/occlusion",
+              "practical light and restrained ambience"
+            ],
+            "semantic_link": {
+              "to_shot_id": "withdraw_same_world",
+              "kind": "causal",
+              "relation": "The tracked departure motivates withdrawing through the same aperture; gaze remains.",
+              "invariants": [
+                "same source IDs/positions",
+                "wet residue is not reset",
+                "no eye relocation or early reveal"
+              ],
+              "trigger_event_id": "insect_depart"
+            }
+          },
+          "motion_prompt": "Start: Hold the macro framing; perched insect is apparently an explanation. Action/camera: Focus transfers behind it. The insect releases and exits right/up. The same two points become amber irises whose pupils follow it, then face the departing viewer. End: Only paired gaze is recognized; body remains concealed and the wet mark persists.. Preserve canonical IDs, attention and all declared contacts/occlusion; derive later execution from measured section-absolute time.",
+          "keyframe_prompt": "Original layered night forest, same world/light bible. End keyframe only: Only paired gaze is recognized; body remains concealed and the wet mark persists. Reveal ceiling: only two eyes; no full creature. Do not show body, species and cause of the presence. No montage, text, UI or full creature."
+        },
+        {
+          "id": "withdraw_same_world",
+          "scene_id": "forest_clearing",
+          "beat_ids": [
+            "afterimage"
+          ],
+          "object_ids": [
+            "entry_leaf",
+            "interactive_trunk",
+            "fern_tip",
+            "canopy_plate",
+            "light_insect",
+            "watcher_eyes",
+            "low_fog",
+            "wet_mark",
+            "ambient_specks"
+          ],
+          "renderer": "remotion",
+          "scene_type": "3d",
+          "renderer_reason": "One existing Remotion assembly hosts native Three.js trunk plus separate 2D/optical layers; this draft creates no renderer.",
+          "visual_thesis": "The old view now contains persistent threat knowledge.",
+          "planning_window": {
+            "start_seconds": 21,
+            "end_seconds": 24,
+            "status": "PROVISIONAL_NOT_MEASURED"
+          },
+          "panel_plan": {
+            "start": "Begin from the recognized gaze and unchanged bark/contact world.",
+            "primary_action": "Withdraw through the original aperture, matching depth/exposure. The original leaf masks the eyes again; the pair remains spatially anchored, not deleted.",
+            "end": "Same clearing as the opening, now containing recognized gaze and a persistent damp trace."
+          },
+          "attention": [
+            "watcher_eyes"
+          ],
+          "pattern": {
+            "kind": "custom",
+            "entities": [
+              "light_insect",
+              "watcher_eyes"
+            ],
+            "reading_logic": "foreground closes while gaze and wet evidence stay put"
+          },
+          "camera": {
+            "purpose": "Withdraw to the original view so changed knowledge, rather than a new location, carries the ending.",
+            "planning_path": "Withdraw through the original aperture, matching depth/exposure. The original leaf masks the eyes again; the pair remains spatially anchored, not deleted.",
+            "supported_sprite_views": [
+              "front",
+              "front_three_quarter",
+              "wide",
+              "side"
+            ],
+            "information_intent": {
+              "known_before": "the hollow is watching",
+              "hidden_before": "whether the source disappears when we leave",
+              "reveals": "the same pair persists behind the same occlusion",
+              "target_object": "watcher_eyes",
+              "reason_for_move_or_hold": "Withdraw to the original view so changed knowledge, rather than a new location, carries the ending."
+            }
+          },
+          "components": {
+            "required_roles": [
+              "atmosphere",
+              "background",
+              "foreground",
+              "interactive_prop",
+              "midground",
+              "subject",
+              "support"
+            ],
+            "omissions": {},
+            "items": [
+              {
+                "object_id": "entry_leaf",
+                "roles": [
+                  "foreground"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "interactive_trunk",
+                "roles": [
+                  "midground",
+                  "interactive_prop"
+                ],
+                "route": "3d"
+              },
+              {
+                "object_id": "fern_tip",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "canopy_plate",
+                "roles": [
+                  "background"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "light_insect",
+                "roles": [
+                  "support"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "watcher_eyes",
+                "roles": [
+                  "subject"
+                ],
+                "route": "2d"
+              },
+              {
+                "object_id": "low_fog",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "wet_mark",
+                "roles": [
+                  "support"
+                ],
+                "route": "procedural"
+              },
+              {
+                "object_id": "ambient_specks",
+                "roles": [
+                  "atmosphere"
+                ],
+                "route": "procedural"
+              }
+            ]
+          },
+          "attention_plan": [
+            {
+              "object_id": "entry_leaf",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "interactive_trunk",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "fern_tip",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "canopy_plate",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "light_insect",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "watcher_eyes",
+              "priority": "primary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "low_fog",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "wet_mark",
+              "priority": "secondary",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            },
+            {
+              "object_id": "ambient_specks",
+              "priority": "ambient",
+              "reason": "read the stated clue without competing; pair is unrecognizable before the focus reveal",
+              "salience_limit": "no brighter/faster/bigger support effect than the focal clue"
+            }
+          ],
+          "reveal_ceiling": "the same clearing; the paired points are still there",
+          "withheld": "what happens if the viewer returns",
+          "audience_knowledge": {
+            "in": "only two eyes; no full creature",
+            "out": "the same clearing; the paired points are still there"
+          },
+          "character_knowledge": {
+            "viewer": "the same clearing; the paired points are still there",
+            "watcher": "not audience-verifiable before S4"
+          },
+          "sound_plan": {
+            "vo": {
+              "text": null,
+              "reason": "let visual evidence change the sentence meaning"
+            },
+            "dialogue": "none",
+            "music": "none",
+            "ambience": "low spatial insect/wet-leaf bed; gently attenuate after S4 discovery, never add a drone by default",
+            "cue": "one localized click at the hollow; no volume jump",
+            "silence_buses": [
+              "VO outside its proposed window",
+              "dialogue throughout",
+              "music throughout"
+            ],
+            "status": "BRIEF_ONLY_SMALL_SFX_NOT_GENERATED"
+          },
+          "behaviors": {
+            "entry_leaf": {
+              "mode": "camera_induced",
+              "motivation": "Leaf masks access; it is not an idle dancer",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Leaf masks access; it is not an idle dancer",
+                "ref": "withdraw_same_world"
+              },
+              "response": "relative screen occlusion changes only from the camera path",
+              "secondary_response": "petiole stays anchored; retain chipped-tip silhouette",
+              "settle": "hold after camera stops",
+              "exit_state": {
+                "opening": 0
+              }
+            },
+            "interactive_trunk": {
+              "mode": "passive",
+              "motivation": "Stable rooted geography makes later focus and gaze interpretable",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "Stable rooted geography makes later focus and gaze interpretable"
+              },
+              "response": "hold rooted mass",
+              "secondary_response": "cavity rim continues to mask the same pair",
+              "settle": "pressure settles without resetting geography",
+              "exit_state": {
+                "pressure": 0
+              }
+            },
+            "fern_tip": {
+              "mode": "passive",
+              "motivation": "The lower fern position is persistent aftermath",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "The lower fern position is persistent aftermath"
+              },
+              "response": "hold the lowered terminal pose",
+              "secondary_response": "wet_mark remains anchored to its same surface",
+              "settle": "damped response; no repeating wobble",
+              "exit_state": {
+                "bend": 0.08
+              }
+            },
+            "canopy_plate": {
+              "mode": "camera_induced",
+              "motivation": "Background proves we remain in the same clearing",
+              "trigger": {
+                "kind": "camera",
+                "reason": "Background proves we remain in the same clearing",
+                "ref": "withdraw_same_world"
+              },
+              "response": "projection/parallax only",
+              "secondary_response": "no independent tree wobble, new characters or resetting foliage",
+              "settle": "fixed geography after movement",
+              "exit_state": {
+                "geography": "fixed"
+              }
+            },
+            "light_insect": {
+              "mode": "active",
+              "motivation": "The same source motivates entry, contact and departure",
+              "trigger": {
+                "kind": "event",
+                "reason": "The same source motivates entry, contact and departure",
+                "ref": "insect_depart",
+                "phase": "start"
+              },
+              "response": "continue the same departure, then exit",
+              "secondary_response": "wings and feet follow the phase; never substitute a new insect",
+              "settle": "perched hold or continued departure, no teleport",
+              "exit_state": {
+                "phase": "exited"
+              }
+            },
+            "watcher_eyes": {
+              "mode": "reactive",
+              "motivation": "Reciprocal gaze is the principal threat evidence",
+              "trigger": {
+                "kind": "event",
+                "reason": "Reciprocal gaze is the principal threat evidence",
+                "ref": "gaze_reply",
+                "phase": "start"
+              },
+              "response": "bounded iris state/pupil direction follows insect, then viewer departure",
+              "secondary_response": "background salience reduces; preserve eye spacing/anchors",
+              "settle": "keep the same spatial source at the end",
+              "exit_state": {
+                "gaze": "following_viewer"
+              }
+            },
+            "low_fog": {
+              "mode": "optical",
+              "motivation": "Low haze supports depth, not screen-filling atmosphere",
+              "trigger": {
+                "kind": "environment",
+                "reason": "Low haze supports depth, not screen-filling atmosphere",
+                "ref": "forest_clearing"
+              },
+              "response": "slow low-density transport behind hero plane",
+              "secondary_response": "no foreground veil over the intended clue",
+              "settle": "continuing restrained field, no per-shot reset",
+              "exit_state": {
+                "density": "low"
+              }
+            },
+            "wet_mark": {
+              "mode": "passive",
+              "motivation": "Hold the contact evidence through reveal and withdrawal",
+              "trigger": {
+                "kind": "intentional_hold",
+                "reason": "Hold the contact evidence through reveal and withdrawal"
+              },
+              "response": "hold same wet trace",
+              "secondary_response": "highlight follows fern surface/light, no new object or glow bloom",
+              "settle": "retain wetness until sequence ends",
+              "exit_state": {
+                "wetness": 1
+              }
+            },
+            "ambient_specks": {
+              "mode": "optical",
+              "motivation": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+              "trigger": {
+                "kind": "event",
+                "reason": "Distant grouped activity supports the hidden chorus; it cannot steal attention",
+                "ref": "gaze_reply",
+                "phase": "start"
+              },
+              "response": "reduce local salience during gaze recognition",
+              "secondary_response": "no independent hero action or whole-screen strobing",
+              "settle": "field persists deterministically",
+              "exit_state": {
+                "activity": "reduced"
+              }
+            }
+          },
+          "events": [],
+          "handoff": {
+            "type": "cut",
+            "reason": "End after the old framing has acquired new threat knowledge.",
+            "carry_state": [],
+            "semantic_link": {
+              "to_shot_id": null,
+              "kind": "end",
+              "relation": "End after the old framing has acquired new threat knowledge.",
+              "invariants": []
+            }
+          },
+          "motion_prompt": "Start: Begin from the recognized gaze and unchanged bark/contact world. Action/camera: Withdraw through the original aperture, matching depth/exposure. The original leaf masks the eyes again; the pair remains spatially anchored, not deleted. End: Same clearing as the opening, now containing recognized gaze and a persistent damp trace.. Preserve canonical IDs, attention and all declared contacts/occlusion; derive later execution from measured section-absolute time.",
+          "keyframe_prompt": "Original layered night forest, same world/light bible. End keyframe only: Same clearing as the opening, now containing recognized gaze and a persistent damp trace. Reveal ceiling: the same clearing; the paired points are still there. Do not show what happens if the viewer returns. No montage, text, UI or full creature.",
+          "event_ids": [
+            "insect_depart",
+            "gaze_reply"
+          ]
+        }
+      ],
+      "sfx_cues": [],
+      "sound_notes": "Draft sound intent is inside each shot; SFX cue generation/timing waits for actual measured voice. No BGM requested.",
+      "planning_duration_seconds": 24,
+      "state_track_status": "PENDING_MEASURED_TIMING; per-shot exit states are direction, not fabricated runtime evidence"
+    }
+  ],
+  "sound_design": "adaptive",
+  "tts_speed": 1.0,
+  "visual_system": {
+    "palette": [
+      "#0D1722",
+      "#203948",
+      "#758F96",
+      "#C9C8A2",
+      "#BB8645"
+    ],
+    "typography": "No audience-facing text in this short; planning IDs are documentation only",
+    "shape_language": "Broad asymmetric leaf wedges mask smaller oval signals; paired ovals become gaze only late",
+    "bindings": {
+      "color_roles": {
+        "unread_world": "#0D1722 / #203948",
+        "natural_seeming_signal": "#C9C8A2",
+        "recognized_gaze": "#BB8645",
+        "supporting_moisture": "#758F96"
+      },
+      "shape_roles": {
+        "occlusion": "one large diagonal leaf wedge",
+        "question": "one small moving oval",
+        "answer": "two stationary ovals with coordinated pupil direction",
+        "aftermath": "one irregular wet highlight"
+      },
+      "typography_roles": {
+        "film": "none; the single VO is not burned into the image"
+      },
+      "transition_rules": {
+        "follow": "follow a discovered source, preserve its position/phase",
+        "scale": "approach the same bark contact without replacing the insect",
+        "reinterpret": "change focus and knowledge while holding geography",
+        "withdraw": "pull back through the same leaf opening; wet residue and gaze persist"
+      }
+    }
+  },
+  "production_packet": {
+    "brief": {
+      "audience": "Viewers of a restrained horror cartoon proof of concept",
+      "question": "Are we discovering the forest, or has it noticed us?",
+      "takeaway": "Apparent silence is a limit of perception; a background signal can become an observer.",
+      "visual_thesis": "A leaf aperture becomes a listening aperture, then a reciprocal gaze.",
+      "source_script": "Rừng mưa không bao giờ thật sự im lặng.",
+      "genre_status": "Fictional suspense, no biological or paranormal factual claim",
+      "story_engine": {
+        "protagonist": "the viewing position, no visible human",
+        "goal": "identify one small signal",
+        "threat": "an unseen presence inside one tree hollow",
+        "rule": "only local gaze and pressure respond; no teleportation or global forest dance",
+        "cost": "the viewer loses the safe position of unseen observer",
+        "ending_change": "the same wide forest is now perceived as watching"
+      },
+      "approval_status": "STORYBOARD_PROPOSAL_NOT_REVIEWED"
+    },
+    "research": {
+      "sources": [
+        {
+          "id": "user_line",
+          "title": "User-supplied rainforest sentence and visual requirements",
+          "url": "urn:user:current-conversation:rainforest-example",
+          "finding": "Rừng mưa không bao giờ thật sự im lặng.",
+          "visual_decision": "Preserve this exact VO; add evidence through staging rather than extra exposition."
+        },
+        {
+          "id": "kage_artwork",
+          "title": "Kage PROMPT.md, official repository",
+          "url": "https://github.com/MengTo/kage/blob/main/PROMPT.md",
+          "finding": "Layered generated artwork, spatial environment and deliberate camera/foreground handoffs are documented reference principles.",
+          "visual_decision": "Use original separate assets and a native trunk; omit web headings, navigation and scroll UI.",
+          "retrieved_date": "2026-10-13"
+        },
+        {
+          "id": "trial_mechanics",
+          "title": "Original storyboard mechanics proposal, not nature observation",
+          "url": "urn:storyboard:forest-listens:mechanics",
+          "finding": "Local trunk pressure transfers through an attached fern; a loosened droplet falls onto that fern and leaves a wet mark. Gaze follows the fictional insect, then the departing camera.",
+          "visual_decision": "Keep attachments, contact and residue explicit; treat windless pressure/gaze as authored fiction. Domain fabrication research is still pending."
+        }
+      ],
+      "claims": [
+        {
+          "id": "chorus_metaphor",
+          "kind": "metaphor",
+          "text": "The forest behaves like a conversation hidden behind a curtain.",
+          "visual_treatment": "Layered occlusion reveals individual sources; no literal words, instruments or sound-wave HUD."
+        },
+        {
+          "id": "return_gaze",
+          "kind": "fiction",
+          "text": "A presence inside this hollow notices the moving light and the observer.",
+          "visual_treatment": "Show only paired pupils and local pressure evidence; withhold a full creature."
+        }
+      ],
+      "research_limits": "This draft does not claim species anatomy, bioluminescence mechanics or a supernatural event as observed fact."
+    },
+    "representative": {
+      "shot_id": "gaze_return",
+      "reason": "Hardest information reversal, partial occlusion and native/2D contact context",
+      "acceptance": [
+        "Eye anatomy is unrecognizable before S4 and recognizable only at the focus payoff.",
+        "The same insect/contact/world persists from approach to macro.",
+        "Fern wet residue and eye geography survive withdrawal.",
+        "Support activity and VFX never outrank the gaze; inspect a real clip later."
+      ]
+    },
+    "character_setting_brief": {
+      "script_facts": [
+        "Rừng mưa không bao giờ thật sự im lặng.",
+        "The user requested foreground, middle/background activity, a light reveal and a macro handoff."
+      ],
+      "proposals": {
+        "setting": "an original nocturnal rainforest clearing, no identifiable real location or era",
+        "cast": "no visible humans; one fictional light-bearing insect and a concealed paired gaze",
+        "insect_identity": "small six-legged beetle-like cartoon, ivory abdomen mark, asymmetric wing notch; not a taxonomic specimen",
+        "watcher_identity": "only two recessed amber irises; body, species and supernatural cause remain unknown"
+      },
+      "approved_setting": {
+        "status": "PROPOSAL_FOR_THIS_TRIAL_ONLY",
+        "era": "unspecified; no era-dependent props"
+      },
+      "approved_visual_age_bands": {},
+      "style": "user-selected Kage artwork target with 2D assets and native lowbudget3d requests",
+      "unresolved": [
+        "Actual narrator reference is not selected.",
+        "Native bark/organic fabrication needs full base and domain research.",
+        "Artwork and final timing need real outputs."
+      ]
+    },
+    "visual_style_decision": {
+      "status": "USER_SELECTED",
+      "selected_style": "kage_illustrated_hybrid",
+      "primary_reference": "kage",
+      "authorization": {
+        "reviewer": "human user",
+        "request": "nâng cấp repo goups đại ca, ở bước illustration, sẽ xuất prompt vẽ asset, target artwork : https://github.com/MengTo/kage, 3d se dyngf skill lowbudget3d de ve, 2d thi gen asset tu prompt, dam bao 1 shot day du cac thanh phan, sau do motion va vfx"
+      }
+    },
+    "illustration_direction": {
+      "contract_revision": 1,
+      "target_artwork": "kage",
+      "scene_worlds": [
+        {
+          "id": "forest_clearing",
+          "layout": "Right-handed metres: ground y=0, camera initially (0,1.15,6), hollow centre (0.2,1.2,0), fern contact (-0.08,1.05,0.16), foreground leaf (-0.35,1.15,4.1), distant canopy z=-5. Camera stays in front of the hollow. Layout is a proposal, not measured geometry.",
+          "perspective": "Same spatial trunk, ground, hollow and contact plane in all shots; camera narrows the view, never replaces the clearing. 2D sprites stay inside their authored front/three-quarter view range.",
+          "lighting": "Cool diffuse canopy light from upper left; insect contributes a local ivory glint, recognized eyes warm to restrained amber. All assets agree.",
+          "required_props": [
+            "interactive_trunk",
+            "fern_tip",
+            "dew_drop"
+          ],
+          "crop_safety": "Keep hollow/eye mask within the central 65% during macro; foreground may occlude intentionally. Closest bark use is 0.45 m. Wet trace remains distinguishable at intended output size.",
+          "anchors": {
+            "hollow": [
+              0.2,
+              1.2,
+              0
+            ],
+            "fern_contact": [
+              -0.08,
+              1.05,
+              0.16
+            ],
+            "leaf_petiole": [
+              -0.35,
+              1.15,
+              4.1
+            ]
+          },
+          "occlusion_rules": "watcher_eyes is behind the physical hollow rim; ambiguous glints do not expose eyelids before S4. entry_leaf masks the same aperture on withdrawal.",
+          "semantic_layers": [
+            {
+              "object_id": "entry_leaf",
+              "depth": "foreground",
+              "information": "Looking is an act of opening access, not a wide forest postcard.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "interactive_trunk",
+              "depth": "midground",
+              "information": "One local source of pressure precedes the unseen observer reveal.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "fern_tip",
+              "depth": "midground",
+              "information": "The world has a mechanically connected secondary response.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "canopy_plate",
+              "depth": "background",
+              "information": "Return to the same geography with changed knowledge.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "light_insect",
+              "depth": "midground",
+              "information": "A moving question leads attention from ambience to a source.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "watcher_eyes",
+              "depth": "midground",
+              "information": "Reclassify a background signal as a reciprocal observer.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "low_fog",
+              "depth": "background",
+              "information": "Occlusion separates layers without hiding the hero clue.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "dew_drop",
+              "depth": "midground",
+              "information": "A brief secondary consequence confirms the trunk/fern relation.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "wet_mark",
+              "depth": "midground",
+              "information": "Physical evidence persists even after activity stops.",
+              "function": "story evidence or constrained support, never decorative filler"
+            },
+            {
+              "object_id": "ambient_specks",
+              "depth": "background",
+              "information": "Background activity supports the chorus metaphor without competing.",
+              "function": "story evidence or constrained support, never decorative filler"
+            }
+          ]
+        }
+      ]
+    },
+    "consulted_resources": [],
+    "authoring_notes": {
+      "actual_skills_applied": [
+        "horror-cartoon-storyboard: information/reveal/continuity grammar",
+        "horror-asset-director: per-component image/native-model requests",
+        "storyboard-motion-executor: stable IDs, attention and downstream ownership"
+      ],
+      "not_claimed": [
+        "full 3D fabrication",
+        "script-to-visual-director package execution",
+        "motion/VFX implementation",
+        "real voice timing or media inspection"
+      ]
+    }
+  },
+  "topic": "Rừng nghe lại — storyboard thử",
+  "technical_fixture": false,
+  "trial": {
+    "purpose": "User-requested creative trial of the new code contract; not the existing film",
+    "status": "DRAFT_NOT_ARTWORK_APPROVED",
+    "duration_seconds_estimate": 24,
+    "clock_status": "PROVISIONAL_NOT_MEASURED",
+    "planning_fps": 60,
+    "voice_status": "NOT_RECORDED",
+    "media_status": "NOT_GENERATED_NOT_RENDERED"
+  }
+}

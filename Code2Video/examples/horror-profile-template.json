@@ -10,8 +10,8 @@
     "narrator_instruct": null
   },
   "horror": {
-    "artwork_style": "3d_horror_cartoon",
-    "artwork_provider": "flow",
+    "artwork_style": "kage_illustrated_hybrid",
+    "artwork_provider": "hybrid",
     "kage_reference": true,
     "voice_provider": "omnivoice",
     "sfx_provider": "stable_audio_3_small_sfx",
@@ -23,7 +23,22 @@
       "depth": null,
       "identity_rules": null
     },
-    "assets": []
+    "assets": [],
+    "visual_reference": {
+      "primary": "kage"
+    },
+    "illustrator": {
+      "mode": "prompt_export_only",
+      "generation_operator": "human user",
+      "model": "Nano Banana 2.1",
+      "chroma_key_color": "#00FF00",
+      "three_d_skill": "lowbudget3d"
+    },
+    "storytelling_reference": {
+      "primary": "oversimplified",
+      "adaptation": "restrained_horror",
+      "humor": "none"
+    }
   },
   "content_profile": {
     "genre": "horror",
@@ -31,5 +46,42 @@
   },
   "sections": [],
   "sound_design": "adaptive",
-  "tts_speed": 1.0
+  "tts_speed": 1.0,
+  "visual_system": {
+    "palette": null,
+    "typography": null,
+    "shape_language": null
+  },
+  "production_packet": {
+    "brief": {},
+    "research": {
+      "sources": [],
+      "claims": []
+    },
+    "representative": {},
+    "character_setting_brief": {},
+    "visual_style_decision": {
+      "status": "USER_SELECTED",
+      "selected_style": "kage_illustrated_hybrid",
+      "primary_reference": "kage",
+      "authorization": {
+        "reviewer": "human user",
+        "request": "nâng cấp repo goups đại ca, ở bước illustration, sẽ xuất prompt vẽ asset, target artwork : https://github.com/MengTo/kage, 3d se dyngf skill lowbudget3d de ve, 2d thi gen asset tu prompt, dam bao 1 shot day du cac thanh phan, sau do motion va vfx"
+      }
+    },
+    "illustration_direction": {
+      "contract_revision": 1,
+      "target_artwork": "kage",
+      "scene_worlds": [],
+      "authoring_mode": "horror_light",
+      "staging_revision": 1
+    },
+    "character_direction": {
+      "contract_revision": 1,
+      "tone": "restrained_horror",
+      "humor": "none",
+      "characters": [],
+      "crowd_groups": []
+    }
+  }
 }

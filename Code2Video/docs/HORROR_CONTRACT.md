@@ -1,9 +1,33 @@
 # V4.1 horror contract on schema 4
 
+Current shared-scene staging: read HORROR_SCENE_STAGING.md. staging_revision=1 adds one world staging definition, camera.stage_view_id and handoff.link_kind; evidence_return references an earlier shot. Backgrounds bind scene_staging_sha256 after actual registration/review. Preserve schema 4, full native/alpha, measured timing and actual quality gates.
+
+Current ensemble/acting fields: read HORROR_CHARACTERS.md. The same packet owns
+character_direction (reusable designs, principal/supporting/extra importance,
+performance states and anonymous group definitions). shot.cast covers every
+present actor/group; counts and required states/views are checked at Illustration.
+Authored performance_tracks/pose_track and runtime cast_states preserve actual
+state/gaze/population. Character design hashes and media review stay required.
+Default is restrained horror, humor=none; artwork remains original Kage.
+
+Current lightweight default: read HORROR_LIGHT_WORKFLOW.md. New plans use
+authoring_mode=horror_light with short scene cards. Full metaphor/semantic-layer
+accounting is optional. Illustration still registers complete separate assets;
+Motion/VFX still adds full authored execution, measured timing and real evidence.
+
+CURRENT USER DIRECTION (13 October 2026, repository upgrade): Kage is the artwork
+target; illustration exports 2D asset prompts and lowbudget3d native 3D fabrication
+briefs, completes each shot's component/direction contract, then hands reviewed
+assets to motion/VFX. Read Code2Video/docs/KAGE_ILLUSTRATION_PIPELINE.md (or
+its docs-relative path). This supersedes older statements excluding Kage/3D or
+fixing OverSimplified as the artwork target. Preserve existing story/cast/era and
+the schema 4, measured clock, evidence and stepwise production constraints.
+
+
 This is the current additive contract. Historical source snapshots in `references`
 describe earlier decisions and do not override this document or the user's choices.
 
-## Current user-selected illustration direction
+## Previous user-selected illustration direction (frozen plans)
 
 On 13 October 2026 the user selected OverSimplified as the primary reference for
 storytelling, staging, complete worlds and expressive cutout animation, adapted
@@ -17,8 +41,8 @@ and drawn detail are permitted when they support clarity/depth.
 `artwork_style=2d_flat_geometric_vector` remains the compatible machine style ID,
 not a ban on those illustration techniques. Record a USER_SELECTED
 visual_style_decision with selected_style, primary_reference=oversimplified,
-authorization {reviewer: human user, request: actual instruction}. Historical
-Kage/3D directives are superseded for this film. Old rejected art is not reusable
+authorization {reviewer: human user, request: actual instruction}. This earlier
+artwork policy is superseded by KAGE_ILLUSTRATION_PIPELINE.md. Old rejected art is not reusable
 approval; preserve frozen evidence. Generated vector-looking raster is not SVG.
 
 ## Plan and art
@@ -26,21 +50,23 @@ approval; preserve frozen evidence. Generated vector-looking raster is not SVG.
 Keep schema_version=4, profile=horror-v4.1, explicit language_id en|vi and existing
 draft/timed/authored phases. content_profile.genre=horror. `horror` contains:
 
-- artwork_style, artwork_provider=flow; current visual_reference.primary=oversimplified.
+- Current artwork_style=kage_illustrated_hybrid, artwork_provider=hybrid,
+  visual_reference.primary=kage; record the actual user selection.
 - illustrator: mode=prompt_export_only, generation_operator=human user,
-  model=Nano Banana 2.1, chroma_key_color=#00FF00.
+  the selected 2D model, chroma_key_color=#00FF00, three_d_skill=lowbudget3d.
 - voice_provider=omnivoice, sfx_provider=stable_audio_3_small_sfx.
 - style_bible: canonical_prompt, proportions, materials, lighting, depth, identity_rules.
-- assets: reusable generated character component/action/view sequences, props and layers.
+- assets: reusable 2D component/action/view sequences, props/layers and native 3D
+  model_3d fabrication requests. See KAGE_ILLUSTRATION_PIPELINE.md for revision 1.
 
 Illustration only exports prompts. Every generated item, including background and
 props, requires explicit prompts. The human runs Flow; no automatic submission.
 Code composes and animates individual parts/poses, camera, environment/VFX and
 sound. Keep backgrounds coherent and empty of moving characters; do not flatten
 interacting items into them. Multiple main characters/semantic beats are allowed;
-counts come from story, not quotas. True spatial 3D keeps its full skill route only
-when actually used. Historical plans may retain Kage for reproducibility; it is
-not required for current OverSimplified direction.
+counts come from story, not quotas. Native 3D retains the complete lowbudget3d
+and 3dviz-pro-max route. Older OverSimplified/Flow plans retain their recorded
+fields for reproducibility; they do not receive new artwork approval.
 
 ## Character and setting brief before artwork
 
@@ -76,7 +102,7 @@ reference wording. A model name or successful job does not establish style PASS.
 
 ## Animation sprites and image formats
 
-Characters intended to animate use `kind: sprite_sequence`: reusable isolated
+2D characters intended to animate use `kind: sprite_sequence`: reusable isolated
 action poses and the camera views required by the storyboard. Derive pose phases
 from intention, anticipation, contact, action and aftermath; no fixed pose quota.
 Maintain identity, costume, scale and registration across frames/views. A neutral

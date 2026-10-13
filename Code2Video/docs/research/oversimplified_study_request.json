@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "kind": "reference_video_study_request",
+  "created_date": "2026-10-13",
+  "status": "BLOCKED_MEDIA_ACCESS_NOT_SAMPLED",
+  "requested_sample_rate_hz": 1,
+  "requested_window_seconds_per_video": 180,
+  "expected_total_images": 540,
+  "actual_sampled_images": 0,
+  "actual_inspected_images": 0,
+  "scope": "Three selected windows, not whole-channel statistics or an official storyboard manual.",
+  "videos": [
+    {
+      "id": "8qRZcXIODNU",
+      "title": "The French Revolution - OverSimplified (Part 1)",
+      "url": "https://www.youtube.com/watch?v=8qRZcXIODNU",
+      "source_start_seconds": 0,
+      "source_end_seconds_exclusive": 180,
+      "expected_images": 180,
+      "sampled_images": 0,
+      "inspected_images": 0,
+      "status": "LOCAL_MEDIA_REQUIRED"
+    },
+    {
+      "id": "AAGIi62-sAU",
+      "title": "Prohibition - OverSimplified",
+      "url": "https://www.youtube.com/watch?v=AAGIi62-sAU",
+      "source_start_seconds": 0,
+      "source_end_seconds_exclusive": 180,
+      "expected_images": 180,
+      "sampled_images": 0,
+      "inspected_images": 0,
+      "status": "LOCAL_MEDIA_REQUIRED"
+    },
+    {
+      "id": "QLq6GEiHqR8",
+      "title": "The Pig War - OverSimplified",
+      "url": "https://www.youtube.com/watch?v=QLq6GEiHqR8",
+      "source_start_seconds": 1020,
+      "source_end_seconds_exclusive": 1200,
+      "expected_images": 180,
+      "sampled_images": 0,
+      "inspected_images": 0,
+      "status": "LOCAL_MEDIA_REQUIRED"
+    }
+  ],
+  "retrieval_evidence": [
+    "Official video title/duration metadata available.",
+    "Media endpoint returned text/html instead of video/mp4; rejected as media.",
+    "Browser player French: currentTime=0, readyState=0, videoWidth=0, videoHeight=0.",
+    "Official sparse preview sheets also returned HTML; not inspected."
+  ],
+  "analysis_findings": [],
+  "repo_changes_basis": "User requirements and original project proposal, not observed video findings.",
+  "continuation": "Supply actual accessible local videos/clips, run production.py reference-sample, inspect all images, run reference-check, then revise findings and examples."
+}
