@@ -39,6 +39,9 @@ def main():
     study.add_argument('manifest',type=Path); study.add_argument('--output',type=Path,required=True)
     board=commands.add_parser('storyboard-audit',help='Check scene-shot/1 structure and declared state carry; no art/audio approval')
     board.add_argument('plan',type=Path); board.add_argument('--output',type=Path,required=True)
+    jsboard=commands.add_parser('storyboard-js',help='User-authorized Day47: Edge TTS + JavaScript/Remotion/Hyperframes storyboard animatic')
+    jsboard.add_argument('action',choices=['voice','board','stills','render','hyperframes','raster-preview','all','check','audit'])
+    jsboard.add_argument('--node',default='node',help='Existing Node.js 22+ executable')
     chroma=commands.add_parser('chroma-key',help='Remove solid #00FF00 locally; preserve original, output alpha PNG/mask/receipt, no artwork approval')
     chroma.add_argument('source',type=Path); chroma.add_argument('--output',type=Path,required=True)
     chroma.add_argument('--inner',type=float,default=30); chroma.add_argument('--outer',type=float,default=100)
@@ -53,6 +56,21 @@ def main():
     review=commands.add_parser('review'); review.add_argument('run',type=Path); review.add_argument('file',type=Path)
     release=commands.add_parser('release'); release.add_argument('run',type=Path)
     args=parser.parse_args()
+    if args.command=='storyboard-js':
+        project=ROOT/'projects/day47'
+        if args.action=='audit':
+            from storyboard_audit import audit_storyboard
+            plan=json.loads((project/'storyboard.json').read_text(encoding='utf-8'))
+            if (plan.get('schema_version'),plan.get('profile'),plan.get('production_mode')) != (4,'horror-v4.1','day47-storyboard-js'):
+                raise ValueError('This command is scoped to the explicit Day47 user override')
+            result=audit_storyboard(plan,required=True)
+            folder=ROOT.parent/'outputs/day47'; folder.mkdir(parents=True,exist_ok=True)
+            output=folder/'structure-audit.json'
+            output.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+            print(output); return
+        entry=['--test',str(project/'tests/contract.test.mjs')] if args.action=='check' else [str(project/'tools/produce.mjs'),args.action]
+        subprocess.run([args.node,*entry],cwd=project,check=True)
+        return
     if args.command=='reference-study':
         from reference_study import sample_references
         print(sample_references(args.manifest,args.output)); return

@@ -5,6 +5,12 @@ acting/compositing, OmniVoice and generated Small-SFX. Keep schema 4 and the
 single [production entrypoint](Code2Video/START_HERE.md), measured timing and
 independent art/audio review. The human runs Flow; prompts are exported locally.
 
+**Latest film: [Ngày 47](Code2Video/projects/day47/README.md).** The user's
+14 October request selects Edge TTS, JavaScript drawings, Remotion and
+Hyperframes for this voiced storyboard. It has 16 shots, a measured 92.5s clock,
+and a scoped `storyboard-js` entrypoint; its narration/art choices override the
+older Flow/OmniVoice defaults for this film only. No GPU models are required.
+
 ## Clone and start
 
 ```bash

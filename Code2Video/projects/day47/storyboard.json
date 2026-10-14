@@ -1,0 +1,3696 @@
+{
+  "schema_version": 4,
+  "profile": "horror-v4.1",
+  "production_mode": "day47-storyboard-js",
+  "phase": "timed",
+  "topic": "NGÀY 47 — Tín hiệu sau lưng trạm",
+  "language_id": "vi",
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "sampleRate": 48000,
+  "leadFrames": 72,
+  "duration_frames": 5550,
+  "sound_design": "voice_only",
+  "subtitles": false,
+  "decorative_hud": false,
+  "visual_system": {
+    "palette": {
+      "ink": "#060d18",
+      "night": "#071422",
+      "hull": "#7f9a9e",
+      "shade": "#29434c",
+      "ice": "#c3e0d9",
+      "teal": "#71c6bd",
+      "amber": "#e8ab68",
+      "rust": "#946854",
+      "void": "#02060c"
+    },
+    "typography": "DejaVu Sans Mono for diegetic instrument labels only",
+    "shape_language": "Original inked 2D/2.5D space-horror drawings"
+  },
+  "content_profile": {
+    "kind": "storytelling_rich"
+  },
+  "production_packet": {
+    "brief": {
+      "premise": "A radio operator discovers the surrounding space is an eye; the warning is later carried by the transformed narrator",
+      "medium": "JavaScript/SVG voiced storyboard animatic",
+      "narrator_reliability": "Limited first-person fictional testimony",
+      "assumptions": [
+        "Unseen narrator; no invented visual age or gender",
+        "Fictional station and unmeasured location; not a scale simulation"
+      ]
+    },
+    "user_override": {
+      "date": "2026-10-14",
+      "scope": "day47 voiced storyboard only",
+      "instruction": "dùng edgetts cho voi tự căn timeline, chỉ dùng js + remotion + hyperframes vẽ cho đại ca",
+      "narration": "Edge TTS; one Vietnamese narrator; measured takes; no time stretching",
+      "illustration": "Original editable JavaScript/SVG drawings shared by Remotion and Hyperframes",
+      "sound": "Voice only; authored digital silence; no music requested",
+      "review": "Storyboard animatic for review; no automatic final-film approval"
+    },
+    "character_setting_brief": {
+      "script_facts": [
+        "Radio station, Jupiter aiming direction, rocks/ring, optical curvature, coupled blink, second station at ending"
+      ],
+      "proposals": [
+        "Blue glove with amber wrist stripe identifies narrator",
+        "Different earth-colored glove identifies receiver",
+        "Day47 cold open; Day00 first-contact memory"
+      ],
+      "visible_age": "Not shown; voice selection does not establish visual age",
+      "style": "Original dark 2D cutout illustration drawn in editable JavaScript"
+    },
+    "illustration_direction": {
+      "storyboard_contract": "scene-shot/1",
+      "scene_worlds": [
+        {
+          "id": "control_01",
+          "layout": "Cửa kính sau ở (1330,425); radio bên trái thấp; găng xanh từ mép trái. Trục anten và sao Mộc hướng phải, phía sau trạm hướng trái.",
+          "perspective": "2D cutout, slight oblique interior; FG console, MG window rim, BG space through glass",
+          "lighting": "Cyan from radio on left; cold reflected space light through glass; no unrelated flicker",
+          "crop_safety": "Keep the same eight bolts, amber wrist stripe and circular rim when changing framing",
+          "required_props": [
+            "console_01",
+            "porthole_01"
+          ],
+          "spatial_anchors": [
+            {
+              "id": "rear_window",
+              "description": "Circular rear window behind radio, maps to station_01 circular aperture"
+            },
+            {
+              "id": "radio_desk",
+              "description": "Fixed lower-left desk; TX and RX remain separate"
+            }
+          ]
+        },
+        {
+          "id": "space_01",
+          "layout": "station_01 at lower-left/center, antenna +X toward distant Jupiter. belt_01 and lens_01 centered in the aft/left space, not at Jupiter.",
+          "perspective": "Illustrated 2.5D layers; stable up axis and star pair; distance is not drawn to scale",
+          "lighting": "Cold light from upper-right on hull; stone highlights obey the same source; void emits no decorative glow",
+          "crop_safety": "Jupiter must remain right of antenna; save rear negative space before revealing belt; station silhouette retains its parts",
+          "required_props": [
+            "station_01"
+          ],
+          "spatial_anchors": [
+            {
+              "id": "antenna_axis",
+              "description": "Antenna points to screen right; rear threat is opposite that axis"
+            },
+            {
+              "id": "field_center",
+              "description": "Void/belt center in aft space; station remains inside the field on wide reveal"
+            },
+            {
+              "id": "star_pair",
+              "description": "Two background stars serve as stable optical evidence"
+            }
+          ]
+        },
+        {
+          "id": "radio_insert",
+          "layout": "Close-up of the same console_01 physically filling the frame: receive latency and inferred range; no floating infographic.",
+          "perspective": "Front-on prop insert inside control_01; schematic on CRT is explicitly not scale-accurate",
+          "lighting": "Cyan phosphor spill on the bevel; surrounding cabin remains dark",
+          "crop_safety": "Keep TX/RX channels and bezel identifiable; numbers never appear as subtitles",
+          "required_props": [
+            "console_01"
+          ],
+          "spatial_anchors": [
+            {
+              "id": "rtt_trace",
+              "description": "Single trace marks last HELLO send and its return exactly four seconds later"
+            },
+            {
+              "id": "range_readout",
+              "description": "600 000 km is inferred under the zero-processing-delay assumption"
+            }
+          ]
+        },
+        {
+          "id": "receiver_02",
+          "layout": "Radio on lower left; closed door in center/right, octagonal glass and V scratch; receiver glove enters from lower left, blue sender glove later outside the glass.",
+          "perspective": "Locked interior shot of a different station; change is a deliberately authored location jump",
+          "lighting": "Amber radio illuminates receiver glove; cold cyan light behind door isolates the outside blue glove",
+          "crop_safety": "Maintain door bolt pattern, V scratch, lock side and window center through final push",
+          "required_props": [
+            "door_02",
+            "console_02"
+          ],
+          "spatial_anchors": [
+            {
+              "id": "reply_button",
+              "description": "Amber REPLY key at lower-left; it remains unpressed"
+            },
+            {
+              "id": "outer_glass",
+              "description": "Exterior contact point at octagonal glass, distinct from receiver hand inside"
+            }
+          ]
+        }
+      ]
+    },
+    "research": {
+      "sources": [
+        {
+          "url": "https://physics.nist.gov/cuu/Constants/Value/c.html",
+          "claim": "c=299792458 m/s; 4s round trip implies 599584.916 km if response is immediate"
+        },
+        {
+          "url": "https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/time-travel-observing-cosmic-history/",
+          "claim": "Nearest star other than the Sun is about four light years from the Solar System; station location is unspecified"
+        },
+        {
+          "url": "https://hyperframes.app/docs/2-concepts/3-frame-adapters",
+          "claim": "Frame-based seek must be deterministic and handle arbitrary seek order"
+        },
+        {
+          "url": "https://www.remotion.dev/docs/the-fundamentals",
+          "claim": "Frame-driven composition and fixed output properties"
+        },
+        {
+          "url": "https://github.com/rany2/edge-tts",
+          "claim": "Edge online TTS CLI exposes voice/rate/pitch and audio/boundary output"
+        }
+      ],
+      "fiction_limits": [
+        "600000 km is rounded and assumes no processing delay; otherwise it is an upper bound under a direct radio round-trip interpretation",
+        "The script nearest-star line is colloquial and meaningful near the Solar System excluding the Sun; no chart claims it is universal",
+        "Rings contracting together, returned gaze, coupled blink and the transformed narrator are declared fictional exceptions",
+        "Asteroid geometry and radio waves are illustrative and not drawn to astronomical scale"
+      ],
+      "reference_frames_inspected": 0
+    },
+    "plant_payoff": [
+      {
+        "plant": "s01_receive",
+        "payoff": "s15_memory",
+        "motif": "Same blue cuff and radio framing, DAY47 versus DAY00"
+      },
+      {
+        "plant": "s12_blink",
+        "payoff": "s13_station_blink",
+        "motif": "One absolute blink event shared across the occluded cut"
+      },
+      {
+        "plant": "s14_warning",
+        "payoff": "s16_knock",
+        "motif": "Closed protection becomes an exterior contact point"
+      }
+    ],
+    "review": {
+      "structure": "PENDING",
+      "editorial": "AUTHORED_FOR_REVIEW",
+      "audio_listening": "UNVERIFIED",
+      "rendered_frames": "PENDING",
+      "release": "NOT_REQUESTED"
+    }
+  },
+  "timing": {
+    "basis": "Decoded PCM samples at 48000 Hz, padded to 60 fps; boundaries are Edge metadata, not listening verification",
+    "voice": {
+      "provider": "edge-tts",
+      "version": "7.3.1",
+      "name": "vi-VN-NamMinhNeural",
+      "rate": "-8%",
+      "pitch": "-6Hz",
+      "volume": "+0%"
+    },
+    "script_sha256": "1048f68f5698622b2f8af0bf4d21390867b122f964eab2b599349be701fc54e7",
+    "audio_sha256": "256de4e6c52773acabcd205430aeab8ed9d0956b923e075d6c167eb090b184d3",
+    "audio_file": "narration.wav",
+    "frames": 5550,
+    "time_stretch": false
+  },
+  "events": {
+    "send_frames": [
+      1530,
+      1590,
+      1650
+    ],
+    "reply_frame": 1890,
+    "contraction_start": 2959,
+    "contraction_end": 3147,
+    "gaze_start": 4103,
+    "gaze_end": 4188,
+    "blink_close": 4366,
+    "blink_peak": 4380,
+    "blink_open": 4416,
+    "knock_frame": 5348
+  },
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Ngày 47",
+      "visual_thesis": "One changing fact per shot; preserve geometry and withheld identity",
+      "narration": "Ngày 47, tôi nhận được câu trả lời cho câu hỏi tôi chưa kịp hỏi. Nó ở cách tôi 600.000km. Nghĩa là... nó ở ngay sau lưng trạm.\n\nVũ trụ không bao giờ thực sự im lặng. Nó chỉ đang nín thở để nghe lén mày.\n\nTôi bắn 3 tiếng HELLO về phía sao Mộc. 4 giây sau, nó trả lời. Ngôi sao gần nhất cách 4 năm ánh sáng. Vậy thứ trả lời tôi... cách tôi 600.000km.\n\nTôi tưởng đó là đá. Đến khi cả vành đai cùng co lại một lúc, tôi mới hiểu. Tôi đang bay trong mắt của nó.\n\nEinstein nói đúng. Trọng lực bẻ cong ánh sáng. Nhưng ông không nói... khi mày nhìn vào chỗ cong đó đủ lâu, chỗ cong đó cũng nhìn lại mày.\n\nTôi chớp mắt. Và trạm cũng chớp mắt cùng tôi.\n\nNếu mày nghe thấy tín hiệu này, đừng trả lời. Vì 47 ngày trước, tao cũng nghĩ như mày. Và giờ tao là thứ đang gõ cửa trạm mày.",
+      "narration_segments": [
+        {
+          "id": "vo_01",
+          "text": "Ngày 47, tôi nhận được câu trả lời cho câu hỏi tôi chưa kịp hỏi.",
+          "pause_after": 0.5
+        },
+        {
+          "id": "vo_02",
+          "text": "Nó ở cách tôi 600.000km.",
+          "pause_after": 0.45
+        },
+        {
+          "id": "vo_03",
+          "text": "Nghĩa là... nó ở ngay sau lưng trạm.",
+          "pause_after": 1.25
+        },
+        {
+          "id": "vo_04",
+          "text": "Vũ trụ không bao giờ thực sự im lặng.",
+          "pause_after": 0.5
+        },
+        {
+          "id": "vo_05",
+          "text": "Nó chỉ đang nín thở để nghe lén mày.",
+          "pause_after": 1.1
+        },
+        {
+          "id": "vo_06",
+          "text": "Tôi bắn 3 tiếng HELLO về phía sao Mộc.",
+          "pause_after": 4
+        },
+        {
+          "id": "vo_07",
+          "text": "4 giây sau, nó trả lời.",
+          "pause_after": 0.65
+        },
+        {
+          "id": "vo_08",
+          "text": "Ngôi sao gần nhất cách 4 năm ánh sáng.",
+          "pause_after": 0.45
+        },
+        {
+          "id": "vo_09",
+          "text": "Vậy thứ trả lời tôi... cách tôi 600.000km.",
+          "pause_after": 1.1
+        },
+        {
+          "id": "vo_10",
+          "text": "Tôi tưởng đó là đá.",
+          "pause_after": 0.7
+        },
+        {
+          "id": "vo_11",
+          "text": "Đến khi cả vành đai cùng co lại một lúc, tôi mới hiểu.",
+          "pause_after": 0.75
+        },
+        {
+          "id": "vo_12",
+          "text": "Tôi đang bay trong mắt của nó.",
+          "pause_after": 1.5
+        },
+        {
+          "id": "vo_13",
+          "text": "Einstein nói đúng.",
+          "pause_after": 0.25
+        },
+        {
+          "id": "vo_14",
+          "text": "Trọng lực bẻ cong ánh sáng.",
+          "pause_after": 0.6
+        },
+        {
+          "id": "vo_15",
+          "text": "Nhưng ông không nói... khi mày nhìn vào chỗ cong đó đủ lâu, chỗ cong đó cũng nhìn lại mày.",
+          "pause_after": 1.1
+        },
+        {
+          "id": "vo_16",
+          "text": "Tôi chớp mắt.",
+          "pause_after": 0.2
+        },
+        {
+          "id": "vo_17",
+          "text": "Và trạm cũng chớp mắt cùng tôi.",
+          "pause_after": 1.25
+        },
+        {
+          "id": "vo_18",
+          "text": "Nếu mày nghe thấy tín hiệu này, đừng trả lời.",
+          "pause_after": 0.8
+        },
+        {
+          "id": "vo_19",
+          "text": "Vì 47 ngày trước, tao cũng nghĩ như mày.",
+          "pause_after": 0.65
+        },
+        {
+          "id": "vo_20",
+          "text": "Và giờ tao là thứ đang gõ cửa trạm mày.",
+          "pause_after": 2.4
+        }
+      ],
+      "speech": {
+        "schema": "day47/measured-voice/1",
+        "width": 1920,
+        "height": 1080,
+        "fps": 60,
+        "sampleRate": 48000,
+        "leadFrames": 72,
+        "voice": {
+          "provider": "edge-tts",
+          "version": "7.3.1",
+          "name": "vi-VN-NamMinhNeural",
+          "rate": "-8%",
+          "pitch": "-6Hz",
+          "volume": "+0%"
+        },
+        "script_sha256": "1048f68f5698622b2f8af0bf4d21390867b122f964eab2b599349be701fc54e7",
+        "audio_file": "narration.wav",
+        "audio_sha256": "256de4e6c52773acabcd205430aeab8ed9d0956b923e075d6c167eb090b184d3",
+        "audio_samples": 4440000,
+        "frames": 5550,
+        "duration_seconds": 92.5,
+        "time_stretch": false,
+        "timing_basis": "Decoded PCM samples at 48000 Hz, padded to 60 fps; boundaries are Edge metadata, not listening verification",
+        "utterances": [
+          {
+            "id": "vo_01",
+            "text": "Ngày 47, tôi nhận được câu trả lời cho câu hỏi tôi chưa kịp hỏi.",
+            "start_frame": 72,
+            "end_frame": 388,
+            "start_sample": 57600,
+            "end_sample": 309888,
+            "sample_count": 252288,
+            "duration_seconds": 5.256,
+            "padding_samples": 512,
+            "pause_frames": 30,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_01.mp3",
+            "mp3_sha256": "1ad20cc0962a15b909969a5bfc1acd19e766d08de70c3fb1059c76ecec0b80c7",
+            "pcm_sha256": "e33e18d8a562f90f2a7466d4a31c97144d45dcdff3062abb00801e1c2b1442ec",
+            "request_sha256": "c51e90967934613b6d92854bfb6bffc8f3497bb348b070e524b6e1b45060e3d1",
+            "boundaries_sha256": "20355435a828a959bc923be65396a7a4730d2b6f7475188d05500ca44c3518ea",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 5.303,
+                "text": "Ngày 47, tôi nhận được câu trả lời cho câu hỏi tôi chưa kịp hỏi."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_02",
+            "text": "Nó ở cách tôi 600.000km.",
+            "start_frame": 418,
+            "end_frame": 632,
+            "start_sample": 334400,
+            "end_sample": 504896,
+            "sample_count": 170496,
+            "duration_seconds": 3.552,
+            "padding_samples": 704,
+            "pause_frames": 27,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_02.mp3",
+            "mp3_sha256": "c9687a0175bcc3864361b0cedd7417c1c5d567f4dbebc10a8b9d13a28cf7673a",
+            "pcm_sha256": "b810712df735c5249f8378f8db5d6eb728ac534a941a9697fc52de30eadb38bf",
+            "request_sha256": "77bce316348a5f6a5a36f71b6f5edbecbd31ac23b5f54336a50e7000c1d7ed98",
+            "boundaries_sha256": "2a04df04fec95ce8119a0e642e8a911d5c1bb9629ceb87d5b0de2e6649e6bc86",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.591,
+                "text": "Nó ở cách tôi 600.000km."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_03",
+            "text": "Nghĩa là... nó ở ngay sau lưng trạm.",
+            "start_frame": 659,
+            "end_frame": 863,
+            "start_sample": 527200,
+            "end_sample": 689632,
+            "sample_count": 162432,
+            "duration_seconds": 3.384,
+            "padding_samples": 768,
+            "pause_frames": 75,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_03.mp3",
+            "mp3_sha256": "6d2b05d99a301c39f32846901e276d6ee355d3ded9ef3bab02c61f593f694a79",
+            "pcm_sha256": "bec1e139656de4439911e35c640317ce4272cd20d156c123bd4a388b1191b339",
+            "request_sha256": "6a716ea4871698c72a38d9dd68eca4095ec2ddc8732a8ef7d7164b15b99577aa",
+            "boundaries_sha256": "e33785e8c8f88d6e55051004a931998b08ebecdf9848bc5436a41d619b17b1f9",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.428,
+                "text": "Nghĩa là... nó ở ngay sau lưng trạm."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_04",
+            "text": "Vũ trụ không bao giờ thực sự im lặng.",
+            "start_frame": 938,
+            "end_frame": 1137,
+            "start_sample": 750400,
+            "end_sample": 909376,
+            "sample_count": 158976,
+            "duration_seconds": 3.312,
+            "padding_samples": 224,
+            "pause_frames": 30,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_04.mp3",
+            "mp3_sha256": "74a650dd9fb72fec9c33263d3f1440463457960764ace384a83448e62520ab34",
+            "pcm_sha256": "8d2a10358c9285310bc00a50170af0f53512cd527f19978e842fd87943c49ed4",
+            "request_sha256": "2ae475565ce5cf2b583b34ade6022a2aab2aae154c639277916bd6df7e18480e",
+            "boundaries_sha256": "01fb022ccc1728f5db5b53599f58066626e4549bb3de9954b45b084aacffb810",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.347,
+                "text": "Vũ trụ không bao giờ thực sự im lặng."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_05",
+            "text": "Nó chỉ đang nín thở để nghe lén mày.",
+            "start_frame": 1167,
+            "end_frame": 1369,
+            "start_sample": 933600,
+            "end_sample": 1094880,
+            "sample_count": 161280,
+            "duration_seconds": 3.36,
+            "padding_samples": 320,
+            "pause_frames": 66,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_05.mp3",
+            "mp3_sha256": "fd78b4298e85244ef4ba575b212d23430f1ea537d6f05990d04d6ce3a0b752ac",
+            "pcm_sha256": "8b6cec994b14cff2fc9103a1145e0bac3892ce4f128b8af65ecd11ea5d69b93b",
+            "request_sha256": "f0d1246b795988566e9c67507d426f3460d504525a8f84439a20b1c5faaf2ef4",
+            "boundaries_sha256": "74e4b0c5a518bc420534b0ae1a1b09941ae3d75fbcbdad939d76c84b928e68fa",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.401,
+                "text": "Nó chỉ đang nín thở để nghe lén mày."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_06",
+            "text": "Tôi bắn 3 tiếng HELLO về phía sao Mộc.",
+            "start_frame": 1435,
+            "end_frame": 1650,
+            "start_sample": 1148000,
+            "end_sample": 1319648,
+            "sample_count": 171648,
+            "duration_seconds": 3.576,
+            "padding_samples": 352,
+            "pause_frames": 240,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_06.mp3",
+            "mp3_sha256": "3f01a80ca963386a5645ee8c800b71e3ef93f5b252c67ec8cf2e91179aaa0d9b",
+            "pcm_sha256": "b224d94e3e3f2de4a829fb05aaa7c0538b1ba22408866c02237cbfed241e385f",
+            "request_sha256": "35ae8b8165fb7047bb41962bc3f310782bdaa3a1fbd2c39e6b82a642a4a2554e",
+            "boundaries_sha256": "a7383f340ffc2c940875db5ab35afd24b57cf142eff9710736166341c67533f4",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.605,
+                "text": "Tôi bắn 3 tiếng HELLO về phía sao Mộc."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_07",
+            "text": "4 giây sau, nó trả lời.",
+            "start_frame": 1890,
+            "end_frame": 2076,
+            "start_sample": 1512000,
+            "end_sample": 1660608,
+            "sample_count": 148608,
+            "duration_seconds": 3.096,
+            "padding_samples": 192,
+            "pause_frames": 39,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_07.mp3",
+            "mp3_sha256": "4c5fbedc6fd4570a039d5dea4c985cfce6debde7547df2584818009a251f70f8",
+            "pcm_sha256": "2e77b4f3a7de1486e83931dd8759c2a1885d91328848e74eae8fa23c4da2e04b",
+            "request_sha256": "a96381de7edabd7b3ba78e004e6dd76b3b87e00dfc40624317a4b9612a3dccb0",
+            "boundaries_sha256": "9db47912baae474c05bbd0e95df91d0231faafe300f0f394e09c044f3dbcf464",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.143,
+                "text": "4 giây sau, nó trả lời."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_08",
+            "text": "Ngôi sao gần nhất cách 4 năm ánh sáng.",
+            "start_frame": 2115,
+            "end_frame": 2331,
+            "start_sample": 1692000,
+            "end_sample": 1864800,
+            "sample_count": 172800,
+            "duration_seconds": 3.6,
+            "padding_samples": 0,
+            "pause_frames": 27,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_08.mp3",
+            "mp3_sha256": "9cbb5e5f3e2cf685643d80c79d3468a2c3f08b4daf12c0af6a7de696363151ac",
+            "pcm_sha256": "4e1e7d717199a9f7ba0db29e9f27cf8a0b78cabd79d568ad2b400b2f7747ace3",
+            "request_sha256": "7c9eaff86ee5ebf25774fd38341f313ce21766dc069fc0fd62bda43e01f89dfe",
+            "boundaries_sha256": "9459a70d7b80521285579775577501b2137bde2bdd9377dbc53e0741076f71ee",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.632,
+                "text": "Ngôi sao gần nhất cách 4 năm ánh sáng."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_09",
+            "text": "Vậy thứ trả lời tôi... cách tôi 600.000km.",
+            "start_frame": 2358,
+            "end_frame": 2618,
+            "start_sample": 1886400,
+            "end_sample": 2093760,
+            "sample_count": 207360,
+            "duration_seconds": 4.32,
+            "padding_samples": 640,
+            "pause_frames": 66,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_09.mp3",
+            "mp3_sha256": "429b9afb10bf679203384649fbacf367885d2a6b694dae9f37a7b244a428487a",
+            "pcm_sha256": "34eb8d52ae99861cc647f9e9da809308383434097826b4da7b3bc2b769d2b5d4",
+            "request_sha256": "f128a1e359feb8707c6949763e89865f655ccc7d6b1cec8d51d8a3bbd2d0fa34",
+            "boundaries_sha256": "a2f20e6ae3a3086c7446de3b5490b4ee02828f01c0de80f71435121922f9e422",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 4.352,
+                "text": "Vậy thứ trả lời tôi... cách tôi 600.000km."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_10",
+            "text": "Tôi tưởng đó là đá.",
+            "start_frame": 2684,
+            "end_frame": 2837,
+            "start_sample": 2147200,
+            "end_sample": 2269312,
+            "sample_count": 122112,
+            "duration_seconds": 2.544,
+            "padding_samples": 288,
+            "pause_frames": 42,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_10.mp3",
+            "mp3_sha256": "546efe86c4fc638fb74d761a5b5002e42578650fe44c13bc8b5a28e328ab1b7f",
+            "pcm_sha256": "1660acbc5ceba465e2fb8a191b4fba45cbcfb461265609f19f1ea391842d1b5a",
+            "request_sha256": "9ee2a273a93a048553e92de78b359a65aa020cdc151aaa1c9c869205bebf10e5",
+            "boundaries_sha256": "141a5b44856ae42703eb55dd900f9c89bcd470db2c11b8dfe507d5593e57315e",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 2.586,
+                "text": "Tôi tưởng đó là đá."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_11",
+            "text": "Đến khi cả vành đai cùng co lại một lúc, tôi mới hiểu.",
+            "start_frame": 2879,
+            "end_frame": 3147,
+            "start_sample": 2303200,
+            "end_sample": 2517472,
+            "sample_count": 214272,
+            "duration_seconds": 4.464,
+            "padding_samples": 128,
+            "pause_frames": 45,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_11.mp3",
+            "mp3_sha256": "7507f399ed2826c6744f27f06d616cd24050e399e7a2629c44a126642f0fa8f0",
+            "pcm_sha256": "18ea1d64e37fff6be83bc909d631e8cfc269c4c459d522602d3965eea365957a",
+            "request_sha256": "3fbbd9d51d03d29f397f6372a15815179ca3b034448f3199b50c2e3cee5241e1",
+            "boundaries_sha256": "881a6a18b86dcb8762e060df182863f627dc2c1860366e3a38128123c3a307fc",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 4.515,
+                "text": "Đến khi cả vành đai cùng co lại một lúc, tôi mới hiểu."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_12",
+            "text": "Tôi đang bay trong mắt của nó.",
+            "start_frame": 3192,
+            "end_frame": 3367,
+            "start_sample": 2553600,
+            "end_sample": 2692992,
+            "sample_count": 139392,
+            "duration_seconds": 2.904,
+            "padding_samples": 608,
+            "pause_frames": 90,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_12.mp3",
+            "mp3_sha256": "4adfc0332ea0a37ba52db5e00de0bbae13806048b7c7d28e931990d0faa2a567",
+            "pcm_sha256": "6383ffcaf8eb2b808652590ffec06e33e3b7da52962707bff515334115e130e4",
+            "request_sha256": "51f23001f4352029646258ba79547ae36051c903b6a6c9491181e158a535cf96",
+            "boundaries_sha256": "1b5beb3770b6dfcc12127f28d8a5fce3190079dfc1136c500a2a7dce76a8b845",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 2.953,
+                "text": "Tôi đang bay trong mắt của nó."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_13",
+            "text": "Einstein nói đúng.",
+            "start_frame": 3457,
+            "end_frame": 3593,
+            "start_sample": 2765600,
+            "end_sample": 2873888,
+            "sample_count": 108288,
+            "duration_seconds": 2.256,
+            "padding_samples": 512,
+            "pause_frames": 15,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_13.mp3",
+            "mp3_sha256": "7dcb4cce3d50fa3f798d82cf87ab730eb1092c662a2e58dfb194740a14bcc25a",
+            "pcm_sha256": "290f8283f32909eff7defa23718c5d11c8f1523ccbb592ebac50ff7f2c599899",
+            "request_sha256": "a41faedf8bfe6abcc860c2b2567f34724a77de7062a36cc39e7d4d9e7a023ed5",
+            "boundaries_sha256": "67dff33bba8198de881827697b0c4310de04b1b1f20c740f41898bdb9c13863c",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 2.301,
+                "text": "Einstein nói đúng."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_14",
+            "text": "Trọng lực bẻ cong ánh sáng.",
+            "start_frame": 3608,
+            "end_frame": 3783,
+            "start_sample": 2886400,
+            "end_sample": 3025792,
+            "sample_count": 139392,
+            "duration_seconds": 2.904,
+            "padding_samples": 608,
+            "pause_frames": 36,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_14.mp3",
+            "mp3_sha256": "1c3b5137addc808ffa7965e0f529f9e811d4e6fb9e70a1795d50ae312441915d",
+            "pcm_sha256": "7bcab7fad93bd90c1701808c25c936f473811247a2597a8311f7bada7af9adde",
+            "request_sha256": "d933d217cfbf3bd8c648c85e6d6ce9504997bb9223e360b84f04575bc084e9ed",
+            "boundaries_sha256": "7f8e765ab22df6a18006b52637be6cd0f9eb74d01008b626ac2dbf47e98913ca",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 2.953,
+                "text": "Trọng lực bẻ cong ánh sáng."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_15",
+            "text": "Nhưng ông không nói... khi mày nhìn vào chỗ cong đó đủ lâu, chỗ cong đó cũng nhìn lại mày.",
+            "start_frame": 3819,
+            "end_frame": 4188,
+            "start_sample": 3055200,
+            "end_sample": 3350112,
+            "sample_count": 294912,
+            "duration_seconds": 6.144,
+            "padding_samples": 288,
+            "pause_frames": 66,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_15.mp3",
+            "mp3_sha256": "cd88559df640bbe8a5eea6426d0a1df8d500d696dedf5b282a58fa8cbc2a62d8",
+            "pcm_sha256": "2dffabfa35a26e6df5c6d92a022386aaad8f091120a6b3cd791171a9a03fdf72",
+            "request_sha256": "180e75d2f03a5489e0dc2647b87f1183d5c564aec5fa6659920762bdd506f779",
+            "boundaries_sha256": "e345118d18804975b34aef123b61affb10dbc28a55d020b4d7be2046691695d3",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 6.173,
+                "text": "Nhưng ông không nói... khi mày nhìn vào chỗ cong đó đủ lâu, chỗ cong đó cũng nhìn lại mày."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_16",
+            "text": "Tôi chớp mắt.",
+            "start_frame": 4254,
+            "end_frame": 4368,
+            "start_sample": 3403200,
+            "end_sample": 3494208,
+            "sample_count": 91008,
+            "duration_seconds": 1.896,
+            "padding_samples": 192,
+            "pause_frames": 12,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_16.mp3",
+            "mp3_sha256": "9754587e41fcc8cda84a7da62a56169675b51f14355ad08b53da7c1c146a238f",
+            "pcm_sha256": "c2eac67fa34d9347f95f0417c7f0f7e8be25a05cbc06aba8c5e912e26b8a2087",
+            "request_sha256": "978218d49d3a94b3aebf4d9c1beaa4784b8c5dc54cab9ed14c3a62b1147dd7f9",
+            "boundaries_sha256": "109909a40957d1c37f4742482708251d6a3a4c975cec714214e624c1635787a2",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 1.934,
+                "text": "Tôi chớp mắt."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_17",
+            "text": "Và trạm cũng chớp mắt cùng tôi.",
+            "start_frame": 4380,
+            "end_frame": 4565,
+            "start_sample": 3504000,
+            "end_sample": 3651456,
+            "sample_count": 147456,
+            "duration_seconds": 3.072,
+            "padding_samples": 544,
+            "pause_frames": 75,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_17.mp3",
+            "mp3_sha256": "0146bcfc676e5d3253ce70b0aa0992d23f3bf3e46ea4b07c55887f8a64fbd185",
+            "pcm_sha256": "973eef4a531230876b5a1fcc8a0bfa943fc48dc0bacc75389f897e088b970c1f",
+            "request_sha256": "0d0e9f00181c87164da7925054d21ecbd3d18dc1ada1794d02e5838cdf5b8867",
+            "boundaries_sha256": "689e2118ca405fa9c7b39d1b11e8ae46e290a959f0d449df84112d209d6544ef",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.102,
+                "text": "Và trạm cũng chớp mắt cùng tôi."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_18",
+            "text": "Nếu mày nghe thấy tín hiệu này, đừng trả lời.",
+            "start_frame": 4640,
+            "end_frame": 4877,
+            "start_sample": 3712000,
+            "end_sample": 3900928,
+            "sample_count": 188928,
+            "duration_seconds": 3.936,
+            "padding_samples": 672,
+            "pause_frames": 48,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_18.mp3",
+            "mp3_sha256": "d0b2c9a33787e80227f07ececf1c8e4452ff0ec1024188f19d781a2d08463838",
+            "pcm_sha256": "5bb1110026d3d5923761a337f71cceafc7863cf125021ad737e870613ce0c58c",
+            "request_sha256": "e17c016ab9138e2d4a0d75066bcdc6115446dab1e3c7f36d2f5c0d329ea2a64e",
+            "boundaries_sha256": "e0680d13a0c0092b24a29033ca36090de2abf642dabb53cc65f9daa1ebbf06f0",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.972,
+                "text": "Nếu mày nghe thấy tín hiệu này, đừng trả lời."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_19",
+            "text": "Vì 47 ngày trước, tao cũng nghĩ như mày.",
+            "start_frame": 4925,
+            "end_frame": 5159,
+            "start_sample": 3940000,
+            "end_sample": 4126624,
+            "sample_count": 186624,
+            "duration_seconds": 3.888,
+            "padding_samples": 576,
+            "pause_frames": 39,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_19.mp3",
+            "mp3_sha256": "d6321b33702d68697cc03d270277182070475d8d86a6beebbc1e211032af9e32",
+            "pcm_sha256": "aa7b8f3cd85d450b4eaf19a9e629058bef9ba9da38428c72b517f1833285ae13",
+            "request_sha256": "9836e6d6270e67ce828d3f6b2b55e09221b1d9e28795fb8745f413c730dd534d",
+            "boundaries_sha256": "658022d80d4f1f479959b7cc34c79a9188bc8f201bbb2f4445a6cbea5834e36e",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.931,
+                "text": "Vì 47 ngày trước, tao cũng nghĩ như mày."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          },
+          {
+            "id": "vo_20",
+            "text": "Và giờ tao là thứ đang gõ cửa trạm mày.",
+            "start_frame": 5198,
+            "end_frame": 5406,
+            "start_sample": 4158400,
+            "end_sample": 4324288,
+            "sample_count": 165888,
+            "duration_seconds": 3.456,
+            "padding_samples": 512,
+            "pause_frames": 144,
+            "confidence": "measured_segment",
+            "mp3": "voice/vo_20.mp3",
+            "mp3_sha256": "c80ef57023b0a427518f96fa4e0f19d028dcf48dde1b9cb94bf1a70d71e0595d",
+            "pcm_sha256": "075fe576084a18ad4a29974ab0ba38348dbebe1cc844b3e095278eb65a14f08c",
+            "request_sha256": "8a7b26fb6fc5186a4bd21e93e1458398402bb05645d592b175c35fdbf0fa9e84",
+            "boundaries_sha256": "01bdef7b86fc4fc2ced40ea01b971371fd576b3792f8b7f8aa29727533a51701",
+            "boundaries": [
+              {
+                "start": 0.1,
+                "end": 3.496,
+                "text": "Và giờ tao là thứ đang gõ cửa trạm mày."
+              }
+            ],
+            "listening_review": "UNVERIFIED"
+          }
+        ],
+        "listening_review": "UNVERIFIED",
+        "anchors": [
+          {
+            "id": "vo_01",
+            "text": "Ngày 47, tôi nhận được câu trả lời cho câu hỏi tôi chưa kịp hỏi.",
+            "start_frame": 72,
+            "end_frame": 388,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_02",
+            "text": "Nó ở cách tôi 600.000km.",
+            "start_frame": 418,
+            "end_frame": 632,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_03",
+            "text": "Nghĩa là... nó ở ngay sau lưng trạm.",
+            "start_frame": 659,
+            "end_frame": 863,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_04",
+            "text": "Vũ trụ không bao giờ thực sự im lặng.",
+            "start_frame": 938,
+            "end_frame": 1137,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_05",
+            "text": "Nó chỉ đang nín thở để nghe lén mày.",
+            "start_frame": 1167,
+            "end_frame": 1369,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_06",
+            "text": "Tôi bắn 3 tiếng HELLO về phía sao Mộc.",
+            "start_frame": 1435,
+            "end_frame": 1650,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_07",
+            "text": "4 giây sau, nó trả lời.",
+            "start_frame": 1890,
+            "end_frame": 2076,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_08",
+            "text": "Ngôi sao gần nhất cách 4 năm ánh sáng.",
+            "start_frame": 2115,
+            "end_frame": 2331,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_09",
+            "text": "Vậy thứ trả lời tôi... cách tôi 600.000km.",
+            "start_frame": 2358,
+            "end_frame": 2618,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_10",
+            "text": "Tôi tưởng đó là đá.",
+            "start_frame": 2684,
+            "end_frame": 2837,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_11",
+            "text": "Đến khi cả vành đai cùng co lại một lúc, tôi mới hiểu.",
+            "start_frame": 2879,
+            "end_frame": 3147,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_12",
+            "text": "Tôi đang bay trong mắt của nó.",
+            "start_frame": 3192,
+            "end_frame": 3367,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_13",
+            "text": "Einstein nói đúng.",
+            "start_frame": 3457,
+            "end_frame": 3593,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_14",
+            "text": "Trọng lực bẻ cong ánh sáng.",
+            "start_frame": 3608,
+            "end_frame": 3783,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_15",
+            "text": "Nhưng ông không nói... khi mày nhìn vào chỗ cong đó đủ lâu, chỗ cong đó cũng nhìn lại mày.",
+            "start_frame": 3819,
+            "end_frame": 4188,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_16",
+            "text": "Tôi chớp mắt.",
+            "start_frame": 4254,
+            "end_frame": 4368,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_17",
+            "text": "Và trạm cũng chớp mắt cùng tôi.",
+            "start_frame": 4380,
+            "end_frame": 4565,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_18",
+            "text": "Nếu mày nghe thấy tín hiệu này, đừng trả lời.",
+            "start_frame": 4640,
+            "end_frame": 4877,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_19",
+            "text": "Vì 47 ngày trước, tao cũng nghĩ như mày.",
+            "start_frame": 4925,
+            "end_frame": 5159,
+            "confidence": "measured_segment"
+          },
+          {
+            "id": "vo_20",
+            "text": "Và giờ tao là thứ đang gõ cửa trạm mày.",
+            "start_frame": 5198,
+            "end_frame": 5406,
+            "confidence": "measured_segment"
+          }
+        ]
+      },
+      "beats": [
+        {
+          "id": "beat_1",
+          "purpose": "Establish the contradiction without showing the responder",
+          "before": "No evidence yet",
+          "after": "Only a nearby answer; no eye, creature or outside hand",
+          "narration_anchor": {
+            "segment_id": "vo_01"
+          },
+          "visual_evidence": "Opening already holds three RX marks beside empty TX; range appears at the second measured VO passage",
+          "completion": {
+            "console_01": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+            "glove_01": "Blue glove withdrawn from transmit key",
+            "porthole_01": "Intentional stillness until the shared blink event",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 0,
+          "end_frame": 659
+        },
+        {
+          "id": "beat_2",
+          "purpose": "Show rear geography while leaving the threat invisible",
+          "before": "Only a nearby answer; no eye, creature or outside hand",
+          "after": "Absence and proximity only; no organic ring",
+          "narration_anchor": {
+            "segment_id": "vo_03"
+          },
+          "visual_evidence": "Hold station right of a large dark rear region; reveal nothing in that region",
+          "completion": {
+            "station_01": "Fixed orientation; only camera changes apparent size",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 659,
+          "end_frame": 938
+        },
+        {
+          "id": "beat_3",
+          "purpose": "Turn ordinary room stillness into an active listening threat",
+          "before": "Absence and proximity only; no organic ring",
+          "after": "Space seems attentive; no physical monster",
+          "narration_anchor": {
+            "segment_id": "vo_04"
+          },
+          "visual_evidence": "Blue glove stays off the key; empty window and frozen radio hold against the VO",
+          "completion": {
+            "console_01": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+            "glove_01": "Blue glove withdrawn from transmit key",
+            "porthole_01": "Intentional stillness until the shared blink event",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 938,
+          "end_frame": 1435
+        },
+        {
+          "id": "beat_4",
+          "purpose": "Establish the exact send/return test in the earlier contact",
+          "before": "Space seems attentive; no physical monster",
+          "after": "Only the outbound test; no return at Jupiter",
+          "narration_anchor": {
+            "segment_id": "vo_06"
+          },
+          "visual_evidence": "Three discrete radio wavefronts leave antenna toward Jupiter; then digital silence for four seconds after the last send",
+          "completion": {
+            "station_01": "Fixed orientation; only camera changes apparent size",
+            "jupiter_01": "Intentional stillness; the answer never originates here",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 1435,
+          "end_frame": 1890
+        },
+        {
+          "id": "beat_5",
+          "purpose": "Show the response belongs to local space",
+          "before": "Only the outbound test; no return at Jupiter",
+          "after": "Incoming response only; do not identify the responder",
+          "narration_anchor": {
+            "segment_id": "vo_07"
+          },
+          "visual_evidence": "RX waveform arrives exactly 240 frames after last HELLO; blue hand arrests above the keys",
+          "completion": {
+            "console_01": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds",
+            "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver",
+            "porthole_01": "Intentional stillness until the shared blink event",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 1890,
+          "end_frame": 2115
+        },
+        {
+          "id": "beat_6",
+          "purpose": "Explain why the reply cannot be an ordinary distant-star answer",
+          "before": "Incoming response only; do not identify the responder",
+          "after": "Range is roughly 600000 km under prompt-response assumption; Sun excluded from nearest-other-star claim",
+          "narration_anchor": {
+            "segment_id": "vo_08"
+          },
+          "visual_evidence": "Same CRT compares outbound/return trace; range readout is inferred, not a measured angular position",
+          "completion": {
+            "console_01": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds"
+          },
+          "start_frame": 2115,
+          "end_frame": 2684
+        },
+        {
+          "id": "beat_7",
+          "purpose": "Offer a plausible harmless reading before motion contradicts it",
+          "before": "Range is roughly 600000 km under prompt-response assumption; Sun excluded from nearest-other-star claim",
+          "after": "Stone silhouettes only; no full eye outline",
+          "narration_anchor": {
+            "segment_id": "vo_10"
+          },
+          "visual_evidence": "A chipped rock fills foreground; other rocks are cropped into an irregular arc",
+          "completion": {
+            "belt_01": "All blocks contract together only at the authored supernatural event",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 2684,
+          "end_frame": 2879
+        },
+        {
+          "id": "beat_8",
+          "purpose": "Make synchronized motion the impossible evidence",
+          "before": "Stone silhouettes only; no full eye outline",
+          "after": "One coordinated ring; eye identity and pupil withheld until next shot",
+          "narration_anchor": {
+            "segment_id": "vo_11"
+          },
+          "visual_evidence": "All stones contract toward one center together, preserving their order; no gravity/impact excuse",
+          "completion": {
+            "belt_01": "All stones share one contracted field; angular order preserved",
+            "station_01": "Fixed orientation; only camera changes apparent size",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 2879,
+          "end_frame": 3192
+        },
+        {
+          "id": "beat_9",
+          "purpose": "Reinterpret the same rocks and station as an enclosing cosmic eye",
+          "before": "One coordinated ring; eye identity and pupil withheld until next shot",
+          "after": "Eye geometry allowed; full creature body and narrator transformation remain hidden",
+          "narration_anchor": {
+            "segment_id": "vo_12"
+          },
+          "visual_evidence": "The contracted annulus becomes readable as iris; tiny station remains inside, never jumps outside",
+          "completion": {
+            "belt_01": "All stones share one contracted field; angular order preserved",
+            "station_01": "Fixed orientation; only camera changes apparent size",
+            "lens_01": "Dark optical field enclosed by the contracted iris",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 3192,
+          "end_frame": 3457
+        },
+        {
+          "id": "beat_10",
+          "purpose": "Give an observable optical rule before the supernatural reversal",
+          "before": "Eye geometry allowed; full creature body and narrator transformation remain hidden",
+          "after": "Known eye plus bent starlight; no gaze shift yet",
+          "narration_anchor": {
+            "segment_id": "vo_13"
+          },
+          "visual_evidence": "Stable star pair bends only around the field visible through the same rear window",
+          "completion": {
+            "porthole_01": "Intentional stillness until the shared blink event",
+            "lens_01": "Dark optical field enclosed by the contracted iris",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field",
+            "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver"
+          },
+          "start_frame": 3457,
+          "end_frame": 3819
+        },
+        {
+          "id": "beat_11",
+          "purpose": "Turn an optical observation into returned attention",
+          "before": "Known eye plus bent starlight; no gaze shift yet",
+          "after": "Returned gaze allowed; no external glove or infection reveal",
+          "narration_anchor": {
+            "segment_id": "vo_15"
+          },
+          "visual_evidence": "Long locked hold; the dark center changes alignment toward the viewer late in the measured line",
+          "completion": {
+            "porthole_01": "Intentional stillness until the shared blink event",
+            "lens_01": "Gaze aligned to narrator; bent star pair persists",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field",
+            "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver"
+          },
+          "start_frame": 3819,
+          "end_frame": 4254
+        },
+        {
+          "id": "beat_12",
+          "purpose": "Plant a subjective closure that becomes physical in the next view",
+          "before": "Returned gaze allowed; no external glove or infection reveal",
+          "after": "Narrator POV blink only; no face needed",
+          "narration_anchor": {
+            "segment_id": "vo_16"
+          },
+          "visual_evidence": "POV closes from top and bottom at the shared absolute blink event; aperture stays closed at the cut",
+          "completion": {
+            "porthole_01": "Shared blink event: aperture closed at the edit",
+            "lens_01": "Gaze aligned to narrator; bent star pair persists",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 4254,
+          "end_frame": 4380
+        },
+        {
+          "id": "beat_13",
+          "purpose": "Show the same closure belongs to the whole station",
+          "before": "Narrator POV blink only; no face needed",
+          "after": "Station/observer coupling; no narrator outside yet",
+          "narration_anchor": {
+            "segment_id": "vo_17"
+          },
+          "visual_evidence": "Begin with station aperture closed; reopen on the same global blink envelope; preserve the enclosing iris",
+          "completion": {
+            "station_01": "Window reopened after shared blink; station still inside field",
+            "belt_01": "All stones share one contracted field; angular order preserved",
+            "lens_01": "Gaze aligned to narrator; bent star pair persists",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 4380,
+          "end_frame": 4640
+        },
+        {
+          "id": "beat_14",
+          "purpose": "Transfer danger to the listener and leave an actionable choice",
+          "before": "Station/observer coupling; no narrator outside yet",
+          "after": "A new listener hears warning; narrator identity still withheld",
+          "narration_anchor": {
+            "segment_id": "vo_18"
+          },
+          "visual_evidence": "A different glove stops short of REPLY; closed door holds beside it",
+          "completion": {
+            "console_02": "Incoming recording only; no reply is sent",
+            "glove_02": "Receiver glove stops before REPLY; key unpressed",
+            "door_02": "Stays closed; external contact leaves a print without structural deformation"
+          },
+          "start_frame": 4640,
+          "end_frame": 4925
+        },
+        {
+          "id": "beat_15",
+          "purpose": "Make the opening gesture a plant for the ending",
+          "before": "A new listener hears warning; narrator identity still withheld",
+          "after": "Previous listener was narrator; outside hand remains hidden",
+          "narration_anchor": {
+            "segment_id": "vo_19"
+          },
+          "visual_evidence": "Return to DAY 00 log and the same blue wrist stripe near transmit control",
+          "completion": {
+            "console_01": "DAY 00; first-contact log before the send",
+            "glove_01": "Blue glove poised over transmit key",
+            "porthole_01": "Intentional stillness until the shared blink event",
+            "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "start_frame": 4925,
+          "end_frame": 5198
+        },
+        {
+          "id": "beat_16",
+          "purpose": "Pay off the wrist stripe outside the listener’s protected room",
+          "before": "Previous listener was narrator; outside hand remains hidden",
+          "after": "Narrator is now the arriving thing; body and cosmic cause remain unseen",
+          "narration_anchor": {
+            "segment_id": "vo_20"
+          },
+          "visual_evidence": "Same blue glove rises outside glass and makes one knuckle contact; receiver glove remains out of frame; door stays locked",
+          "completion": {
+            "door_02": "Still locked; outside knuckle contact and persistent print",
+            "glove_01": "Blue narrator glove outside glass at the contact point",
+            "console_02": "Incoming recording only; no reply is sent"
+          },
+          "start_frame": 5198,
+          "end_frame": 5550
+        }
+      ],
+      "objects": [
+        {
+          "id": "station_01",
+          "identity": "Trạm đơn độc: khoang trụ, cửa kính tròn, hai dàn pin bất đối xứng, anten chĩa sang phải",
+          "role": "hero",
+          "initial_state": {
+            "description": "Fixed orientation; only camera changes apparent size"
+          },
+          "craft": {
+            "silhouette": "Trạm đơn độc: khoang trụ, cửa kính tròn, hai dàn pin bất đối xứng, anten chĩa sang phải",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Steel, glass and solar cells",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "One rigid station assembly",
+          "default_behavior": "Fixed orientation; only camera changes apparent size"
+        },
+        {
+          "id": "console_01",
+          "identity": "Bàn radio ba vùng: log ngày, TX trống, RX ba nét phản hồi",
+          "role": "hero",
+          "initial_state": {
+            "description": "Optical changes driven by logged radio events"
+          },
+          "craft": {
+            "silhouette": "Bàn radio ba vùng: log ngày, TX trống, RX ba nét phản hồi",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Painted metal and phosphor display",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Bolted to station_01",
+          "default_behavior": "Optical changes driven by logged radio events"
+        },
+        {
+          "id": "porthole_01",
+          "identity": "Cửa kính tròn lớn ở phía sau bàn radio, đúng cửa tròn của station_01",
+          "role": "support",
+          "initial_state": {
+            "description": "Intentional stillness until the shared blink event"
+          },
+          "craft": {
+            "silhouette": "Cửa kính tròn lớn ở phía sau bàn radio, đúng cửa tròn của station_01",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Glass in an eight-bolt steel rim",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Bolted to station_01",
+          "default_behavior": "Intentional stillness until the shared blink event"
+        },
+        {
+          "id": "glove_01",
+          "identity": "Găng xanh bạc, ba gờ khớp, vòng cổ tay màu hổ phách; tay người kể, không lộ tuổi hay mặt",
+          "role": "support",
+          "initial_state": {
+            "description": "Grip/withdrawal from console; later the same glove outside the receiver"
+          },
+          "craft": {
+            "silhouette": "Găng xanh bạc, ba gờ khớp, vòng cổ tay màu hổ phách; tay người kể, không lộ tuổi hay mặt",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Woven suit sleeve with padded joints",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Articulated wrist of unseen narrator",
+          "default_behavior": "Grip/withdrawal from console; later the same glove outside the receiver"
+        },
+        {
+          "id": "starfield_01",
+          "identity": "Các sao xa cố định, có một cặp sao sáng để theo dõi độ cong",
+          "role": "environment",
+          "initial_state": {
+            "description": "No twinkle loop; displacement only under the authored lens field"
+          },
+          "craft": {
+            "silhouette": "Các sao xa cố định, có một cặp sao sáng để theo dõi độ cong",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Distant light",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Background world coordinates",
+          "default_behavior": "No twinkle loop; displacement only under the authored lens field"
+        },
+        {
+          "id": "jupiter_01",
+          "identity": "Sao Mộc xa bên phải, dải mây nghiêng và một vệt đỏ nhỏ",
+          "role": "environment",
+          "initial_state": {
+            "description": "Intentional stillness; the answer never originates here"
+          },
+          "craft": {
+            "silhouette": "Sao Mộc xa bên phải, dải mây nghiêng và một vệt đỏ nhỏ",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Illustrated gas planet",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Distant aiming direction, not a scale marker",
+          "default_behavior": "Intentional stillness; the answer never originates here"
+        },
+        {
+          "id": "belt_01",
+          "identity": "Những khối đá xám có cạnh sứt; sau đó lộ cả vành đai quanh khoảng đen",
+          "role": "hero",
+          "initial_state": {
+            "description": "All blocks contract together only at the authored supernatural event"
+          },
+          "craft": {
+            "silhouette": "Những khối đá xám có cạnh sứt; sau đó lộ cả vành đai quanh khoảng đen",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Stone before recognition; fictional living structure after reveal",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "One field centered behind station_01",
+          "default_behavior": "All blocks contract together only at the authored supernatural event"
+        },
+        {
+          "id": "lens_01",
+          "identity": "Vùng cong của trường sao quanh khoảng đen; không phải mặt nạ phủ lên trạm",
+          "role": "hero",
+          "initial_state": {
+            "description": "Bends the background pair; pupil/gaze change comes late"
+          },
+          "craft": {
+            "silhouette": "Vùng cong của trường sao quanh khoảng đen; không phải mặt nạ phủ lên trạm",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Optical field",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Centered behind station_01",
+          "default_behavior": "Bends the background pair; pupil/gaze change comes late"
+        },
+        {
+          "id": "door_02",
+          "identity": "Cửa trạm người nhận: ô kính bát giác, khoá bên phải, đèn hổ phách, vết xước chữ V",
+          "role": "hero",
+          "initial_state": {
+            "description": "Stays closed; external contact leaves a print without structural deformation"
+          },
+          "craft": {
+            "silhouette": "Cửa trạm người nhận: ô kính bát giác, khoá bên phải, đèn hổ phách, vết xước chữ V",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Steel and thick glass",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Bolted to second station",
+          "default_behavior": "Stays closed; external contact leaves a print without structural deformation"
+        },
+        {
+          "id": "console_02",
+          "identity": "Máy radio của trạm người nhận với nút REPLY riêng",
+          "role": "support",
+          "initial_state": {
+            "description": "Incoming recording only; no reply is sent"
+          },
+          "craft": {
+            "silhouette": "Máy radio của trạm người nhận với nút REPLY riêng",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Metal and amber phosphor",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Bolted to second station",
+          "default_behavior": "Incoming recording only; no reply is sent"
+        },
+        {
+          "id": "glove_02",
+          "identity": "Găng màu đất của người nhận, vòng cổ tay trắng; khác glove_01",
+          "role": "support",
+          "initial_state": {
+            "description": "Stops short of REPLY, withdraws before contact"
+          },
+          "craft": {
+            "silhouette": "Găng màu đất của người nhận, vòng cổ tay trắng; khác glove_01",
+            "construction": "Editable original SVG components from src/draw.mjs; no raster plate",
+            "material": "Fabric and padded joints",
+            "references": [
+              "User original space-horror script"
+            ],
+            "fidelity_limits": "2D storyboard drawing, not an engineering model"
+          },
+          "attachment": "Unseen second listener",
+          "default_behavior": "Stops short of REPLY, withdraws before contact"
+        }
+      ],
+      "shots": [
+        {
+          "id": "s01_receive",
+          "title": "Câu trả lời đến trước câu hỏi",
+          "scene_id": "control_01",
+          "view": "receive",
+          "beat_ids": [
+            "beat_1"
+          ],
+          "start_frame": 0,
+          "end_frame": 659,
+          "duration_frames": 659,
+          "narration_ids": [
+            "vo_01",
+            "vo_02"
+          ],
+          "object_ids": [
+            "console_01",
+            "glove_01",
+            "porthole_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "console_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Establish the contradiction without showing the responder",
+          "camera": {
+            "purpose": "Slow 4% push into RX: the blank TX establishes the missing question",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "console_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "console_01",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Optical changes driven by logged radio events",
+              "end": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "intentional-stillness",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "end": "Blue glove withdrawn from transmit key",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "porthole_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Intentional stillness until the shared blink event",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Establish the contradiction without showing the responder",
+            "framing": "Slow 4% push into RX: the blank TX establishes the missing question",
+            "attention": "console_01",
+            "primary_action": "Opening already holds three RX marks beside empty TX; range appears at the second measured VO passage",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_01",
+                "glove_01"
+              ],
+              "mg": [
+                "porthole_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "console_01": "Optical changes driven by logged radio events",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "console_01": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+              "glove_01": "Blue glove withdrawn from transmit key",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "No evidence yet",
+              "audience_out": "Only a nearby answer; no eye, creature or outside hand",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Establish the contradiction without showing the responder",
+              "reveal_ceiling": "Only a nearby answer; no eye, creature or outside hand",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "scene_change",
+              "type": "hard_cut",
+              "next_shot_id": "s02_behind",
+              "trigger": "Cut after Câu trả lời đến trước câu hỏi evidence becomes readable",
+              "next_delta": "Show rear geography while leaving the threat invisible",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s02_behind",
+          "title": "Ngay sau lưng trạm",
+          "scene_id": "space_01",
+          "view": "behind",
+          "beat_ids": [
+            "beat_2"
+          ],
+          "start_frame": 659,
+          "end_frame": 938,
+          "duration_frames": 279,
+          "narration_ids": [
+            "vo_03"
+          ],
+          "object_ids": [
+            "station_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "station_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Show rear geography while leaving the threat invisible",
+          "camera": {
+            "purpose": "Restrained pullback: reveal the unsafe rear region, not the entity",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "station_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "station_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One rigid station assembly",
+              "start": "Fixed orientation; only camera changes apparent size",
+              "end": "Fixed orientation; only camera changes apparent size",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Show rear geography while leaving the threat invisible",
+            "framing": "Restrained pullback: reveal the unsafe rear region, not the entity",
+            "attention": "station_01",
+            "primary_action": "Hold station right of a large dark rear region; reveal nothing in that region",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [],
+              "mg": [
+                "station_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Only a nearby answer; no eye, creature or outside hand",
+              "audience_out": "Absence and proximity only; no organic ring",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Show rear geography while leaving the threat invisible",
+              "reveal_ceiling": "Absence and proximity only; no organic ring",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "scene_change",
+              "type": "hard_cut",
+              "next_shot_id": "s03_listen",
+              "trigger": "Cut after Ngay sau lưng trạm evidence becomes readable",
+              "next_delta": "Turn ordinary room stillness into an active listening threat",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s03_listen",
+          "title": "Nín thở",
+          "scene_id": "control_01",
+          "view": "listen",
+          "beat_ids": [
+            "beat_3"
+          ],
+          "start_frame": 938,
+          "end_frame": 1435,
+          "duration_frames": 497,
+          "narration_ids": [
+            "vo_04",
+            "vo_05"
+          ],
+          "object_ids": [
+            "console_01",
+            "glove_01",
+            "porthole_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "porthole_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Turn ordinary room stillness into an active listening threat",
+          "camera": {
+            "purpose": "Locked cabin frame: sustained negative space makes the window the question",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "porthole_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "console_01",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+              "end": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "intentional-stillness",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Blue glove withdrawn from transmit key",
+              "end": "Blue glove withdrawn from transmit key",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "porthole_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Intentional stillness until the shared blink event",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Turn ordinary room stillness into an active listening threat",
+            "framing": "Locked cabin frame: sustained negative space makes the window the question",
+            "attention": "porthole_01",
+            "primary_action": "Blue glove stays off the key; empty window and frozen radio hold against the VO",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_01",
+                "glove_01"
+              ],
+              "mg": [
+                "porthole_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "console_01": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+              "glove_01": "Blue glove withdrawn from transmit key",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "console_01": "DAY 47; TX empty; RX three marks; inferred range 600000 km",
+              "glove_01": "Blue glove withdrawn from transmit key",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Absence and proximity only; no organic ring",
+              "audience_out": "Space seems attentive; no physical monster",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Turn ordinary room stillness into an active listening threat",
+              "reveal_ceiling": "Space seems attentive; no physical monster",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "time_jump",
+              "type": "hard_cut",
+              "next_shot_id": "s04_send",
+              "trigger": "Flashback to first contact, DAY 00; current DAY 47 is not overwritten",
+              "next_delta": "Establish the exact send/return test in the earlier contact",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s04_send",
+          "title": "Ba HELLO / bốn giây chờ",
+          "scene_id": "space_01",
+          "view": "send",
+          "beat_ids": [
+            "beat_4"
+          ],
+          "start_frame": 1435,
+          "end_frame": 1890,
+          "duration_frames": 455,
+          "narration_ids": [
+            "vo_06"
+          ],
+          "object_ids": [
+            "station_01",
+            "jupiter_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "station_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Establish the exact send/return test in the earlier contact",
+          "camera": {
+            "purpose": "Locked lateral wide: all three sends share one antenna origin and direction",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "station_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "station_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One rigid station assembly",
+              "start": "Fixed orientation; only camera changes apparent size",
+              "end": "Fixed orientation; only camera changes apparent size",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "jupiter_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Distant aiming direction, not a scale marker",
+              "start": "Intentional stillness; the answer never originates here",
+              "end": "Intentional stillness; the answer never originates here",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Establish the exact send/return test in the earlier contact",
+            "framing": "Locked lateral wide: all three sends share one antenna origin and direction",
+            "attention": "station_01",
+            "primary_action": "Three discrete radio wavefronts leave antenna toward Jupiter; then digital silence for four seconds after the last send",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [],
+              "mg": [
+                "station_01"
+              ],
+              "bg": [
+                "jupiter_01",
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "jupiter_01": "Intentional stillness; the answer never originates here",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "jupiter_01": "Intentional stillness; the answer never originates here",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Space seems attentive; no physical monster",
+              "audience_out": "Only the outbound test; no return at Jupiter",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Establish the exact send/return test in the earlier contact",
+              "reveal_ceiling": "Only the outbound test; no return at Jupiter",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "scene_change",
+              "type": "hard_cut",
+              "next_shot_id": "s05_answer",
+              "trigger": "Cut after Ba HELLO / bốn giây chờ evidence becomes readable",
+              "next_delta": "Show the response belongs to local space",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s05_answer",
+          "title": "Phản hồi",
+          "scene_id": "control_01",
+          "view": "answer",
+          "beat_ids": [
+            "beat_5"
+          ],
+          "start_frame": 1890,
+          "end_frame": 2115,
+          "duration_frames": 225,
+          "narration_ids": [
+            "vo_07"
+          ],
+          "object_ids": [
+            "console_01",
+            "glove_01",
+            "porthole_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "console_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Show the response belongs to local space",
+          "camera": {
+            "purpose": "Hard cut on RX onset, stable prop framing; receiver waveform takes attention",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "console_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "console_01",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Optical changes driven by logged radio events",
+              "end": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "reactive",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "end": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "porthole_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Intentional stillness until the shared blink event",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Show the response belongs to local space",
+            "framing": "Hard cut on RX onset, stable prop framing; receiver waveform takes attention",
+            "attention": "console_01",
+            "primary_action": "RX waveform arrives exactly 240 frames after last HELLO; blue hand arrests above the keys",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_01",
+                "glove_01"
+              ],
+              "mg": [
+                "porthole_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "console_01": "Optical changes driven by logged radio events",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "console_01": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Only the outbound test; no return at Jupiter",
+              "audience_out": "Incoming response only; do not identify the responder",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Show the response belongs to local space",
+              "reveal_ceiling": "Incoming response only; do not identify the responder",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "insert",
+              "type": "hard_cut",
+              "next_shot_id": "s06_distance",
+              "trigger": "Cut after Phản hồi evidence becomes readable",
+              "next_delta": "Explain why the reply cannot be an ordinary distant-star answer",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "console_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s06_distance",
+          "title": "600.000 km",
+          "scene_id": "radio_insert",
+          "view": "distance",
+          "beat_ids": [
+            "beat_6"
+          ],
+          "start_frame": 2115,
+          "end_frame": 2684,
+          "duration_frames": 569,
+          "narration_ids": [
+            "vo_08",
+            "vo_09"
+          ],
+          "object_ids": [
+            "console_01"
+          ],
+          "attention": [
+            "console_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Explain why the reply cannot be an ordinary distant-star answer",
+          "camera": {
+            "purpose": "Locked insert: let elapsed time and range be read as evidence, not a fake scale model",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "console_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "console_01",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds",
+              "end": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Explain why the reply cannot be an ordinary distant-star answer",
+            "framing": "Locked insert: let elapsed time and range be read as evidence, not a fake scale model",
+            "attention": "console_01",
+            "primary_action": "Same CRT compares outbound/return trace; range readout is inferred, not a measured angular position",
+            "background_mode": "explanatory_insert",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_01"
+              ],
+              "mg": [],
+              "bg": [],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "console_01": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds"
+            },
+            "end_state": {
+              "console_01": "DAY 00; TX HELLO x3; RX reply at 4.000 seconds"
+            },
+            "information": {
+              "audience_in": "Incoming response only; do not identify the responder",
+              "audience_out": "Range is roughly 600000 km under prompt-response assumption; Sun excluded from nearest-other-star claim",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Explain why the reply cannot be an ordinary distant-star answer",
+              "reveal_ceiling": "Range is roughly 600000 km under prompt-response assumption; Sun excluded from nearest-other-star claim",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "return",
+              "type": "hard_cut",
+              "next_shot_id": "s07_stone",
+              "trigger": "Cut after 600.000 km evidence becomes readable",
+              "next_delta": "Offer a plausible harmless reading before motion contradicts it",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "attention_position"
+              ],
+              "preserved_objects": [],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s07_stone",
+          "title": "Tưởng là đá",
+          "scene_id": "space_01",
+          "view": "stone",
+          "beat_ids": [
+            "beat_7"
+          ],
+          "start_frame": 2684,
+          "end_frame": 2879,
+          "duration_frames": 195,
+          "narration_ids": [
+            "vo_10"
+          ],
+          "object_ids": [
+            "belt_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "belt_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Offer a plausible harmless reading before motion contradicts it",
+          "camera": {
+            "purpose": "Close crop stays off the full ring; do not reveal the enclosing shape",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "belt_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "belt_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One field centered behind station_01",
+              "start": "All blocks contract together only at the authored supernatural event",
+              "end": "All blocks contract together only at the authored supernatural event",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Offer a plausible harmless reading before motion contradicts it",
+            "framing": "Close crop stays off the full ring; do not reveal the enclosing shape",
+            "attention": "belt_01",
+            "primary_action": "A chipped rock fills foreground; other rocks are cropped into an irregular arc",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "belt_01"
+              ],
+              "mg": [],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "belt_01": "All blocks contract together only at the authored supernatural event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "belt_01": "All blocks contract together only at the authored supernatural event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Range is roughly 600000 km under prompt-response assumption; Sun excluded from nearest-other-star claim",
+              "audience_out": "Stone silhouettes only; no full eye outline",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Offer a plausible harmless reading before motion contradicts it",
+              "reveal_ceiling": "Stone silhouettes only; no full eye outline",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "same_scene",
+              "type": "hard_cut",
+              "next_shot_id": "s08_contract",
+              "trigger": "Cut after Tưởng là đá evidence becomes readable",
+              "next_delta": "Make synchronized motion the impossible evidence",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "belt_01",
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s08_contract",
+          "title": "Cả vành đai co lại",
+          "scene_id": "space_01",
+          "view": "contract",
+          "beat_ids": [
+            "beat_8"
+          ],
+          "start_frame": 2879,
+          "end_frame": 3192,
+          "duration_frames": 313,
+          "narration_ids": [
+            "vo_11"
+          ],
+          "object_ids": [
+            "belt_01",
+            "station_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "belt_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Make synchronized motion the impossible evidence",
+          "camera": {
+            "purpose": "Pull out only enough to see common contraction and the tiny station",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "belt_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "belt_01",
+              "state": "active",
+              "driver": "Declared supernatural ring contraction; same angular order, no rock collisions",
+              "attachment": "One field centered behind station_01",
+              "start": "All blocks contract together only at the authored supernatural event",
+              "end": "All stones share one contracted field; angular order preserved",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "station_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One rigid station assembly",
+              "start": "Fixed orientation; only camera changes apparent size",
+              "end": "Fixed orientation; only camera changes apparent size",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Make synchronized motion the impossible evidence",
+            "framing": "Pull out only enough to see common contraction and the tiny station",
+            "attention": "belt_01",
+            "primary_action": "All stones contract toward one center together, preserving their order; no gravity/impact excuse",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "belt_01"
+              ],
+              "mg": [
+                "station_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "belt_01": "All blocks contract together only at the authored supernatural event",
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "belt_01": "All stones share one contracted field; angular order preserved",
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Stone silhouettes only; no full eye outline",
+              "audience_out": "One coordinated ring; eye identity and pupil withheld until next shot",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Make synchronized motion the impossible evidence",
+              "reveal_ceiling": "One coordinated ring; eye identity and pupil withheld until next shot",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "same_scene",
+              "type": "hard_cut",
+              "next_shot_id": "s09_eye",
+              "trigger": "Cut after Cả vành đai co lại evidence becomes readable",
+              "next_delta": "Reinterpret the same rocks and station as an enclosing cosmic eye",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "belt_01",
+                "station_01",
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s09_eye",
+          "title": "Bay trong mắt nó",
+          "scene_id": "space_01",
+          "view": "eye",
+          "beat_ids": [
+            "beat_9"
+          ],
+          "start_frame": 3192,
+          "end_frame": 3457,
+          "duration_frames": 265,
+          "narration_ids": [
+            "vo_12"
+          ],
+          "object_ids": [
+            "belt_01",
+            "station_01",
+            "lens_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "belt_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Reinterpret the same rocks and station as an enclosing cosmic eye",
+          "camera": {
+            "purpose": "Continued wider context: scale change yields information instead of a new monster asset",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "belt_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "belt_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One field centered behind station_01",
+              "start": "All stones share one contracted field; angular order preserved",
+              "end": "All stones share one contracted field; angular order preserved",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "station_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One rigid station assembly",
+              "start": "Fixed orientation; only camera changes apparent size",
+              "end": "Fixed orientation; only camera changes apparent size",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "lens_01",
+              "state": "optical",
+              "driver": "Localized optical field; returned gaze is a declared fictional exception",
+              "attachment": "Centered behind station_01",
+              "start": "Bends the background pair; pupil/gaze change comes late",
+              "end": "Dark optical field enclosed by the contracted iris",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Reinterpret the same rocks and station as an enclosing cosmic eye",
+            "framing": "Continued wider context: scale change yields information instead of a new monster asset",
+            "attention": "belt_01",
+            "primary_action": "The contracted annulus becomes readable as iris; tiny station remains inside, never jumps outside",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [],
+              "mg": [
+                "station_01",
+                "belt_01",
+                "lens_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "belt_01": "All stones share one contracted field; angular order preserved",
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "lens_01": "Bends the background pair; pupil/gaze change comes late",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "belt_01": "All stones share one contracted field; angular order preserved",
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "lens_01": "Dark optical field enclosed by the contracted iris",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "One coordinated ring; eye identity and pupil withheld until next shot",
+              "audience_out": "Eye geometry allowed; full creature body and narrator transformation remain hidden",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Reinterpret the same rocks and station as an enclosing cosmic eye",
+              "reveal_ceiling": "Eye geometry allowed; full creature body and narrator transformation remain hidden",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "scene_change",
+              "type": "hard_cut",
+              "next_shot_id": "s10_lens",
+              "trigger": "Cut after Bay trong mắt nó evidence becomes readable",
+              "next_delta": "Give an observable optical rule before the supernatural reversal",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "lens_01",
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s10_lens",
+          "title": "Ánh sáng cong",
+          "scene_id": "control_01",
+          "view": "lens",
+          "beat_ids": [
+            "beat_10"
+          ],
+          "start_frame": 3457,
+          "end_frame": 3819,
+          "duration_frames": 362,
+          "narration_ids": [
+            "vo_13",
+            "vo_14"
+          ],
+          "object_ids": [
+            "porthole_01",
+            "lens_01",
+            "starfield_01",
+            "glove_01"
+          ],
+          "attention": [
+            "lens_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Give an observable optical rule before the supernatural reversal",
+          "camera": {
+            "purpose": "Hold the rim and star pair together so deformation has a fixed reference",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "lens_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "porthole_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Intentional stillness until the shared blink event",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "lens_01",
+              "state": "optical",
+              "driver": "Localized optical field; returned gaze is a declared fictional exception",
+              "attachment": "Centered behind station_01",
+              "start": "Dark optical field enclosed by the contracted iris",
+              "end": "Dark optical field enclosed by the contracted iris",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "optical",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "intentional-stillness",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "end": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Give an observable optical rule before the supernatural reversal",
+            "framing": "Hold the rim and star pair together so deformation has a fixed reference",
+            "attention": "lens_01",
+            "primary_action": "Stable star pair bends only around the field visible through the same rear window",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "glove_01"
+              ],
+              "mg": [
+                "porthole_01",
+                "lens_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "lens_01": "Dark optical field enclosed by the contracted iris",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver"
+            },
+            "end_state": {
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "lens_01": "Dark optical field enclosed by the contracted iris",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver"
+            },
+            "information": {
+              "audience_in": "Eye geometry allowed; full creature body and narrator transformation remain hidden",
+              "audience_out": "Known eye plus bent starlight; no gaze shift yet",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Give an observable optical rule before the supernatural reversal",
+              "reveal_ceiling": "Known eye plus bent starlight; no gaze shift yet",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "same_scene",
+              "type": "hard_cut",
+              "next_shot_id": "s11_look",
+              "trigger": "Cut after Ánh sáng cong evidence becomes readable",
+              "next_delta": "Turn an optical observation into returned attention",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "porthole_01",
+                "lens_01",
+                "starfield_01",
+                "glove_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s11_look",
+          "title": "Nó nhìn lại",
+          "scene_id": "control_01",
+          "view": "look",
+          "beat_ids": [
+            "beat_11"
+          ],
+          "start_frame": 3819,
+          "end_frame": 4254,
+          "duration_frames": 435,
+          "narration_ids": [
+            "vo_15"
+          ],
+          "object_ids": [
+            "porthole_01",
+            "lens_01",
+            "starfield_01",
+            "glove_01"
+          ],
+          "attention": [
+            "lens_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Turn an optical observation into returned attention",
+          "camera": {
+            "purpose": "Small 3% push; keep eye trace stable until the late pupil alignment",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "lens_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "porthole_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Intentional stillness until the shared blink event",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "lens_01",
+              "state": "optical",
+              "driver": "Localized optical field; returned gaze is a declared fictional exception",
+              "attachment": "Centered behind station_01",
+              "start": "Dark optical field enclosed by the contracted iris",
+              "end": "Gaze aligned to narrator; bent star pair persists",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "optical",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "intentional-stillness",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "end": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Turn an optical observation into returned attention",
+            "framing": "Small 3% push; keep eye trace stable until the late pupil alignment",
+            "attention": "lens_01",
+            "primary_action": "Long locked hold; the dark center changes alignment toward the viewer late in the measured line",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "glove_01"
+              ],
+              "mg": [
+                "porthole_01",
+                "lens_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "lens_01": "Dark optical field enclosed by the contracted iris",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver"
+            },
+            "end_state": {
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "lens_01": "Gaze aligned to narrator; bent star pair persists",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver"
+            },
+            "information": {
+              "audience_in": "Known eye plus bent starlight; no gaze shift yet",
+              "audience_out": "Returned gaze allowed; no external glove or infection reveal",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Turn an optical observation into returned attention",
+              "reveal_ceiling": "Returned gaze allowed; no external glove or infection reveal",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "same_scene",
+              "type": "hard_cut",
+              "next_shot_id": "s12_blink",
+              "trigger": "Cut after Nó nhìn lại evidence becomes readable",
+              "next_delta": "Plant a subjective closure that becomes physical in the next view",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [
+                "porthole_01",
+                "lens_01",
+                "starfield_01"
+              ],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s12_blink",
+          "title": "Tôi chớp mắt",
+          "scene_id": "control_01",
+          "view": "blink",
+          "beat_ids": [
+            "beat_12"
+          ],
+          "start_frame": 4254,
+          "end_frame": 4380,
+          "duration_frames": 126,
+          "narration_ids": [
+            "vo_16"
+          ],
+          "object_ids": [
+            "porthole_01",
+            "lens_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "porthole_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Plant a subjective closure that becomes physical in the next view",
+          "camera": {
+            "purpose": "Locked POV; darkness is a motivated eyelid occlusion, not a fade",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "porthole_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "porthole_01",
+              "state": "reactive",
+              "driver": "Narrator POV eyelid occlusion at the shared absolute blink event",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Shared blink event: aperture closed at the edit",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "lens_01",
+              "state": "optical",
+              "driver": "Localized optical field; returned gaze is a declared fictional exception",
+              "attachment": "Centered behind station_01",
+              "start": "Gaze aligned to narrator; bent star pair persists",
+              "end": "Gaze aligned to narrator; bent star pair persists",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "optical",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Plant a subjective closure that becomes physical in the next view",
+            "framing": "Locked POV; darkness is a motivated eyelid occlusion, not a fade",
+            "attention": "porthole_01",
+            "primary_action": "POV closes from top and bottom at the shared absolute blink event; aperture stays closed at the cut",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [],
+              "mg": [
+                "porthole_01",
+                "lens_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "lens_01": "Gaze aligned to narrator; bent star pair persists",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "porthole_01": "Shared blink event: aperture closed at the edit",
+              "lens_01": "Gaze aligned to narrator; bent star pair persists",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Returned gaze allowed; no external glove or infection reveal",
+              "audience_out": "Narrator POV blink only; no face needed",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Plant a subjective closure that becomes physical in the next view",
+              "reveal_ceiling": "Narrator POV blink only; no face needed",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "scene_change",
+              "type": "occlusion_cut",
+              "next_shot_id": "s13_station_blink",
+              "trigger": "Cut after Tôi chớp mắt evidence becomes readable",
+              "next_delta": "Show the same closure belongs to the whole station",
+              "carry_channels": [
+                "aperture_closure",
+                "darkness",
+                "voice"
+              ],
+              "preserved_objects": [
+                "lens_01",
+                "starfield_01"
+              ],
+              "state_changes": {
+                "lens_01": "State evolves during intervening authored shots before return to space_01: Gaze aligned to narrator; bent star pair persists"
+              }
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s13_station_blink",
+          "title": "Trạm cũng chớp mắt",
+          "scene_id": "space_01",
+          "view": "station-blink",
+          "beat_ids": [
+            "beat_13"
+          ],
+          "start_frame": 4380,
+          "end_frame": 4640,
+          "duration_frames": 260,
+          "narration_ids": [
+            "vo_17"
+          ],
+          "object_ids": [
+            "station_01",
+            "belt_01",
+            "lens_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "station_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Show the same closure belongs to the whole station",
+          "camera": {
+            "purpose": "Hard cut during closure to exterior; same dark aperture and blink phase bridge the cut",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "station_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "station_01",
+              "state": "reactive",
+              "driver": "Shared absolute blink envelope; rigid station holds while aperture closes/reopens",
+              "attachment": "One rigid station assembly",
+              "start": "Fixed orientation; only camera changes apparent size",
+              "end": "Window reopened after shared blink; station still inside field",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "belt_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "One field centered behind station_01",
+              "start": "All stones share one contracted field; angular order preserved",
+              "end": "All stones share one contracted field; angular order preserved",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "lens_01",
+              "state": "optical",
+              "driver": "Localized optical field; returned gaze is a declared fictional exception",
+              "attachment": "Centered behind station_01",
+              "start": "Gaze aligned to narrator; bent star pair persists",
+              "end": "Gaze aligned to narrator; bent star pair persists",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Show the same closure belongs to the whole station",
+            "framing": "Hard cut during closure to exterior; same dark aperture and blink phase bridge the cut",
+            "attention": "station_01",
+            "primary_action": "Begin with station aperture closed; reopen on the same global blink envelope; preserve the enclosing iris",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [],
+              "mg": [
+                "station_01",
+                "belt_01",
+                "lens_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "station_01": "Fixed orientation; only camera changes apparent size",
+              "belt_01": "All stones share one contracted field; angular order preserved",
+              "lens_01": "Gaze aligned to narrator; bent star pair persists",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "station_01": "Window reopened after shared blink; station still inside field",
+              "belt_01": "All stones share one contracted field; angular order preserved",
+              "lens_01": "Gaze aligned to narrator; bent star pair persists",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "Narrator POV blink only; no face needed",
+              "audience_out": "Station/observer coupling; no narrator outside yet",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Show the same closure belongs to the whole station",
+              "reveal_ceiling": "Station/observer coupling; no narrator outside yet",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "time_jump",
+              "type": "hard_cut",
+              "next_shot_id": "s14_warning",
+              "trigger": "Jump to the recording reaching another station; elapsed time is unspecified",
+              "next_delta": "Transfer danger to the listener and leave an actionable choice",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "attention_position"
+              ],
+              "preserved_objects": [],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s14_warning",
+          "title": "Đừng trả lời",
+          "scene_id": "receiver_02",
+          "view": "warning",
+          "beat_ids": [
+            "beat_14"
+          ],
+          "start_frame": 4640,
+          "end_frame": 4925,
+          "duration_frames": 285,
+          "narration_ids": [
+            "vo_18"
+          ],
+          "object_ids": [
+            "console_02",
+            "glove_02",
+            "door_02"
+          ],
+          "attention": [
+            "console_02"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Transfer danger to the listener and leave an actionable choice",
+          "camera": {
+            "purpose": "Locked room: button and closed door share frame; do not hide the consequence",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "console_02"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "console_02",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to second station",
+              "start": "Incoming recording only; no reply is sent",
+              "end": "Incoming recording only; no reply is sent",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_02",
+              "state": "reactive",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Unseen second listener",
+              "start": "Stops short of REPLY, withdraws before contact",
+              "end": "Receiver glove stops before REPLY; key unpressed",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "door_02",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to second station",
+              "start": "Stays closed; external contact leaves a print without structural deformation",
+              "end": "Stays closed; external contact leaves a print without structural deformation",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Transfer danger to the listener and leave an actionable choice",
+            "framing": "Locked room: button and closed door share frame; do not hide the consequence",
+            "attention": "console_02",
+            "primary_action": "A different glove stops short of REPLY; closed door holds beside it",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_02",
+                "glove_02"
+              ],
+              "mg": [
+                "door_02"
+              ],
+              "bg": [],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "console_02": "Incoming recording only; no reply is sent",
+              "glove_02": "Stops short of REPLY, withdraws before contact",
+              "door_02": "Stays closed; external contact leaves a print without structural deformation"
+            },
+            "end_state": {
+              "console_02": "Incoming recording only; no reply is sent",
+              "glove_02": "Receiver glove stops before REPLY; key unpressed",
+              "door_02": "Stays closed; external contact leaves a print without structural deformation"
+            },
+            "information": {
+              "audience_in": "Station/observer coupling; no narrator outside yet",
+              "audience_out": "A new listener hears warning; narrator identity still withheld",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Transfer danger to the listener and leave an actionable choice",
+              "reveal_ceiling": "A new listener hears warning; narrator identity still withheld",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "time_jump",
+              "type": "hard_cut",
+              "next_shot_id": "s15_memory",
+              "trigger": "Explicit 47-days-earlier memory; DAY 00, not a reset of current DAY 47",
+              "next_delta": "Make the opening gesture a plant for the ending",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "attention_position"
+              ],
+              "preserved_objects": [],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s15_memory",
+          "title": "47 ngày trước",
+          "scene_id": "control_01",
+          "view": "memory",
+          "beat_ids": [
+            "beat_15"
+          ],
+          "start_frame": 4925,
+          "end_frame": 5198,
+          "duration_frames": 273,
+          "narration_ids": [
+            "vo_19"
+          ],
+          "object_ids": [
+            "console_01",
+            "glove_01",
+            "porthole_01",
+            "starfield_01"
+          ],
+          "attention": [
+            "glove_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Make the opening gesture a plant for the ending",
+          "camera": {
+            "purpose": "Same framing as opening, now a flashback insert; identity is carried by the glove",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "glove_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "console_01",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Optical changes driven by logged radio events",
+              "end": "DAY 00; first-contact log before the send",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "intentional-stillness",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "end": "Blue glove poised over transmit key",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "porthole_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to station_01",
+              "start": "Intentional stillness until the shared blink event",
+              "end": "Intentional stillness until the shared blink event",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "starfield_01",
+              "state": "intentional-stillness",
+              "driver": "Fixed distant lights; lens field changes only the apparent light position",
+              "attachment": "Background world coordinates",
+              "start": "No twinkle loop; displacement only under the authored lens field",
+              "end": "No twinkle loop; displacement only under the authored lens field",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Make the opening gesture a plant for the ending",
+            "framing": "Same framing as opening, now a flashback insert; identity is carried by the glove",
+            "attention": "glove_01",
+            "primary_action": "Return to DAY 00 log and the same blue wrist stripe near transmit control",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_01",
+                "glove_01"
+              ],
+              "mg": [
+                "porthole_01"
+              ],
+              "bg": [
+                "starfield_01"
+              ],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "console_01": "Optical changes driven by logged radio events",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "end_state": {
+              "console_01": "DAY 00; first-contact log before the send",
+              "glove_01": "Blue glove poised over transmit key",
+              "porthole_01": "Intentional stillness until the shared blink event",
+              "starfield_01": "No twinkle loop; displacement only under the authored lens field"
+            },
+            "information": {
+              "audience_in": "A new listener hears warning; narrator identity still withheld",
+              "audience_out": "Previous listener was narrator; outside hand remains hidden",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Make the opening gesture a plant for the ending",
+              "reveal_ceiling": "Previous listener was narrator; outside hand remains hidden",
+              "withheld": [
+                "Full entity body",
+                "Mechanism of narrator transformation"
+              ]
+            },
+            "transition": {
+              "relation": "time_jump",
+              "type": "hard_cut",
+              "next_shot_id": "s16_knock",
+              "trigger": "Return from remembered first contact to the second station; outside arrival is the final reveal",
+              "next_delta": "Pay off the wrist stripe outside the listener’s protected room",
+              "carry_channels": [
+                "voice_identity",
+                "palette",
+                "object_identity"
+              ],
+              "preserved_objects": [],
+              "state_changes": {
+                "glove_01": "Return from remembered first contact to the second station; outside arrival is the final reveal"
+              }
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        },
+        {
+          "id": "s16_knock",
+          "title": "Tao đang gõ cửa",
+          "scene_id": "receiver_02",
+          "view": "knock",
+          "beat_ids": [
+            "beat_16"
+          ],
+          "start_frame": 5198,
+          "end_frame": 5550,
+          "duration_frames": 352,
+          "narration_ids": [
+            "vo_20"
+          ],
+          "object_ids": [
+            "door_02",
+            "glove_01",
+            "console_02"
+          ],
+          "attention": [
+            "glove_01"
+          ],
+          "renderer": "remotion",
+          "renderer_reason": "Original JavaScript/SVG; same renderer function is consumed by Hyperframes",
+          "visual_thesis": "Pay off the wrist stripe outside the listener’s protected room",
+          "camera": {
+            "purpose": "Slow push into glass: match blue cuff, then observe contact and hold aftermath",
+            "implementation": "renderFrame"
+          },
+          "pattern": {
+            "kind": "reveal",
+            "entities": [
+              "glove_01"
+            ],
+            "implementation": "renderFrame"
+          },
+          "motion_ledger": [
+            {
+              "id": "door_02",
+              "state": "intentional-stillness",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to second station",
+              "start": "Stays closed; external contact leaves a print without structural deformation",
+              "end": "Still locked; outside knuckle contact and persistent print",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "glove_01",
+              "state": "reactive",
+              "driver": "Character wrist joints respond to narration event, otherwise hold; no idle loop",
+              "attachment": "Articulated wrist of unseen narrator",
+              "start": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "end": "Blue narrator glove outside glass at the contact point",
+              "attention": "hero",
+              "implementation": "renderFrame"
+            },
+            {
+              "id": "console_02",
+              "state": "optical",
+              "driver": "Fixed attachment; authored screen events or camera framing change apparent state",
+              "attachment": "Bolted to second station",
+              "start": "Incoming recording only; no reply is sent",
+              "end": "Incoming recording only; no reply is sent",
+              "attention": "subordinate",
+              "implementation": "renderFrame"
+            }
+          ],
+          "storyboard": {
+            "function": "Pay off the wrist stripe outside the listener’s protected room",
+            "framing": "Slow push into glass: match blue cuff, then observe contact and hold aftermath",
+            "attention": "glove_01",
+            "primary_action": "Same blue glove rises outside glass and makes one knuckle contact; receiver glove remains out of frame; door stays locked",
+            "background_mode": "lived_in",
+            "background_reason": "Shared world and anchors establish geography; visible evidence follows the permitted reveal.",
+            "staging": {
+              "fg": [
+                "console_02"
+              ],
+              "mg": [
+                "door_02",
+                "glove_01"
+              ],
+              "bg": [],
+              "screen_direction": "Antenna/Jupiter +X; threat aft −X. Receiver door is a new established axis.",
+              "eyelines": "Unseen narrator scans rear window; receiver attention moves from radio to exterior contact."
+            },
+            "start_state": {
+              "door_02": "Stays closed; external contact leaves a print without structural deformation",
+              "glove_01": "Grip/withdrawal from console; later the same glove outside the receiver",
+              "console_02": "Incoming recording only; no reply is sent"
+            },
+            "end_state": {
+              "door_02": "Still locked; outside knuckle contact and persistent print",
+              "glove_01": "Blue narrator glove outside glass at the contact point",
+              "console_02": "Incoming recording only; no reply is sent"
+            },
+            "information": {
+              "audience_in": "Previous listener was narrator; outside hand remains hidden",
+              "audience_out": "Narrator is now the arriving thing; body and cosmic cause remain unseen",
+              "character_in": "Limited to remembered/current radio and window evidence",
+              "character_out": "Pay off the wrist stripe outside the listener’s protected room",
+              "reveal_ceiling": "Narrator is now the arriving thing; body and cosmic cause remain unseen",
+              "withheld": [
+                "Full entity body"
+              ]
+            },
+            "transition": {
+              "relation": "end",
+              "type": "hard_cut",
+              "next_shot_id": null,
+              "trigger": "Last line and outside contact hold end",
+              "next_delta": "Warning remains unresolved; listener has not replied",
+              "carry_channels": [],
+              "preserved_objects": [],
+              "state_changes": {}
+            }
+          },
+          "handoff": {
+            "type": "cut",
+            "reason": "Information-led cut; shared prop/eye trace/light/voice retained where appropriate",
+            "carry_state": []
+          }
+        }
+      ],
+      "sfx_cues": [],
+      "intentional_silence": "Four-second radio wait and authored recognition/aftermath holds; music and SFX buses remain empty"
+    }
+  ]
+}

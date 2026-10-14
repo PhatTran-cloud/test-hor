@@ -1,0 +1,29 @@
+{
+  "name": "horror-day47-storyboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "voice": "node tools/produce.mjs voice",
+    "board": "node tools/produce.mjs board",
+    "stills": "node tools/produce.mjs stills",
+    "render": "node tools/produce.mjs render",
+    "hyperframes": "node tools/produce.mjs hyperframes",
+    "raster-preview": "node tools/produce.mjs raster-preview",
+    "all": "node tools/produce.mjs all",
+    "check": "node --test tests/contract.test.mjs",
+    "studio": "remotion studio src/remotion.jsx --no-open"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "@remotion/renderer": "4.0.534",
+    "remotion": "4.0.534",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "hyperframes": "0.8.155",
+    "gsap": "3.14.2"
+  },
+  "devDependencies": {"esbuild": "0.25.12", "sharp": "0.35.0"}
+}
