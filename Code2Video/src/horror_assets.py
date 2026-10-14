@@ -10,7 +10,7 @@ def write_asset_briefs(plan,output):
     output=Path(output)
     if output.suffix.lower()!='.json': raise ValueError('Use .json output; the copyable .md export is written alongside it')
     from v4_contract import digest
-    from horror_illustration import validate_illustration_coverage
+    from horror_illustration import validate_illustration_coverage,asset_shots,shot_image_context
     validate_illustration_coverage(plan)
     tasks=[]
     horror=plan['horror']; packet=plan.get('production_packet',{})
@@ -22,15 +22,16 @@ def write_asset_briefs(plan,output):
         role=asset.get('illustration_role', 'character_pose' if asset['kind']=='sprite_sequence' else asset['kind'])
         background=role=='background'
         brief=packet.get('character_setting_brief',{})
-        current_brief={k:brief[k] for k in ['script_facts','approved_visual_age_bands','approved_setting',
-            'reference_design_choices_to_review','style'] if k in brief}
-        if brief.get('state_design_correction'):
-            current_brief['story_states']={k:v for k,v in brief['state_design_correction'].items() if k in {'vien','mother','grandmother'}}
-        prompt_context=json.dumps({'character_and_setting':current_brief,
-            'worlds':[worlds[s] for s in asset.get('scene_ids',[])],
-            'style_bible':horror['style_bible']},ensure_ascii=False)
+        current_brief={k:brief[k] for k in ['physical_facts','approved_visual_age_bands','approved_setting','style'] if k in brief}
+        world_fields=['id','layout','perspective','lighting','required_props','crop_safety','spatial_anchors']
         for view in asset['views']:
             for pose in view['frames']:
+                usages=asset_shots(plan,asset,view,pose)
+                used_worlds=list(dict.fromkeys(s.get('scene_id') for s in usages if s.get('scene_id') in worlds))
+                prompt_context=json.dumps({'character_and_setting':current_brief,
+                    'worlds':[{k:worlds[s][k] for k in world_fields if k in worlds[s]} for s in used_worlds],
+                    'shot_constraints':[shot_image_context(s,asset['object_id']) for s in usages],
+                    'style_bible':horror['style_bible']},ensure_ascii=False)
                 treatment=("Draw the complete empty environment clean plate, with coherent architecture, ground plane, perspective and functional details. "
                     "Keep geography, scale, light direction and crop margins consistent with the shared scene world. No characters. " if background else
                     "Draw only this reusable object or character component, fully visible with crop margin and hidden joint overlap where required. ")
@@ -44,6 +45,10 @@ def write_asset_briefs(plan,output):
                         f"View: {view['camera_region']}. Pose: {pose.get('description',pose['id'])}. "
                         f"Entry state: {asset['action']['entry_state']}. Exit state: {asset['action']['exit_state']}. "
                         f"{treatment}{matte}Preserve identity, scale and the planned state/expression/gesture. "
+                        "Produce exactly one image of the described pose/component, not a storyboard grid or sequence. "
+                        "Entry/exit and shot framing are continuity/construction notes, not additional moments or objects to draw. "
+                        "Respect every applicable reveal ceiling; draw only what this requested image may show. "
+                        f"Image constraints: {json.dumps(pose.get('image_constraints',[]),ensure_ascii=False)}. "
                         "Do not bake camera movement, motion blur, animated rain/fog or interactive moving shadows into reusable art. "
                         f"Story and construction context: {prompt_context}")
                 tasks.append({'asset_id':asset['id'],'object_id':asset['object_id'],'view_id':view['id'],'pose_id':pose['id'],
@@ -51,6 +56,12 @@ def write_asset_briefs(plan,output):
                     'source_background':'#00FF00' if alpha else 'authored_opaque',
                     'output_format':'alpha_png_after_chroma_key' if alpha else 'provider_original',
                     'model':operator.get('model','Nano Banana 2.1'),
+                    'scene_ids':used_worlds,'shot_ids':[s['id'] for s in usages],
+                    'storyboard_usage':[{'shot_id':s['id'],'scene_id':s.get('scene_id'),
+                        'primary_action':s.get('storyboard',{}).get('primary_action'),
+                        'entry_state':s.get('storyboard',{}).get('start_state',{}).get(asset['object_id']),
+                        'exit_state':s.get('storyboard',{}).get('end_state',{}).get(asset['object_id']),
+                        'transition':s.get('storyboard',{}).get('transition')} for s in usages],
                     'action_prompt':prompt,
                     'reference_files':asset.get('reference_files',[]),'registration':pose,
                     'contact_requirements':asset['action']['contact_requirements'],
@@ -64,7 +75,8 @@ def write_asset_briefs(plan,output):
     output.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
     text=['# Illustration prompts — user runs Flow\n',result['instruction']]
     for i,task in enumerate(tasks):
-        text.append(f"\n## Batch {i//5+1} · {task['asset_id']} / {task['view_id']} / {task['pose_id']}\n\n{task['prompt']}\n")
+        text.append(f"\n## Batch {i//5+1} · {task['asset_id']} / {task['view_id']} / {task['pose_id']}\n\n"
+                    f"Scenes: {', '.join(task['scene_ids'])}. Shots: {', '.join(task['shot_ids'])}.\n\n{task['prompt']}\n")
     output.with_suffix('.md').write_text('\n'.join(text),encoding='utf-8')
     return result
 

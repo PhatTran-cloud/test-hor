@@ -4,15 +4,22 @@
   "phase": "draft",
   "language_id": null,
   "cast": {
-    "library": "D:\\manim-horror-v4.1\\voice_library\\manifest.json",
+    "library": null,
     "narrator": null,
     "characters": {},
     "narrator_instruct": null
   },
   "horror": {
-    "artwork_style": "3d_horror_cartoon",
+    "artwork_style": "2d_flat_geometric_vector",
     "artwork_provider": "flow",
-    "kage_reference": true,
+    "kage_reference": false,
+    "visual_reference": {"primary": "oversimplified"},
+    "illustrator": {
+      "mode": "prompt_export_only",
+      "generation_operator": "human user",
+      "model": "Nano Banana 2.1",
+      "chroma_key_color": "#00FF00"
+    },
     "voice_provider": "omnivoice",
     "sfx_provider": "stable_audio_3_small_sfx",
     "style_bible": {
@@ -28,6 +35,22 @@
   "content_profile": {
     "genre": "horror",
     "kind": "storytelling_rich"
+  },
+  "production_packet": {
+    "brief": {"audience": null, "question": null, "takeaway": null, "visual_thesis": null},
+    "research": {"sources": [], "claims": []},
+    "visual_style_decision": {
+      "status": null,
+      "selected_style": "2d_flat_geometric_vector",
+      "primary_reference": "oversimplified",
+      "authorization": {"reviewer": null, "request": null}
+    },
+    "character_setting_brief": {
+      "script_facts": {}, "physical_facts": {},
+      "approved_visual_age_bands": {}, "approved_setting": {}
+    },
+    "illustration_direction": {"storyboard_contract": "scene-shot/1", "scene_worlds": []},
+    "representative": {"shot_id": null, "reason": null, "acceptance": []}
   },
   "sections": [],
   "sound_design": "adaptive",

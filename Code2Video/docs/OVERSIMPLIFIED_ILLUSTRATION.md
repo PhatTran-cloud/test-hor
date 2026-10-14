@@ -131,6 +131,42 @@ Flow connection, login, extension or model load is needed. The human runs the
 prompts and returns provider originals. `flow-submit` is disabled, including direct
 Python submission; no illustration agent/browser auto-generation.
 
+### Shot-aware image requests
+
+Each exported task now lists `scene_ids`, `shot_ids` and `storyboard_usage` with
+the object's entry/exit, primary action and editorial transition. The image prompt
+uses only the corresponding worlds and drawable shot constraints: framing,
+attention, staging/eyelines and reveal ceiling. It requests one pose/component
+image, not a grid or an entire shot sequence. Entry/exit are continuity notes;
+the pose description is the actual moment to draw.
+
+Optionally declare `shot_ids` on an asset, view or pose. A child scope must be a
+nonempty unique subset of its parent; all IDs must show that object in a covered
+scene. Without a scope, reuse all matching visible shots. Separate scene views
+may belong to the same canonical object without pretending each asset covers
+every world. Every generated object still needs a scoped prompt in each visible
+shot. Example on one requested frame:
+
+```json
+{"id":"door_attention", "description":"Eyes fixed on the closed doorway; mouth closed",
+ "shot_ids":["room_medium"],
+ "image_constraints":["No visible figure or shadow inside the doorway"]}
+```
+
+Keep the required existing dimensions/anchors/holds in that frame; the snippet
+only shows the added fields. Put approved drawable details in
+`character_setting_brief.physical_facts`. Full `script_facts`, future
+`state_design_correction`, internal world notes and next-shot revelations stay
+in the packet or task metadata, outside the copyable image prompt. This limits
+automatic context leaks; the author must still inspect identity/action wording,
+the actual images and all audience-facing reveal channels.
+
+Scope fields control prompt planning, not runtime pose selection. Bind the correct
+separate asset/view sequence in the authored shot and review playback normally.
+Export coverage does not prove every component is visibly complete or that a
+generation model obeyed the reveal ceiling. Copy the task's `prompt` into Flow,
+not the entire JSON packet or editorial metadata.
+
 ## Green-screen originals → reviewed alpha PNG
 
 Prompt uniform #00FF00, also in gaps between limbs; no green subject color, green

@@ -101,6 +101,84 @@ class IllustrationTests(unittest.TestCase):
             bad=copy.deepcopy(self.plan); mutate(bad)
             with self.assertRaises(ValueError): validate_horror(bad)
 
+    def two_shots(self):
+        shot=self.plan['sections'][0]['shots'][0]
+        following=copy.deepcopy(shot); following['id']='close'
+        self.plan['sections'][0]['shots'].append(following)
+        return shot,following
+
+    def test_pose_scope_exports_the_correct_shot_and_single_moment(self):
+        self.two_shots()
+        asset=self.plan['horror']['assets'][0]
+        asset['shot_ids']=['shot','close']
+        asset['views'][0]['shot_ids']=['shot','close']
+        asset['views'][0]['frames'][0].update(shot_ids=['shot'])
+        asset['views'][0]['frames'][1].update(shot_ids=['close'],image_constraints=['Eyes toward the closed door; no figure behind it'])
+        result=write_asset_briefs(self.plan,self.folder/'prompts.json')
+        self.assertEqual(result['tasks'][0]['shot_ids'],['shot'])
+        self.assertEqual(result['tasks'][1]['shot_ids'],['close'])
+        self.assertEqual(result['tasks'][1]['scene_ids'],['room'])
+        self.assertIn('exactly one image',result['tasks'][1]['prompt'])
+        self.assertIn('no figure behind it',result['tasks'][1]['prompt'])
+        self.assertIn('Shots: close',(self.folder/'prompts.md').read_text())
+
+    def test_unknown_duplicate_and_out_of_parent_scope_fail_before_export(self):
+        self.two_shots()
+        for mutate in [lambda p:p['horror']['assets'][0].update(shot_ids=['missing']),
+                       lambda p:p['horror']['assets'][0].update(shot_ids=['shot','shot']),
+                       lambda p:p['horror']['assets'][0]['views'][0].update(shot_ids=[]),
+                       lambda p:p['horror']['assets'][0]['views'][0]['frames'][0].update(image_constraints='not a list'),
+                       lambda p:(p['horror']['assets'][0].update(shot_ids=['shot']),
+                                 p['horror']['assets'][0]['views'][0].update(shot_ids=['close']))]:
+            bad=copy.deepcopy(self.plan); mutate(bad)
+            with self.assertRaises(ValueError): write_asset_briefs(bad,self.folder/'bad.json')
+            self.assertFalse((self.folder/'bad.json').exists())
+
+    def test_every_generated_object_needs_scoped_coverage_in_each_visible_shot(self):
+        self.two_shots()
+        self.plan['horror']['assets'][0]['shot_ids']=['shot']
+        with self.assertRaisesRegex(ValueError,'close.*object_0.*no scoped'):
+            write_asset_briefs(self.plan,self.folder/'bad.json')
+        self.assertFalse((self.folder/'bad.json').exists())
+
+    def test_separate_assets_can_cover_the_same_object_in_different_scene_worlds(self):
+        _,following=self.two_shots(); following.update(scene_id='other_room',object_ids=['object_0'])
+        world=copy.deepcopy(self.plan['production_packet']['illustration_direction']['scene_worlds'][0])
+        world.update(id='other_room',layout='door on the opposite wall, same character identity')
+        self.plan['production_packet']['illustration_direction']['scene_worlds'].append(world)
+        extra=copy.deepcopy(self.plan['horror']['assets'][0]); extra.update(id='art_other_view',scene_ids=['other_room'])
+        self.plan['horror']['assets'].append(extra)
+        self.plan['sections'][0]['objects'][0]['illustration']['asset_ids'].append('art_other_view')
+        result=write_asset_briefs(self.plan,self.folder/'prompts.json')
+        self.assertEqual(result['tasks'][0]['shot_ids'],['shot'])
+        self.assertEqual(result['tasks'][-1]['shot_ids'],['close'])
+        self.assertNotIn('opposite wall',result['tasks'][0]['prompt'])
+        self.assertIn('opposite wall',result['tasks'][-1]['prompt'])
+
+    def test_image_prompt_gets_reveal_ceiling_without_internal_or_future_truth(self):
+        shot=self.plan['sections'][0]['shots'][0]
+        shot['storyboard']={'function':'Listen near the door','framing':'medium, door on right','attention':'closed doorway',
+            'staging':{'fg':[],'mg':['object_0'],'bg':['object_5'],'screen_direction':'hero left of door','eyelines':'toward right'},
+            'primary_action':'INTERNAL_ACTION_NOTE','start_state':{'object_0':'alert'},'end_state':{'object_0':'watching'},
+            'information':{'reveal_ceiling':'closed door only, no entity', 'withheld':['SECRET_ENTITY'],
+                           'character_out':'SECRET_CHARACTER_TRUTH'},
+            'transition':{'next_delta':'SECRET_FUTURE_REVEAL'}}
+        world=self.plan['production_packet']['illustration_direction']['scene_worlds'][0]
+        world.update(internal_truth='SECRET_WORLD_TRUTH',future_reveal='SECRET_FUTURE_WORLD')
+        brief=self.plan['production_packet']['character_setting_brief']
+        brief.update(script_facts={'plot':'SECRET_SCRIPT_ENDING'},physical_facts={'object_0':'plain cotton costume'},
+                     state_design_correction={'grandmother':'SECRET_LATER_TRANSFORMATION'})
+        result=write_asset_briefs(self.plan,self.folder/'prompts.json')
+        for task in result['tasks']:
+            self.assertIn('closed door only, no entity',task['prompt'])
+            self.assertIn('plain cotton costume',task['prompt'])
+            self.assertNotIn('SECRET_',task['prompt'])
+            self.assertNotIn('INTERNAL_ACTION_NOTE',task['prompt'])
+        usage=result['tasks'][0]['storyboard_usage'][0]
+        self.assertEqual(usage['primary_action'],'INTERNAL_ACTION_NOTE')
+        self.assertEqual(usage['entry_state'],'alert')
+        self.assertEqual(usage['exit_state'],'watching')
+
     def test_flow_submit_rejects_before_loading_a_plan_or_using_network(self):
         from flow_assets import submit
         with patch('requests.sessions.Session.request',side_effect=AssertionError('No network permitted')):
