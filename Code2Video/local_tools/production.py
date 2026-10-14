@@ -8,12 +8,10 @@ from pathlib import Path
 from types import SimpleNamespace
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src')); sys.path.insert(0,str(ROOT))
-from v3_contract import normalize_plan
-from v4_workflow import skill_routes
-from gpu_lifecycle import configuration
 
 
 def read_plan(path):
+    from v3_contract import normalize_plan
     path=Path(path).resolve(); data=json.loads(path.read_text(encoding='utf-8'))
     if data.get('schema_version')!=4: raise ValueError('Horror retains schema_version=4')
     if data.get('profile')!='horror-v4.1' and not data.get('technical_fixture'):
@@ -37,6 +35,10 @@ def main():
         else:
             sub.add_argument('--output-root',type=Path); sub.add_argument('--no-tts',action='store_true',help='Technical fixtures only')
     doctor=commands.add_parser('doctor'); doctor.add_argument('--check-weights',action='store_true')
+    study=commands.add_parser('reference-study',help='Sample local reference videos at 1 image/second; no automatic visual approval')
+    study.add_argument('manifest',type=Path); study.add_argument('--output',type=Path,required=True)
+    board=commands.add_parser('storyboard-audit',help='Check scene-shot/1 structure and declared state carry; no art/audio approval')
+    board.add_argument('plan',type=Path); board.add_argument('--output',type=Path,required=True)
     chroma=commands.add_parser('chroma-key',help='Remove solid #00FF00 locally; preserve original, output alpha PNG/mask/receipt, no artwork approval')
     chroma.add_argument('source',type=Path); chroma.add_argument('--output',type=Path,required=True)
     chroma.add_argument('--inner',type=float,default=30); chroma.add_argument('--outer',type=float,default=100)
@@ -51,6 +53,17 @@ def main():
     review=commands.add_parser('review'); review.add_argument('run',type=Path); review.add_argument('file',type=Path)
     release=commands.add_parser('release'); release.add_argument('run',type=Path)
     args=parser.parse_args()
+    if args.command=='reference-study':
+        from reference_study import sample_references
+        print(sample_references(args.manifest,args.output)); return
+    if args.command=='storyboard-audit':
+        from storyboard_audit import audit_storyboard
+        plan=read_plan(args.plan)
+        if args.output.resolve()==args.plan.resolve(): raise ValueError('Do not overwrite the input plan with an audit')
+        result=audit_storyboard(plan,required=True)
+        args.output.parent.mkdir(parents=True,exist_ok=True)
+        args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+        print(args.output.resolve()); return
     if args.command=='flow-submit':
         parser.error('Illustration exports prompts only. Use asset-brief; the human user runs Flow manually.')
     if args.command=='chroma-key':
@@ -75,6 +88,7 @@ def main():
         print(json.dumps(result,ensure_ascii=False,indent=2)); return
     args.plan=args.plan.resolve(); plan=read_plan(args.plan)
     if args.command=='context':
+        from v4_workflow import skill_routes
         from prompts.v4 import get_v4_direction_prompt,get_v4_execution_prompt
         packet=plan.get('production_packet',{})
         content=get_v4_execution_prompt(plan,args.shot) if args.shot else get_v4_direction_prompt(
@@ -111,6 +125,7 @@ def main():
         folder=root/'sfx_runs'/('SFX_'+uuid.uuid4().hex[:8])
         prepare_sfx(plan,args.plan.parent,folder)
         print(folder/'sfx_plan.json'); return
+    from gpu_lifecycle import configuration
     config=configuration()
     from v4_pipeline import run_v4
     from snapshot_project import snapshot_browser_project

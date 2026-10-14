@@ -22,6 +22,13 @@ and review actual dark horror cartoon output against it.
 Read [current illustration direction](../../../Code2Video/docs/OVERSIMPLIFIED_ILLUSTRATION.md)
 when the packet's primary reference is OverSimplified. The current user selected
 its storytelling/acting/world grammar for horror, not a rigid solid-fill recipe.
+Read [scene/shot grammar](../../../Code2Video/docs/SCENE_SHOT_GRAMMAR.md) before
+new scene worlds or multi-shot asset planning. Bind shots to shared anchors,
+stage FG/MG/BG by function, preserve start/end states, and declare the next
+shot's information delta/cut trigger. Use scene-shot/1 for new packets; structure
+checks never approve pixels, acting, reveal or audio. For research read
+[sampling workflow](../../../Code2Video/docs/REFERENCE_STUDY.md); report actual
+decoded/inspected counts. Captions and sparse previews are not 1 Hz frames.
 Illustration exports prompts only; the human runs Flow. Prompt every generated
 item, including backgrounds and props. Use green #00FF00 for items requiring alpha;
 local code removes green, preserving originals, then review actual edges.

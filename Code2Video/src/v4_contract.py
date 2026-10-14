@@ -359,6 +359,8 @@ def normalize_v4(plan):
     validate_packet(result)
     from horror_contract import validate_horror
     validate_horror(result)
+    from storyboard_audit import audit_storyboard
+    audit_storyboard(result)
     return result
 
 

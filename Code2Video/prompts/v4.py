@@ -89,7 +89,9 @@ def get_v4_execution_prompt(timed_plan, shot_id):
     focused["sections"][0]["objects"] = [o for o in section["objects"] if o["id"] in shot["object_ids"]]
     film_shots = [s for sec in timed_plan["sections"] for s in sec["shots"]]
     index = film_shots.index(shot)
-    focused["adjacent_handoffs"] = [{"id": s["id"], "handoff": s["handoff"]} for s in film_shots[max(0,index-1):index+2]]
+    focused["adjacent_handoffs"] = [{"id": s["id"], "scene_id": s.get('scene_id'),
+                                    "handoff": s["handoff"], "storyboard": s.get('storyboard')}
+                                   for s in film_shots[max(0,index-1):index+2]]
     focused["visual_reference_policy"] = visual_reference_policy(timed_plan)
     policy = focused["visual_reference_policy"].get("kage", {})
     reference = (_reference_guidance(timed_plan) if focused['visual_reference_policy'].get('oversimplified',{}).get('enabled') else

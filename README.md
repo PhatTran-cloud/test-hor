@@ -1,38 +1,49 @@
 # V4.1 Horror
 
-Dedicated workspace at `D:/manim-horror-v4.1`, requested 11 October 2026.
-Start with [Code2Video/START_HERE.md](Code2Video/START_HERE.md).
+Story-led 2D horror with shared scene worlds, reusable Flow artwork, Remotion
+acting/compositing, OmniVoice and generated Small-SFX. Keep schema 4 and the
+single [production entrypoint](Code2Video/START_HERE.md), measured timing and
+independent art/audio review. The human runs Flow; prompts are exported locally.
 
-The fork retains V4's schema 4, semantic beats, canonical objects/events,
-continuity, renderer adapters, measured timing and independent review gates.
-Horror specializes artwork, sprite assets, cast, OmniVoice, generated Small-SFX
-and serialized GPU ownership. Output lives in this folder's `outputs`.
+## Clone and start
 
-The 24 voice references and three pinned official SFX model graphs were copied
-locally. Voice transcripts/listening/clone auditions remain unverified. Installed
-Python environments were copied; use their `python.exe -m ...` commands rather
-than old generated console launchers. System Python, FFmpeg, Node/npm, NVIDIA
-driver and the existing OmniVoice Docker container remain host dependencies.
-
-## Read-only inventory
-
-From `Code2Video`:
-
-```powershell
-.venv/Scripts/python.exe local_tools/production.py doctor --check-weights
+```bash
+git clone --depth 1 https://github.com/PhatTran-cloud/test-hor.git
+cd test-hor/Code2Video
+python local_tools/production.py --help
 ```
 
-No model is started by this command. No production art/audio approval is implied.
-See `outputs/upgrade/UPGRADE_REPORT.md` for implementation and verification.
+For reference sampling only, install Pillow and put FFmpeg/FFprobe on PATH:
 
-## GitHub source snapshot
+```bash
+python -m pip install Pillow
+python local_tools/production.py reference-study examples/reference-windows.json --output ../outputs/reference-study
+```
 
-This repository contains the workflow source, project skills, documentation,
-tests, dependency manifests and tracked reference assets. The existing gitignore
-keeps generated `outputs/`, model weights, the voice library, Python environments,
-Node dependencies and local secrets on the workstation. A clone is therefore a
-source checkout, not a complete backup of rendered films or installed runtimes.
+Supply the three actual local videos named in the manifest first. Each 180s
+window produces 180 real images, source PTS/hashes, sheets and blank annotations.
+See [sampling guide](Code2Video/docs/REFERENCE_STUDY.md) and
+[scene/shot grammar](Code2Video/docs/SCENE_SHOT_GRAMMAR.md).
+**The 540 OverSimplified reference frames are still unverified:** this session
+retrieved captions/metadata but media delivery failed. Read the
+[evidence report](Code2Video/docs/research/2026-10-14_reference_study.md).
 
-The checked-in `config.json` describes the original Windows host. Adjust its paths
-for another machine and provision the local models, voice references and runtimes
-before running production. Start with `Code2Video/START_HERE.md`.
+## Production and checks
+
+Full production needs the host tools/models/voice library in `config.json`.
+Adjust the original Windows paths for your machine and provision the runtimes;
+a source clone does not include weights, voices, outputs or installed environments.
+From `Code2Video`, install `requirements.txt` for the full workflow. GPU/provider
+setup and each human-authorized production stage remain in `START_HERE.md`.
+Outputs live in `outputs/` at the repo root; reference videos are local inputs.
+
+Run the regression suite from the repo root with the workflow Python environment:
+
+```bash
+python -m unittest discover -s Code2Video/tests -q
+```
+
+Current source, tests, necessary V4 fixture and pinned Small-SFX vendor files are
+retained. Old academic/demo media, unrelated pilot projects, provider-stage
+scripts and duplicate historical guides were removed; details and recovery links
+are in the [cleanup report](Code2Video/docs/research/2026-10-14_repo_cleanup.md).

@@ -117,6 +117,8 @@ Run from D:/manim-horror-v4.1/Code2Video with .venv/Scripts/python.exe.
 | Stage | Command | Result / stop |
 |---|---|---|
 | Inventory | local_tools/production.py doctor --check-weights | Read-only provider/reference/model inventory; no start |
+| Reference sampling | local_tools/production.py reference-study examples/reference-windows.json --output ../outputs/reference-study | Local 180s windows, 1 image/second, PTS/hashes/sheets/blank annotations; no visual approval; docs/REFERENCE_STUDY.md |
+| Storyboard structure | local_tools/production.py storyboard-audit draft.json --output ../outputs/storyboard-audit.json | Opt-in scene-shot/1 staging/knowledge/carry audit; no pixel/art/audio approval; docs/SCENE_SHOT_GRAMMAR.md |
 | Direction/check | local_tools/production.py context draft.json --output context.md; check draft.json | One packet with script/cast/behavior/beat/shot intent; no synthesis |
 | Cast audition | local_tools/production.py voice-design request.json --output AUDITION_DIR | Designed dialogue WAVs and request/runtime/GPU receipts; listening and transcript remain UNVERIFIED; stop before selection/cloning |
 | Reference ASR | local_tools/production.py reference-asr manifest.json --model LOCAL_MODEL --python CUDA_PYTHON | Scoped reference ASR with word timestamps; drafts require review; GPU released; no synthesis |

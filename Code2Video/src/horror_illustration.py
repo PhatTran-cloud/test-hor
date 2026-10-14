@@ -1,6 +1,8 @@
 """Completeness checks at prompt export, without inventing missing art direction."""
 
 def validate_illustration_coverage(plan):
+    from storyboard_audit import audit_storyboard
+    audit_storyboard(plan)
     horror=plan['horror']
     assets=horror.get('assets',[])
     lookup={a['id']:a for a in assets}

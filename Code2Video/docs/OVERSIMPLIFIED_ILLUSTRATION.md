@@ -50,6 +50,13 @@ Camera defaults to a held frame, attention/focus and zoom in/out. Define the foc
 target, reason, visible art region and crop margin. Focus does not mandate blur.
 Camera movement cannot substitute for character acting.
 
+For new packets use [scene/shot grammar](SCENE_SHOT_GRAMMAR.md): add
+`illustration_direction.storyboard_contract=scene-shot/1`, named world anchors,
+per-shot staging, start/action/end, knowledge/reveal and motivated transition
+carry/delta. This opt-in audit preserves historical schema 4 packets and checks
+declared structure, not art. See [reference sampling](REFERENCE_STUDY.md) for
+the actual evidence limits and local 180-second/1 Hz extraction.
+
 ## Art for the action
 
 For each beat record trigger, intention, gaze target, face state, body pose,

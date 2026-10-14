@@ -1,0 +1,17 @@
+{
+  "schema_version": "reference-study/1",
+  "videos": [
+    {"id": "french_revolution", "title": "The French Revolution - OverSimplified (Part 1)",
+     "source_url": "https://www.youtube.com/watch?v=8qRZcXIODNU",
+     "file": "../../inputs/reference-videos/french-revolution.mp4",
+     "start_second": 0, "video_start_second": 0, "duration_seconds": 180},
+    {"id": "pig_war", "title": "The Pig War - OverSimplified",
+     "source_url": "https://www.youtube.com/watch?v=QLq6GEiHqR8",
+     "file": "../../inputs/reference-videos/pig-war.mp4",
+     "start_second": 0, "video_start_second": 0, "duration_seconds": 180},
+    {"id": "prohibition", "title": "Prohibition - OverSimplified",
+     "source_url": "https://www.youtube.com/watch?v=AAGIi62-sAU",
+     "file": "../../inputs/reference-videos/prohibition.mp4",
+     "start_second": 0, "video_start_second": 0, "duration_seconds": 180}
+  ]
+}

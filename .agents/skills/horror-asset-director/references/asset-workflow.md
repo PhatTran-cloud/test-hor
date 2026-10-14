@@ -49,6 +49,15 @@ complete empty background clean plates. Each shot belongs to one shared scene
 world: preserve layout/perspective/light/crop across shots. Do not bake dynamic rain,
 fog, blur, interactive shadows or final camera composition into each pose.
 
+Read Code2Video/docs/SCENE_SHOT_GRAMMAR.md for shared anchors, per-shot FG/MG/BG,
+attention, start/action/end, reveal ceiling and carry/delta. Use scene-shot/1
+for new packets without changing schema 4 or rewriting a locked story. Request
+a new view only when framing exposes unavailable artwork. Use
+Code2Video/docs/REFERENCE_STUDY.md for local 180s/1 Hz extraction; keep source
+PTS/hashes and actual inspection notes, not expected results in observed fields.
+Test-generated frames are not reference evidence. Preserve deliberate stillness
+and content-driven shot/asset counts.
+
 Use production.py asset-brief to export requests without calling Flow. The human
 user runs Flow; no automatic browser/Flowkit generation. Declare illustration.method
 for every visible object; every generated character component, prop and background

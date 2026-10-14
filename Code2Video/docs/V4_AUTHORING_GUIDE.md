@@ -249,7 +249,7 @@ Renderer probes establish format/frame count, not quality. Execution manifest
 records shot/beat/event/B-roll mapping, exact output hashes and requested frame
 evidence. Source snapshot includes plan/source hashes. Independent visual,
 scientific, motion, VFX, editorial, layout and listening gates begin UNVERIFIED.
-Review notes must cite current hashed clips/images/measurements. `v4_review.py`
+Review notes must cite current hashed clips/images/measurements. `production.py review`
 rejects changed sources/audio/plan/output and prevents technical fixtures from
 becoming production releases. A FAIL/PARTIAL/unreviewed gate requires repair/review.
 No generic assertion that art is beautiful, scientific or cinematic based on JSON.

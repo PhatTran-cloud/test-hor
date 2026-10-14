@@ -1,4 +1,4 @@
-"""Make a deterministic technical fixture; never label silence as Kokoro narration."""
+"""Portable deterministic technical fixture; no narration or applied-skill claim."""
 import json
 import sys
 from pathlib import Path
@@ -84,7 +84,6 @@ def make_plan(audio):
             'state_tracks':[{'id':'leaf_response_track','object_id':'lit_leaf','property':'response','from':0,'to':1,
                 'start_frame':110,'end_frame':150,'cause':'signal arrival'}],
             'shots':shots,'sfx_cues':[],'sound_intent':'silent technical fixture; production sound not evaluated'}]}
-    skill_root=Path('C:/Users/thebl/.codex/skills')
     plan['production_packet']={
         'brief':{'audience':'pipeline reviewers','question':'Does a signal response survive a cut?',
                  'takeaway':'the same authored state persists through comparison and macro',
@@ -96,11 +95,10 @@ def make_plan(audio):
                 'kind':'metaphor','visual_treatment':'graphic transport and warmed leaf; no botanical mechanism claimed'}]},
         'representative':{'shot_id':'comparison_hold','reason':'proves same identity/state and legible comparison after the cause',
             'acceptance':['same-sized leaf silhouettes','left response remains bright','baseline/labels do not overlap leaves']},
-        'consulted_resources':[{'skill':name,'file':str(skill_root/name/'SKILL.md'),
-            'sha256':sha256(skill_root/name/'SKILL.md'),'applied_to':['comparison_hold'],
-            'decision':'retain visual intent and frame-derived state; quiet comparison with functional labels'}
-            for name in ['script-to-visual-director','storyboard-motion-executor','cinematic-motion-director',
-                         'cinematic-vfx-director','remotion-best-practices']]}
+        # Tests do not consult the user's installed production skills. Leave
+        # these empty rather than fabricate receipts or require one old PC.
+        # A real authored production still requires all applicable resources.
+        'consulted_resources':[]}
     return normalize_v4(plan)
 
 
